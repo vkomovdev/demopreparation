@@ -1,0 +1,93 @@
+@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Web.Models.PWOs;
+@using DietPreparation.Resources;
+@model PwoSearchViewModel
+
+@{
+	ViewBag.Title = ContentResources.DietRequestSearch;
+	var orderBy = new PwoSearchRowItem();
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.CloseProcessWorkOrder)
+
+	<section class="sortable-block pagination-block mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-1 active-desc" data-sort-by="@(orderBy.GetFullName(x => x.Lot))">@ContentResources.Lot</th>
+					<th class="col-2" data-sort-by="@(orderBy.GetFullName(x => x.Requestor))">@ContentResources.Requestor</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.DateRequest))">@ContentResources.DateOfRequest</th>
+					<th class="col-5" data-sort-by="@(orderBy.GetFullName(x => x.DietName))">@ContentResources.DietName</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.RequestAmount))">@ContentResources.Amount</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.UnitOfMeasure))">@ContentResources.UnitOfMeasure</th>
+					<th class="col-1">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="7" class="pagination-panel">
+						<nav>
+							<ul class="pagination justify-content-center"></ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		};
+
+		function fillTable(data) {
+			const $data = $('.sortable-block table tbody')
+			$data.find('tr').remove();
+
+			if (data.dietRequests && data.dietRequests.length > 0) {
+				$.each(data.dietRequests, function (index, item) {
+					let row = $('<tr>');
+					row.attr('data-id', item.id);
+					row.attr('data-sequence', item.sequence);
+					row.addClass('request-row');
+					row.append('<td class="sm">' + item.lot + '</td>');
+					row.append('<td class="md">' + item.requestor + '</td>');
+					row.append('<td class="sm">' + item.dateRequest.split('T')[0] + '</td>');
+					row.append('<td class="md"><p class="text-wrap">' + item.dietName + '</p></td>');
+					row.append('<td class="lg">' + item.requestAmount.toLocaleString() + '</td>');
+					row.append('<td class="sm">' + item.unitOfMeasure + '</td>');
+					row.append(`<td class="sm"><a class="request-row float-end" href="@Url.Action("close-details","pwo")/${item.id}/${item.sequence}"><i data-feather="plus-square"></i></a></td>`);
+					$data.append(row);
+				});
+			} else {
+				let row = $('<tr>');
+				row.append(`<td colspan="7" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+
+			feather.replace();
+		};
+
+		$(document).on('click', '.request-row', function () {
+			const id = $(this).data('id');
+			const sequence = $(this).data('sequence');
+			window.location.href = '@Url.Action("close-details","pwo")' + `/${id}/${sequence}`;
+		});
+
+		$(document).ready(function () {
+			const tableManager = new TableManager(['sortable-table', 'pagination'], '@Url.Action("close-pwos-list", "pwo")', fillTable, handleException, feather);
+			tableManager.loadData();
+		});
+	</script>
+}

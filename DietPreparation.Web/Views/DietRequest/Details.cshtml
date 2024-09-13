@@ -1,0 +1,108 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Resources
+@using Newtonsoft.Json
+@model DietPreparation.Web.Models.DietRequests.ReadDietRequestViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Details} {ContentResources.DietRequest}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Details} {ContentResources.DietRequest}")
+	
+	@await Html.PartialAsync("_RootDetailsClonePartial", Model)
+
+	<section class="row button-panel">
+		<div class="col-md-3">
+			@if (!Model.IsLocked)
+			{
+				<button type="button" id="delete-button" class="btn btn-danger">@ContentResources.Delete</button>
+			}
+		</div>
+		<div class="col-md-3 offset-md-3">
+			<button type="button" id="print-button" class="btn btn-light border border-secondary mt-md-0 mt-2">
+				<i data-feather="printer" class="print-icon"></i> @ContentResources.Print
+			</button>
+		</div>
+		<div class="col-md-3">
+			@Html.ActionLink(ContentResources.Cancel, "Index", "DietRequest", null, new { @class = "btn btn-secondary  mt-md-0 mt-2" })
+		</div>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+		
+		$(document).on('click', '#print-button', function () {
+			event.preventDefault();
+			const viewModel = JSON.parse('@Html.Raw(JsonConvert.SerializeObject(Model))');
+	
+			overlay.show();
+			api.post('@Url.Action("Print", "DietRequest")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				overlay.hide();
+			})
+			.catch((exception) => {
+				overlay.hide();
+				handleException(exception);
+			});
+		});
+
+		$(document).on('click', '#delete-button', function () {
+			event.preventDefault();
+			overlay.show();
+
+			var url = new URL(window.location);
+			const id = url.searchParams.get('id');
+
+			modal.setTextTitle('@ContentResources.DietRequests');
+			modal.setInputBody('@MessagesResources.PleaseEnterReasonForDelete');
+			modal.setCancelContinueButtons('@ContentResources.Cancel', '@ContentResources.Ok');
+
+			modal.modalElement.on('continue', (event) => deleteDietRequest(id));
+			modal.modalElement.on('cancel', (event) => unsubscribeModalEvents());
+
+			modal.open();
+			overlay.hide();
+		});
+
+		function unsubscribeModalEvents() {
+			modal.modalElement.off('continue');
+			modal.modalElement.off('cancel');
+		}
+
+		function deleteDietRequest(id) {
+			const viewModel = { Id: id, ChangeReason: modal.getInputValue() };
+			overlay.show();
+			unsubscribeModalEvents();
+			api.post('@Url.Action("Delete", "DietRequest")', viewModel, {
+				headers: { "Content-Type": "application/json" }
+			})
+			.then((data) => {
+				overlay.hide();
+				modal.close();
+				window.location.href = '@Url.Action("Index", "DietRequest")';
+			})
+			.catch((exception) => {
+				handleException(exception);
+				modal.close();
+				overlay.hide();
+			});
+		}
+	</script>
+}

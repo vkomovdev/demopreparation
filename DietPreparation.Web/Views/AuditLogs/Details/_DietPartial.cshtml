@@ -1,0 +1,49 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Resources
+@using DietPreparation.Web.Models.AuditLogs;
+
+@model AuditLogDetailsViewModel;
+
+<h4>@ContentResources.DietData</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.StudyNumber, ContentResources.StudyNumber, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.StudyNumber)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.StudyType, ContentResources.StudyType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.StudyType)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ProjectNumber, ContentResources.ProjectID, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ProjectNumber)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.IntendedUseInternal, ContentResources.IntendedUse, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@(Model.IntendedUseInternal == true ? EnumResources.IntendedUse_Internal : EnumResources.IntendedUse_External)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.RequestType, ContentResources.RequestType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.RequestType)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.BaseFeedType, ContentResources.FeedType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.BaseFeedType)
+	</div>
+</div>

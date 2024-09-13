@@ -1,0 +1,18 @@
+﻿@using DietPreparation.Common.Extensions;
+
+@model DietPreparation.Web.Models.PWOs.PwoBatchViewModel
+
+@Html.HiddenFor(model => model.RequestUom)
+<td class="col-2">
+	@Html.TextBoxFor(x => Model.BatchSize, new { @class = "form-control", type = "number" })
+</td>
+<td class="col-2">
+	@Model.RequestUom.GetDisplayName().ToLower()
+</td>
+<td class="col-2">
+	@Html.TextBoxFor(x => Model.BatchNumbers, new { @class = "form-control", type = "number" })
+</td>
+<td class="col-2 line-item-total"></td>
+<td class="col-2">
+	@Model.RequestUom.GetDisplayName().ToLower()
+</td>

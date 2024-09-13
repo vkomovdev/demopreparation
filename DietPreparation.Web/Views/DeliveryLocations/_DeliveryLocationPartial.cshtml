@@ -1,0 +1,118 @@
+@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums;
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Resources;
+@using DietPreparation.Web.Utilities;
+
+@model DietPreparation.Web.Models.DeliveryLocations.DeliveryLocationUpdateViewModel
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Id)
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Description, ContentResources.Description, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@if (Model.IsLocked == true)
+			{
+				@Html.TextBoxFor(x => x.Description, new { @class = "form-control", maxlength = FieldLengthes.Middle, required = "required", disabled = "disabled" })
+			}
+			else
+			{
+				@Html.TextBoxFor(x => x.Description, new { @class = "form-control", maxlength = FieldLengthes.Middle, required = "required" })
+			}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.Description, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Building, ContentResources.Building, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@if (Model.IsLocked == true)
+			{
+				@Html.TextBoxFor(x => x.Building, new { @class = "form-control", maxlength = FieldLengthes.ExtraExtraSmall, required = "required", disabled = "disabled" })
+			}
+			else
+			{
+				@Html.TextBoxFor(x => x.Building, new { @class = "form-control", maxlength = FieldLengthes.ExtraExtraSmall, required = "required" })
+			}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.Building, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Floor, ContentResources.Floor, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@if (Model.IsLocked == true)
+			{
+				@Html.TextBoxFor(x => x.Floor, new { @class = "form-control", maxlength = FieldLengthes.ExtraExtraSmall, disabled = "disabled" })
+			}
+			else
+			{
+				@Html.TextBoxFor(x => x.Floor, new { @class = "form-control", maxlength = FieldLengthes.ExtraExtraSmall })
+			}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.Floor, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Lab, ContentResources.Lab, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@if (Model.IsLocked == true)
+			{
+				@Html.TextBoxFor(x => x.Lab, new { @class = "form-control", maxlength = FieldLengthes.ExtraExtraSmall, disabled = "disabled" })
+			}
+			else
+			{
+				@Html.TextBoxFor(x => x.Lab, new { @class = "form-control", maxlength = FieldLengthes.ExtraExtraSmall })
+			}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.Lab, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.BusinessUnit, ContentResources.BusinessUnit, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.BusinessUnit, new { @class = "form-control", type = "number", min = 0, max = int.MaxValue})
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.BusinessUnit, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>

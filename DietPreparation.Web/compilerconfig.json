@@ -1,0 +1,86 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/site.css",
+    "inputFile": "wwwroot/css/site.scss"
+  },
+  {
+    "outputFile": "Views/Shared/Header.cshtml.css",
+    "inputFile": "Views/Shared/Header.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Shared/NavMenu.cshtml.css",
+    "inputFile": "Views/Shared/NavMenu.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Shared/Footer.cshtml.css",
+    "inputFile": "Views/Shared/Footer.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Shared/Error.cshtml.css",
+    "inputFile": "Views/Shared/Error.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Home/Index.cshtml.css",
+    "inputFile": "Views/Home/Index.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Users/Create.cshtml.css",
+    "inputFile": "Views/Users/Create.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Users/Edit.cshtml.css",
+    "inputFile": "Views/Users/Edit.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Users/_UserPartial.cshtml.css",
+    "inputFile": "Views/Users/_UserPartial.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Users/Index.cshtml.css",
+    "inputFile": "Views/Users/Index.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Pwo/Shared/_HeaderPartial.cshtml.css",
+    "inputFile": "Views/Pwo/Shared/_HeaderPartial.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Pwo/Shared/_IngredientsPartial.cshtml.css",
+    "inputFile": "Views/Pwo/Shared/_IngredientsPartial.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Pwo/Shared/_CloseSectionPartial.cshtml.css",
+    "inputFile": "Views/Pwo/Shared/_CloseSectionPartial.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Drug/Create.cshtml.css",
+    "inputFile": "Views/Drug/Create.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Drug/Edit.cshtml.css",
+    "inputFile": "Views/Drug/Edit.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Drug/_DrugPartial.cshtml.css",
+    "inputFile": "Views/Drug/_DrugPartial.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Customers/_CustomerPartial.cshtml.css",
+    "inputFile": "Views/Customers/_CustomerPartial.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Customers/Create.cshtml.css",
+    "inputFile": "Views/Customers/Create.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Customers/Edit.cshtml.css",
+    "inputFile": "Views/Customers/Edit.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Customers/Index.cshtml.css",
+    "inputFile": "Views/Customers/Index.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/DeliveryLocations/_DeliveryLocationPartial.cshtml.css",
+    "inputFile": "Views/DeliveryLocations/_DeliveryLocationPartial.cshtml.scss"
+  }
+]

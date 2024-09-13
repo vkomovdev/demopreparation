@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasalDietCreated" xml:space="preserve">
+    <value>Basal Diet was created successfully.</value>
+    <comment>basal_diet_created</comment>
+  </data>
+  <data name="BasalDietUpdated" xml:space="preserve">
+    <value>Basal Diet was updated successfully.</value>
+    <comment>basal_diet_updated</comment>
+  </data>
+  <data name="BatchClosed" xml:space="preserve">
+    <value>Batch was closed successfully.</value>
+    <comment>batch_closed</comment>
+  </data>
+  <data name="BatchWasCreated" xml:space="preserve">
+    <value>Batches were created successfully.</value>
+    <comment>batch_created</comment>
+  </data>
+  <data name="ConfirmDietRequestDeletion" xml:space="preserve">
+    <value>Are you sure you want to delete this diet request?</value>
+    <comment>before_diet_request_deletion</comment>
+  </data>
+  <data name="CustomerCreated" xml:space="preserve">
+    <value>Customer was created successfully.</value>
+    <comment>customer_created</comment>
+  </data>
+  <data name="CustomerUpdated" xml:space="preserve">
+    <value>Customer was updated successfully.</value>
+    <comment>customer_updated</comment>
+  </data>
+  <data name="DeliveryLocationCreated" xml:space="preserve">
+    <value>Delivery Location was created successfully.</value>
+  </data>
+  <data name="DeliveryLocationUpdated" xml:space="preserve">
+    <value>Delivery Location was updated successfully.</value>
+  </data>
+  <data name="DietRequestCreated" xml:space="preserve">
+    <value>Diet request was created successfully.</value>
+    <comment>diet_request_created</comment>
+  </data>
+  <data name="DietRequestDeleted" xml:space="preserve">
+    <value>Diet request was deleted successfully.</value>
+    <comment>diet_request_deleted</comment>
+  </data>
+  <data name="DietRequestUpdated" xml:space="preserve">
+    <value>Diet request was updated successfully.</value>
+    <comment>diet_request_updated</comment>
+  </data>
+  <data name="DrugCreated" xml:space="preserve">
+    <value>Drug was created successfully.</value>
+    <comment>drug_created</comment>
+  </data>
+  <data name="DrugUpdated" xml:space="preserve">
+    <value>Drug was updated successfully.</value>
+    <comment>drug_updated</comment>
+  </data>
+  <data name="EmptyEntityInstancesList" xml:space="preserve">
+    <value>No data found. Please, create new entity instance or change search params.</value>
+    <comment>empty_entity_instances_list</comment>
+  </data>
+  <data name="EntityInstancesNotSelected" xml:space="preserve">
+    <value>You didn't select anything to perform the operation</value>
+    <comment>entity_instances_not_selected</comment>
+  </data>
+  <data name="FeedLabelAdditiveDownloadStarted" xml:space="preserve">
+    <value>Feed label additive download has started.</value>
+  </data>
+  <data name="FeedLabelAdditiveSentPrinter" xml:space="preserve">
+    <value>Feed label additive sent to print queue.</value>
+  </data>
+  <data name="FeedLabelDownloadStarted" xml:space="preserve">
+    <value>Feed label download has started.</value>
+    <comment>feed_label_download_started</comment>
+  </data>
+  <data name="FeedLabelSentPrinter" xml:space="preserve">
+    <value>Feed label sent to print queue.</value>
+    <comment>feed_label_sent_printer</comment>
+  </data>
+  <data name="FilterYearUpdated" xml:space="preserve">
+    <value>Filter Year was updated successfully.</value>
+    <comment>filteryear_updated</comment>
+  </data>
+  <data name="IngredientCreated" xml:space="preserve">
+    <value>Ingredient was created successfully.</value>
+    <comment>ingredient_created</comment>
+  </data>
+  <data name="IngredientUpdated" xml:space="preserve">
+    <value>Ingredient was updated successfully.</value>
+    <comment>ingredient_updated</comment>
+  </data>
+  <data name="LocationCreated" xml:space="preserve">
+    <value>Location was created successfully.</value>
+    <comment>location_created</comment>
+  </data>
+  <data name="LocationUpdated" xml:space="preserve">
+    <value>Location was updated successfully.</value>
+    <comment>location_updated</comment>
+  </data>
+  <data name="NotFoundPrinters" xml:space="preserve">
+    <value>Printers not configured.</value>
+    <comment>printers_not_found</comment>
+  </data>
+  <data name="ParseBagNumbersError" xml:space="preserve">
+    <value>Invalid format! Use numbers or ranges separated by commas. Ex: 1,3,5-12</value>
+    <comment>parse_bag_numbers_error</comment>
+  </data>
+  <data name="PleaseEnterReasonForChange" xml:space="preserve">
+    <value>Please enter the reason for the change.\nThis entry is required if you wish to proceed.</value>
+  </data>
+  <data name="PleaseEnterReasonForDelete" xml:space="preserve">
+    <value>Please enter the reason for the cancellation.\nThis entry is required if you wish to proceed.</value>
+  </data>
+  <data name="ProcessWorkOrdersCreated" xml:space="preserve">
+    <value>Process Work Orders were created successfully.</value>
+    <comment>process_work_orders_created</comment>
+  </data>
+  <data name="PwoDidNotPrintProperly" xml:space="preserve">
+    <value>Select CANCEL If PWO Did Not Print Properly</value>
+    <comment>pwo_print_cancel</comment>
+  </data>
+  <data name="PwoPrintedProperly" xml:space="preserve">
+    <value>Select OK If PWO Printed Properly</value>
+    <comment>pwo_print_ok</comment>
+  </data>
+  <data name="UserCreated" xml:space="preserve">
+    <value>User was created successfully.</value>
+    <comment>user_created</comment>
+  </data>
+  <data name="UserUpdated" xml:space="preserve">
+    <value>User was updated successfully.</value>
+    <comment>user_updated</comment>
+  </data>
+  <data name="WorkOrderPrintQuestion" xml:space="preserve">
+    <value>DID THE PROCESS WORK ORDER PRINT PROPERLY?</value>
+    <comment>pwo_print_question</comment>
+  </data>
+</root>

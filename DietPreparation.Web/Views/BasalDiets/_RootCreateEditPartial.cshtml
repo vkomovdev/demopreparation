@@ -1,0 +1,96 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.BasalDiets.EditBasalDietViewModel
+
+@Html.AntiForgeryToken()
+
+<section class="row static-table">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/BasalDiets/CreateEdit/_BasalDietPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row dynamic-table">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/BasalDiets/CreateEdit/_IngredientsPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row print-checkbox">
+	<div class="col-md-12">
+		<div class="section-body">
+			@Html.CheckBoxFor(x => x.Print, new { @class = "form-check-input", id = "print-checkbox" })
+			<label class="form-check-label" for="print-checkbox">
+				<i data-feather="printer" class="print-icon"></i> @ContentResources.Print
+			</label>
+		</div>
+	</div>
+</section>
+
+<script type="module">
+	import DynamicTable from '@Url.Content("~/scripts/components/dynamic-table.js")';
+	import RequiredFieldHelper from '@Url.Content("~/scripts/helpers/required-field-helper.js")';
+	import MinMaxFieldHelper from '@Url.Content("~/scripts/helpers/min-max-field-helper.js")';
+
+	const ingredientPercentClass = '.ingredient-percent';
+
+	function initRowHandlers() {
+		var fields = $('#ingredients-table > tbody').find(ingredientPercentClass);
+		for (var i = 0; i < fields.length; i++) {
+			addInputChangeHandler($(fields[i]));
+		}
+	}
+
+	function onRowAdded(row) {
+		addInputChangeHandler($(row).find(ingredientPercentClass));
+	}
+
+	function addInputChangeHandler(input) {
+		input.on('change', updateTotal);
+		updateTotal();
+	}
+
+	function onRowRemoving(row) {
+		const inputToDelete = $(row).find(ingredientPercentClass);
+		inputToDelete.off();
+	}
+
+	function updateTotal() {
+		const values = $($('#ingredients-table > tbody').find(ingredientPercentClass)).map(function (_, field) {
+			return parseFloat($(field).val());
+		});
+		var totalValue = 0;
+		for (var i = 0; i < values.length; i++) {
+			totalValue += values[i];
+		}
+
+		totalValue = totalValue.toFixed(@DefaultNumbers.DecimalDigitsCount);
+		$('#total-percent').val(totalValue);
+	}
+
+	$(".readonly").on('keydown paste focus mousedown', function (e) {
+		if (e.keyCode != 9) // ignore tab
+			e.preventDefault();
+	});
+
+	$(document).ready(function () {
+		const tableId = 'ingredients-table';
+		const table = $(`#${tableId}`);
+		const tBody = table.find('> tbody')[0];
+		const templateRow = table.find('> tfoot > tr.template')[0];
+		const inputRow = table.find('> tfoot > tr.add')[0];
+		const addRowButton = table.find('> tfoot > tr.add > td > input.add-row')[0];
+		const removeRowButtonClass = 'remove-row';
+
+		const dynamicTable = new DynamicTable(tBody, templateRow, inputRow, addRowButton, removeRowButtonClass);
+		dynamicTable.tableBody.addEventListener('rowAdded', (event) => onRowAdded(event.detail.row));
+		dynamicTable.tableBody.addEventListener('rowRemoving', (event) => onRowRemoving(event.detail.row));
+		dynamicTable.tableBody.addEventListener('rowRemoved', () => updateTotal());
+
+		initRowHandlers();
+		updateTotal();
+	});
+</script>

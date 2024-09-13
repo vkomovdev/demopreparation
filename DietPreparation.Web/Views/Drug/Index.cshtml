@@ -1,0 +1,90 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Web.Models.Drugs
+@using DietPreparation.Resources
+
+@{
+	ViewBag.Title = ContentResources.DrugLibrary;
+	var orderByWithPagination = new DrugViewModel();
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.DrugLibrary)
+	<section class="sortable-block pagination-block mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-6 active-asc" data-sort-by="@(orderByWithPagination.GetFullName(x => x.Name))">@ContentResources.DrugName</th>
+					<th class="col-1" data-sort-by="@(orderByWithPagination.GetFullName(x => x.ActiveIngredientConcentration))">@ContentResources.ActiveIngredientConcentration</th>
+					<th class="col-1" data-sort-by="@(orderByWithPagination.GetFullName(x => x.UnitOfMeasure))">@ContentResources.UnitOfMeasure</th>
+					<th class="col-1" data-sort-by="@(orderByWithPagination.GetFullName(x => x.CreateDate))">@ContentResources.CreatedAt</th>
+					<th class="col-2" data-sort-by="@(orderByWithPagination.GetFullName(x => x.CreateName))">@ContentResources.CreatedBy</th>
+					<th class="col-1">
+						<a class="request-row float-end" href="@Url.Action("Create","Drug")"><i data-feather="plus-square"></i></a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+			<tr>
+				<td colspan="6" class="pagination-panel">
+					<nav>
+						<ul class="pagination justify-content-center"></ul>
+					</nav>
+				</td>
+			</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		};
+
+		function fillTable(data) {
+			let $data = $('.sortable-block table tbody')
+			$data.find('tr').remove();
+
+			if (data.drugs && data.drugs.length > 0) {
+				$.each(data.drugs, function (index, item) {
+					var row = $('<tr>');
+					row.attr('data-id', item.id);
+					row.addClass('request-row');
+					row.append('<td class="sm"><p class="text-wrap">' + item.name + '</p></td>');
+					row.append('<td class="md">' + item.activeIngredientConcentration + '</td>');
+					row.append('<td class="sm">' + item.unitOfMeasure + '</td>');
+					row.append('<td class="sm datepicker-label">' + item.createDate.split('T')[0] + '</td>');
+					row.append('<td class="md">' + item.createName + '</td>');
+					row.append(`<td><a class="request-row float-end" href="@Url.Action("Edit","Drug")?id=${item.id}"><i data-feather="edit"></i></a></td>`);
+					$data.append(row);
+				});
+				feather.replace();
+			} else {
+				var row = $('<tr>');
+				row.append(`<td colspan="6" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+
+			feather.replace();
+		};
+
+		$(document).on('click', '.request-row', function () {
+			const id = $(this).data('id')
+			window.location.href = '@Url.Action("Edit", "Drug")' + `?id=${id}`;
+		});
+
+		$(document).ready(function () {
+			const tableManager = new TableManager(['sortable-table', 'pagination'], '@Url.Action("LoadDrugList", "Drug")', fillTable, handleException, feather);
+			tableManager.loadData();
+		});
+	</script>
+}

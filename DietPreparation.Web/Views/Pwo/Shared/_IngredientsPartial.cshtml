@@ -1,0 +1,28 @@
+﻿@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.PWOs.PwoIngredientViewModel
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+			@if (Model.Ingredients is not null)
+			{
+					@foreach (var ingredient in Model.Ingredients)
+					{
+						<div class="row">
+							<div class="col-md-3 field-bg py-2 px-4"><strong>@ingredient.IngredientName:</strong></div>
+							<div class="col-md-9 field-value-bg py-2">@ingredient.Amount @ingredient.AmountUom</div>
+						</div>
+					}
+			}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="row">
+				<div class="col-md-3 field-bg py-2 px-4"><strong>@ContentResources.Total @ContentResources.IngredientWeight:</strong></div>
+				<div class="col-md-9 field-value-bg py-2"><strong>@Model.TotalIngredients @Model.BatchOum</strong></div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,138 @@
+@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Enums
+@using DietPreparation.Security.Models.Common;
+@using DietPreparation.Web.Options
+
+@inject ApplicationOptions applicationOptions;
+
+@{
+	var _authorizationOptions = applicationOptions.Authorization;
+
+	var user = _authorizationOptions.MockUser;
+}
+
+<nav class="navbar navbar-expand-md navbar-dark">
+	<div class="container-fluid px-0 px-md-2">
+		<button class="navbar-toggler ms-auto mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown" data-permission="@(Permissions.DietRequests.View)">
+					<a class="nav-link dropdown-toggle px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						@ContentResources.ShortCuts
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li class="hiddend" data-permission="@(Permissions.DietRequests.View)"><a class="dropdown-item" href="@Url.Action("Search", "DietRequest", new {prefilter=DietRequestFilterOptions.Cloned})">@ContentResources.Repeat @ContentResources.Requests</a></li>
+						<li class="hiddend" data-permission="@(Permissions.DietRequests.View)"><a class="dropdown-item" href="@Url.Action("Search", "DietRequest", new {prefilter=DietRequestFilterOptions.Open})">@ContentResources.Open @ContentResources.DietRequests</a></li>
+						<li data-permission="@(Permissions.DietRequests.View)"><a class="dropdown-item" href="@Url.Action("Search", "Pwo", new {prefilter=PwoFilterOptions.Open})">@ContentResources.Open @ContentResources.ProcessWorkOrders</a></li>
+						<li data-permission="@(Permissions.DietRequests.View)"><a class="dropdown-item" href="#">@ContentResources.Search2006WorkOrders</a></li>
+						<li data-permission="@(Permissions.DietRequests.View)"><a class="dropdown-item" href="#">@ContentResources.Repeat2006Requests</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav" data-permission="@(Permissions.DietRequests.View)">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						@ContentResources.DietRequests
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li class="hiddend" data-permission="@(Permissions.DietRequests.Create)">
+							<a class="dropdown-item" href=" @Url.Action("Create", "DietRequest")">
+								@ContentResources.Create 
+								@ContentResources.DietRequest
+							</a>
+						</li>
+						<li data-permission="@(Permissions.DietRequests.View)">
+							<a class="dropdown-item" href="@Url.Action("Index", "DietRequest")">
+								@ContentResources.Edit
+								@ContentResources.DietRequests
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown" data-permission="@(Permissions.ProcessWorkOrders.View)">
+					<a class="nav-link dropdown-toggle px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						@ContentResources.WorkOrders
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li data-permission="@(Permissions.ProcessWorkOrders.Create)">
+							<a class="dropdown-item" href="@Url.Action("Create", "Pwo")">
+								@ContentResources.Create 
+								@ContentResources.ProcessWorkOrders
+							</a>
+						</li>
+						<li data-permission="@(Permissions.ProcessWorkOrders.Create)">
+							<a class="dropdown-item" href="@Url.Action("Close", "Pwo")">
+								@ContentResources.Close
+								@ContentResources.ProcessWorkOrders
+							</a>
+						</li>
+						<li data-permission="@(Permissions.ProcessWorkOrders.View)">
+							<a class="dropdown-item" href="@Url.Action("Search", "Pwo")">
+								@ContentResources.Search
+								@ContentResources.ProcessWorkOrders
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown" data-permission="@(Permissions.FeedLabels.View)">
+					<a class="nav-link dropdown-toggle px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						@ContentResources.Labels
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li data-permission="@(Permissions.FeedLabels.View)"><a class="dropdown-item" href="@Url.Action("Print", "FeedLabels")">@ContentResources.FeedLabels</a></li>
+						<li data-permission="@(Permissions.FeedLabels.View)"><a class="dropdown-item" href="@Url.Action("Reprint", "FeedLabels")">@ContentResources.FeedLabels - @ContentResources.Reprint</a></li>
+						<li data-permission="@(Permissions.FeedLabels.View)"><a class="dropdown-item" href="@Url.Action("PrintLabelAdditive", "FeedLabels")">@ContentResources.Drug @ContentResources.Labels</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav" data-permission="@(Permissions.Libraries.View)">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						@ContentResources.Libraries
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li data-permission="@(Permissions.Drugs.View)"><a class="dropdown-item" href="@Url.Action("Index", "Drug")">@ContentResources.Drugs</a></li>
+						<li data-permission="@(Permissions.BasalDiets.View)"><a class="dropdown-item" href="@Url.Action("Index", "BasalDiets")">@ContentResources.BasalDiets</a></li>
+						<li data-permission="@(Permissions.FeedStuffs.View)"><a class="dropdown-item" href="@Url.Action("Index", "FeedStuffs")">@ContentResources.Feedstuff @ContentResources.Ingredients</a></li>
+						<li data-permission="@(Permissions.Customers.View)"><a class="dropdown-item" href="@Url.Action("Index", "Customers")">@ContentResources.CustomerProfile</a></li>
+						<li data-permission="@(Permissions.Locations.View)"><a class="dropdown-item" href="@Url.Action("Index", "DeliveryLocations")" ">@ContentResources.DeliveryLocations</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav" data-permission="@(Permissions.Administration.View)">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						@ContentResources.Administration
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li data-permission="@(Permissions.Users.View)"><a class="dropdown-item" href="@Url.Action("Index", "Users")">@ContentResources.User @ContentResources.AccessControls</a></li>
+						<li data-permission="@(Permissions.Administration.AuditLogView)"><a class="dropdown-item" href="@Url.Action("Index", "AuditLogs")">@ContentResources.ViewAuditLog</a></li>
+						<li data-permission="@(Permissions.FeedStuffPlanning.View)"><a class="dropdown-item" href="@Url.Action("Planning", "FeedStuffs")">@ContentResources.BulkFeedstuffPlanning</a></li>
+						<li data-permission="@(Permissions.DietRequests.Update)"><a class="dropdown-item" href="@Url.Action("UpdateRequests", "DietRequest")">@ContentResources.Update @ContentResources.Requests</a></li>
+						<li data-permission="@(Permissions.Administration.YearFiltering)"><a class="dropdown-item" href="@Url.Action("Index", "FilterYear")">@ContentResources.Filter @ContentResources.Year</a></li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item" data-permission="@(Permissions.Basic.View)">
+					<a class="nav-link px-2" href="@Url.Action("Index", "About")">@ContentResources.About</a>
+				</li>
+			</ul>
+		</div>
+		@if (user is null)
+		{
+			<div class="text-light" data-permission="@(Permissions.Basic.View)">@User.Identity.Name</div>
+		} 
+		else
+		{
+			<div class="text-light" data-permission="@(Permissions.Basic.View)">@user.FirstName @user.LastName</div>
+		}
+	</div>
+</nav>

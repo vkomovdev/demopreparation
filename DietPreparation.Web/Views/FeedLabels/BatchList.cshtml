@@ -1,0 +1,41 @@
+﻿@using DietPreparation.Resources;
+@using DietPreparation.Common.Enums
+@using DietPreparation.Web.Controllers
+@model DietPreparation.Web.Models.FeedLabels.FeedLabelBatchListViewModel
+
+@{
+	var title = Model.Type == FeedLabelsType.Open
+		? $"{ContentResources.BagLabels} {ContentResources.ToPrint} {ContentResources.ForDiet}"
+		: $"{ContentResources.BagLabels} {ContentResources.ToReprint} {ContentResources.ForDiet}";
+
+	ViewBag.Title = title;
+
+	var cancelAction = Model.Type == FeedLabelsType.Open
+		? nameof(FeedLabelsController.Print)
+		: nameof(FeedLabelsController.Reprint);
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", title)
+	@using (Html.BeginForm("Print", "FeedLabels", FormMethod.Get, new { @class = "pwo-batch-list-form" }))
+	{
+		@await Html.PartialAsync("_BatchListPartial", Model)
+
+		<section class="row button-panel mt-3">
+			<div class="col-md-3 offset-md-9">
+				@Html.ActionLink(ContentResources.Cancel, cancelAction, "FeedLabels", null, new { @class = "btn btn-secondary" })
+			</div>
+		</section>
+	}
+</div>
+
+<script type="module">
+	$(document).ready(function(){
+		$(".batch-item").click(function () { 
+			const requestid = $(this).data("requestid");
+			const sequence = $(this).data("sequence");
+			const type = '@Model.Type';
+			window.location.href = '@Url.Action("PrintLabel", "FeedLabels")' + `?requestId=${requestid}&sequence=${sequence}&type=${type}`;
+		});
+	});
+</script>

@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+    <comment>[Menu][About] This resource represents the text displayed for the "About" page link in the navigation menu.</comment>
+  </data>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>About Application</value>
+    <comment>[About] This resource represents the heading displayed for the "About" page.</comment>
+  </data>
+  <data name="AccessTypeLabel" xml:space="preserve">
+    <value>Access level</value>
+    <comment>[User] This resource represents the label for the "Access type" field.</comment>
+  </data>
+  <data name="Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount Needed</value>
+    <comment>Label</comment>
+  </data>
+  <data name="AmountRequested" xml:space="preserve">
+    <value>Amount Requested</value>
+    <comment>Label</comment>
+  </data>
+  <data name="BasalDiet" xml:space="preserve">
+    <value>Basal Diet</value>
+    <comment>Label</comment>
+  </data>
+  <data name="BasalDiets" xml:space="preserve">
+    <value>Basal Diets</value>
+  </data>
+  <data name="FeedType" xml:space="preserve">
+    <value>Feed Type</value>
+    <comment>Label</comment>
+  </data>
+  <data name="BulkFeedstuffPlanning" xml:space="preserve">
+    <value>Bulk Feedstuff Planning</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>[Button] This resource represents the text displayed on the "Cancel" button.</comment>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+    <comment>[Button] This resource represents the text displayed on the "Create" button.</comment>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+    <comment>[Button] This resource represents the text displayed on the "Save" button.</comment>
+  </data>
+  <data name="CloseWorkOrder" xml:space="preserve">
+    <value>Close Work Order</value>
+  </data>
+  <data name="CompanyDomain" xml:space="preserve">
+    <value>Metabolism &amp; Safety</value>
+    <comment>[About] This resource represents the domain of the company.</comment>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value> </value>
+    <comment>[Footer][About] This resource represents the name of the company.</comment>
+  </data>
+  <data name="ControlledSubstance" xml:space="preserve">
+    <value>Controlled Substance</value>
+    <comment>Label</comment>
+  </data>
+  <data name="DietRequest" xml:space="preserve">
+    <value>Diet Request</value>
+    <comment>Label</comment>
+  </data>
+  <data name="CreateProcessWorkOrders" xml:space="preserve">
+    <value>Create Process Work Orders</value>
+  </data>
+  <data name="CreateRepeatDietRequest" xml:space="preserve">
+    <value>Create Repeat Diet Request</value>
+  </data>
+  <data name="CustomerProfile" xml:space="preserve">
+    <value>Customer Profile</value>
+  </data>
+  <data name="DateNeeded" xml:space="preserve">
+    <value>Date Needed</value>
+    <comment>Label</comment>
+  </data>
+  <data name="DateOfRequest" xml:space="preserve">
+    <value>Date of Request</value>
+    <comment>Label</comment>
+  </data>
+  <data name="DeliveryData" xml:space="preserve">
+    <value>Delivery Data</value>
+    <comment>Section</comment>
+  </data>
+  <data name="DeliveryLocations" xml:space="preserve">
+    <value>Delivery Locations</value>
+  </data>
+  <data name="DeliveryLocationID" xml:space="preserve">
+    <value>Location ID</value>
+  </data>
+  <data name="DeliveryLocationDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DeliveryLocationBuilding" xml:space="preserve">
+    <value>Building</value>
+  </data>
+  <data name="DeliveryLocationLab" xml:space="preserve">
+    <value>Lab</value>
+  </data>
+  <data name="DeliveryLocationUnit" xml:space="preserve">
+    <value>Business Unit</value>
+  </data>
+  <data name="DeliveryNotice" xml:space="preserve">
+    <value>Delivery Notice</value>
+    <comment>Label</comment>
+  </data>
+  <data name="DetailPWOTitle" xml:space="preserve">
+    <value>Detail Work Order</value>
+  </data>
+  <data name="DietPreparation" xml:space="preserve">
+    <value>Diet Preparation</value>
+  </data>
+  <data name="DietData" xml:space="preserve">
+    <value>Diet Data</value>
+    <comment>Section</comment>
+  </data>
+  <data name="DietRequests" xml:space="preserve">
+    <value>Diet Requests</value>
+  </data>
+  <data name="Drug" xml:space="preserve">
+    <value>Drug</value>
+    <comment>[DietRequest] Section</comment>
+  </data>
+  <data name="DrugConcentration" xml:space="preserve">
+    <value>Concentration</value>
+    <comment>Label</comment>
+  </data>
+  <data name="DrugLabelPage" xml:space="preserve">
+    <value>Drug Label</value>
+  </data>
+  <data name="DrugMfgLotNumber" xml:space="preserve">
+    <value>Mfg Lot #</value>
+    <comment>Label</comment>
+  </data>
+  <data name="DrugName" xml:space="preserve">
+    <value>Drug Name</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Drugs" xml:space="preserve">
+    <value>Drugs</value>
+  </data>
+  <data name="DrugLibrary" xml:space="preserve">
+    <value>Drug Library</value>
+  </data>
+  <data name="NewDrug" xml:space="preserve">
+    <value>New Drug</value>
+  </data>
+  <data name="ActiveIngredientConcentration" xml:space="preserve">
+    <value>Active Ingredient Concentration</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+    <comment>[User] This resource represents the label for the "Email" field.</comment>
+  </data>
+  <data name="FeedLabels" xml:space="preserve">
+    <value>Feed Labels</value>
+  </data>
+  <data name="Reprint" xml:space="preserve">
+    <value>Reprint</value>
+  </data>
+  <data name="Feedstuff" xml:space="preserve">
+    <value>Feedstuff</value>
+    <comment>[FeedStuff]</comment>
+  </data>
+  <data name="FeedSupplier" xml:space="preserve">
+    <value>Feed Supplier</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Form" xml:space="preserve">
+    <value>Form</value>
+    <comment>Label</comment>
+  </data>
+  <data name="GeneralComments" xml:space="preserve">
+    <value>General Comments</value>
+    <comment>Label</comment>
+  </data>
+  <data name="HazardCode" xml:space="preserve">
+    <value>Hazard Code</value>
+    <comment>Label</comment>
+  </data>
+  <data name="IntendedUse" xml:space="preserve">
+    <value>Intended Use</value>
+    <comment>Label</comment>
+  </data>
+  <data name="IncludedInWeight" xml:space="preserve">
+    <value>Included in Weight</value>
+    <comment>Label</comment>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>First name</value>
+    <comment>[User] This resource represents the label for the "First name" field.</comment>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Labels" xml:space="preserve">
+    <value>Labels</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+    <comment>[User] This resource represents the label for the "Last name" field.</comment>
+  </data>
+  <data name="Library" xml:space="preserve">
+    <value>Library</value>
+    <comment>[FeedStuff]</comment>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+    <comment>[DietRequest][Pwo] Location label </comment>
+  </data>
+  <data name="LotNumber" xml:space="preserve">
+    <value>Lot Number</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="MedicatedPreMix" xml:space="preserve">
+    <value>Medicated Pre-Mix</value>
+    <comment>[DietRequest] Section</comment>
+  </data>
+  <data name="MixingInstructions" xml:space="preserve">
+    <value>Mixing Instructions</value>
+    <comment>Label</comment>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+    <comment>Label</comment>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Middle name</value>
+    <comment>[User] This resource represents the label for the "Middle name" field.</comment>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Orders</value>
+  </data>
+  <data name="PackagingInstructions" xml:space="preserve">
+    <value>Packaging Instructions</value>
+    <comment>Label</comment>
+  </data>
+  <data name="PreMixName" xml:space="preserve">
+    <value>Pre-Mix to be used</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Privacy</value>
+  </data>
+  <data name="ProcessingInstructions" xml:space="preserve">
+    <value>Processing Instructions</value>
+    <comment>Section</comment>
+  </data>
+  <data name="ProcessWorkOrders" xml:space="preserve">
+    <value>Process Work Orders</value>
+  </data>
+  <data name="ProductTitle" xml:space="preserve">
+    <value>Diet Preparation system</value>
+    <comment>[About] This resource represents the label for the "Product Title" section.</comment>
+  </data>
+  <data name="ProjectID" xml:space="preserve">
+    <value>Project #</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Receiver" xml:space="preserve">
+    <value>Receiver</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Requestor" xml:space="preserve">
+    <value>Requestor</value>
+    <comment>Label</comment>
+  </data>
+  <data name="RequestType" xml:space="preserve">
+    <value>Request Type</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>[Button]</comment>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>Sample</value>
+    <comment>[DietRequest] Section</comment>
+  </data>
+  <data name="SampleAnalysisType" xml:space="preserve">
+    <value>Analysis Type</value>
+    <comment>Label</comment>
+  </data>
+  <data name="SampleComments" xml:space="preserve">
+    <value>Comments</value>
+    <comment>Label</comment>
+  </data>
+  <data name="SampleDisposition" xml:space="preserve">
+    <value>Disposition</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="StudyNumber" xml:space="preserve">
+    <value>Study Number</value>
+    <comment>Label</comment>
+  </data>
+  <data name="StudyType" xml:space="preserve">
+    <value>Study Type</value>
+    <comment>Label</comment>
+  </data>
+  <data name="ToxicHazard" xml:space="preserve">
+    <value>Toxic Hazard</value>
+    <comment>Label</comment>
+  </data>
+  <data name="UnitOfMeasure" xml:space="preserve">
+    <value>Unit of Measure</value>
+    <comment>Label</comment>
+  </data>
+  <data name="AccessControls" xml:space="preserve">
+    <value>Access Controls</value>
+    <comment>[Menu][Users][Title]</comment>
+  </data>
+  <data name="UserIdLabel" xml:space="preserve">
+    <value>Network user id</value>
+    <comment>[User] This resource represents the label for the "User Id" field.</comment>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+    <comment>[About] This resource represents the label for the "Version" section.</comment>
+  </data>
+  <data name="ViewAuditLog" xml:space="preserve">
+    <value>View Audit Log</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome to the Diet Preparation System</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>[Button]</comment>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="Ingredients" xml:space="preserve">
+    <value>Ingredients</value>
+    <comment>[FeedStuff]</comment>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+    <comment>[Users] This resource represents the title displayed for the "Users" page.</comment>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="DietDrug" xml:space="preserve">
+    <value>Diet Drug</value>
+  </data>
+  <data name="ProcessWorkOrder" xml:space="preserve">
+    <value>Process Work Order</value>
+  </data>
+  <data name="BagCount" xml:space="preserve">
+    <value>Bag Count</value>
+  </data>
+  <data name="BatchAmount" xml:space="preserve">
+    <value>Batch Amount</value>
+  </data>
+  <data name="BatchOum" xml:space="preserve">
+    <value>Batch Oum</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="CompletedBy" xml:space="preserve">
+    <value>Completed By</value>
+  </data>
+  <data name="DateCompleted" xml:space="preserve">
+    <value>Date Completed</value>
+  </data>
+  <data name="DateCreated" xml:space="preserve">
+    <value>Date Created</value>
+  </data>
+  <data name="DietName" xml:space="preserve">
+    <value>Diet Name</value>
+  </data>
+  <data name="IngredientWeight" xml:space="preserve">
+    <value>Ingredient Weight</value>
+  </data>
+  <data name="Lot" xml:space="preserve">
+    <value>Lot</value>
+  </data>
+  <data name="ManufacturerLot" xml:space="preserve">
+    <value>Manufacturer Lot #</value>
+  </data>
+  <data name="Mixer" xml:space="preserve">
+    <value>Mixer Used</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ParckingInstructions" xml:space="preserve">
+    <value>Parcking Instructions</value>
+  </data>
+  <data name="Premix" xml:space="preserve">
+    <value>Premix</value>
+  </data>
+  <data name="PwoId" xml:space="preserve">
+    <value>Pwo Id</value>
+  </data>
+  <data name="RequestedBy" xml:space="preserve">
+    <value>Requested By</value>
+  </data>
+  <data name="Sequence" xml:space="preserve">
+    <value>Sequence #</value>
+  </data>
+  <data name="TimeCompleted" xml:space="preserve">
+    <value>Time Completed</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TotalIngredients" xml:space="preserve">
+    <value>Total Ingredients</value>
+  </data>
+  <data name="SectionOne" xml:space="preserve">
+    <value>Select one</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+    <comment>[Loading] This text is displayed while something is loading</comment>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administration</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="Libraries" xml:space="preserve">
+    <value>Libraries</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Repeat" xml:space="preserve">
+    <value>Repeat</value>
+  </data>
+  <data name="Repeat2006Requests" xml:space="preserve">
+    <value>Repeat 2006 Requests</value>
+  </data>
+  <data name="RepeatRequests" xml:space="preserve">
+    <value>Repeat Requests</value>
+  </data>
+  <data name="Requests" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="Search2006WorkOrders" xml:space="preserve">
+    <value>Search 2006 Work Orders</value>
+  </data>
+  <data name="ShortCuts" xml:space="preserve">
+    <value>Short-Cuts</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="WorkOrders" xml:space="preserve">
+    <value>Work Orders</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="DefineBatches" xml:space="preserve">
+    <value>Define Batches</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="AddBatchSize" xml:space="preserve">
+    <value>Add batch size</value>
+  </data>
+  <data name="BatchesToBeMixed" xml:space="preserve">
+    <value>Batches to be mixed</value>
+  </data>
+  <data name="RemoveSelectedBatchSize" xml:space="preserve">
+    <value>Remove selected batch size(s).</value>
+  </data>
+  <data name="TotalRequestAmount" xml:space="preserve">
+    <value>Total Request Amount</value>
+  </data>
+  <data name="Unscheduled" xml:space="preserve">
+    <value>Unscheduled</value>
+  </data>
+  <data name="BatchSize" xml:space="preserve">
+    <value>Batch size</value>
+  </data>
+  <data name="NumberOfBatches" xml:space="preserve">
+    <value>Number of batches</value>
+  </data>
+  <data name="TotalForBatchSize" xml:space="preserve">
+    <value>Total for batch size</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="GoHome" xml:space="preserve">
+    <value>Go Home</value>
+  </data>
+  <data name="Oops" xml:space="preserve">
+    <value>Oops </value>
+  </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Something went wrong</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>section</value>
+    <comment>[Section]</comment>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+    <comment>[Table] Action column header</comment>
+  </data>
+  <data name="BatchList" xml:space="preserve">
+    <value>Batch List</value>
+  </data>
+  <data name="Batches" xml:space="preserve">
+    <value>Batches</value>
+  </data>
+  <data name="SequenceNumber" xml:space="preserve">
+    <value>Sequence Number</value>
+  </data>
+  <data name="Clone" xml:space="preserve">
+    <value>Clone</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>Label</comment>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+    <comment>[Label][Button] Print</comment>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+    <comment>[Label][Title] User label</comment>
+  </data>
+  <data name="DietRequestSearch" xml:space="preserve">
+    <value>Diet Request Search</value>
+  </data>
+  <data name="LotYear" xml:space="preserve">
+    <value>Lot Year</value>
+  </data>
+  <data name="CloseProcessWorkOrder" xml:space="preserve">
+    <value>Close Process Work Order</value>
+  </data>
+  <data name="CreateProcessWorkOrder" xml:space="preserve">
+    <value>Create Process Work Order</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+    <comment>[Button] This resource represents the text displayed on the "Delete" button.</comment>
+  </data>
+  <data name="Printing" xml:space="preserve">
+    <value>Printing</value>
+    <comment>[Label][FeedLabels]</comment>
+  </data>
+  <data name="Reprinting" xml:space="preserve">
+    <value>Reprinting</value>
+    <comment>[Label][FeedLabels]</comment>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Created By</value>
+  </data>
+  <data name="CreatedAt" xml:space="preserve">
+    <value>Created At</value>
+  </data>
+  <data name="DateEnd" xml:space="preserve">
+    <value>Date End</value>
+  </data>
+  <data name="DateStart" xml:space="preserve">
+    <value>Date Start</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Ingredient" xml:space="preserve">
+    <value>Ingredient</value>
+  </data>
+  <data name="DeliverTo" xml:space="preserve">
+    <value>Deliver To</value>
+  </data>
+  <data name="OnlyClosedProcessWorkOrders" xml:space="preserve">
+    <value>Only closed process work orders are displayed by this report.</value>
+  </data>
+  <data name="EmailMustBeFormat" xml:space="preserve">
+    <value>Email must be in the format</value>
+    <comment>[User] Email title</comment>
+  </data>
+  <data name="CommentsLine1" xml:space="preserve">
+    <value>Comments Line 1</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="CommentsLine2" xml:space="preserve">
+    <value>Comments Line 2</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="CommentsShort" xml:space="preserve">
+    <value>COMMENTS</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="Concentration" xml:space="preserve">
+    <value>Concentration</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="ConcentrationShort" xml:space="preserve">
+    <value>CONC</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Expiration Date</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="ExpirationDateShort" xml:space="preserve">
+    <value>EXPIRE DATE</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="FeedAdditive" xml:space="preserve">
+    <value>Feed Additive</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>ID</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="LotNumberShort" xml:space="preserve">
+    <value>LOT NO</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="NumberOfCopies" xml:space="preserve">
+    <value>Number of copies</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="Printer" xml:space="preserve">
+    <value>Printer</value>
+    <comment>[FeedAdditive]</comment>
+  </data>
+  <data name="ReturnTo" xml:space="preserve">
+    <value>Return to</value>
+    <comment>[Modal]</comment>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+    <comment>[Modal]</comment>
+  </data>
+  <data name="BagLabels" xml:space="preserve">
+    <value>Bag labels</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="ForDiet" xml:space="preserve">
+    <value>for diet</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="ToPrint" xml:space="preserve">
+    <value>to print</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="ToReprint" xml:space="preserve">
+    <value>to reprint</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+    <comment>[Label][FeedLabels]</comment>
+  </data>
+  <data name="Locked" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="Feed" xml:space="preserve">
+    <value>Feed</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="ManufacturedDate" xml:space="preserve">
+    <value>Manufactured Date</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="BagNumbers" xml:space="preserve">
+    <value>Bag numbers</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="BagNumbersHint" xml:space="preserve">
+    <value>Enter bag numbers and/or ranges separated by commas. Ex: 1,3,5-12</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="BasalIdShort" xml:space="preserve">
+    <value>BASAL ID</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="DoNotPrintLabels" xml:space="preserve">
+    <value>Do Not Print Labels</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="DrugShort" xml:space="preserve">
+    <value>DRUG</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="ExpiresDateShort" xml:space="preserve">
+    <value>EXPIRES</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>options</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="PrintBagNumbers" xml:space="preserve">
+    <value>Print Bag Numbers</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="ProjectShort" xml:space="preserve">
+    <value>PROJECT</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="StudyShort" xml:space="preserve">
+    <value>STUDY</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="DietRequestToBeDisabled" xml:space="preserve">
+    <value>Disable Repeat Request</value>
+    <comment>DietRequest that was used as template</comment>
+  </data>
+  <data name="DietRequestToBeEnabled" xml:space="preserve">
+    <value>Enable Repeat Request</value>
+    <comment>DietRequest that was not used as template</comment>
+  </data>
+  <data name="PremixToBeActivated" xml:space="preserve">
+    <value>Pre-Mix to be Activated</value>
+    <comment>Used Medicated Premix that can be set as not used.</comment>
+  </data>
+  <data name="PremixToBeDeactivated" xml:space="preserve">
+    <value>Pre-Mix to be De-Activated</value>
+    <comment>Not used Medicated Premix that can be set as used.</comment>
+  </data>
+  <data name="Activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="Deactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Disable</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="Zpl" xml:space="preserve">
+    <value>zpl</value>
+    <comment>[FeedLabels]</comment>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="CustomerIdLabel" xml:space="preserve">
+    <value>Cust ID</value>
+  </data>
+  <data name="CustomerType" xml:space="preserve">
+    <value>Customer Type</value>
+  </data>
+  <data name="Initial" xml:space="preserve">
+    <value>Initial</value>
+  </data>
+  <data name="Building" xml:space="preserve">
+    <value>Building</value>
+  </data>
+  <data name="BusinessUnit" xml:space="preserve">
+    <value>Business Unit</value>
+  </data>
+  <data name="CustomerTypeLabel" xml:space="preserve">
+    <value>Customer Type</value>
+  </data>
+  <data name="BasalDietCode" xml:space="preserve">
+    <value>Basal Diet Code</value>
+    <comment>[BasalDiets] This resource represents the label for the "Basal Diet Code" column header.</comment>
+  </data>
+  <data name="BasalDietName" xml:space="preserve">
+    <value>Basal Diet Name</value>
+    <comment>[BasalDiets] This resource represents the label for the "Basal Diet Name" column header.</comment>
+  </data>
+  <data name="NewDiet" xml:space="preserve">
+    <value>New Diet</value>
+    <comment>[Button] This resource represents the text displayed on the "New Diet" button.</comment>
+  </data>
+  <data name="DietIngredients" xml:space="preserve">
+    <value>Diet Ingredients</value>
+    <comment>[BasalDiet] Section for Ingredients included in BasalDiet</comment>
+  </data>
+  <data name="PercentOfTotalDiet" xml:space="preserve">
+    <value>Percent of Total Diet</value>
+    <comment>[BasalDiet] Percent of total diet for ingredients which included in BasalDiet</comment>
+  </data>
+  <data name="NonProductionError" xml:space="preserve">
+    <value>Non-production error</value>
+    <comment>[StaticError]</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>Floor</value>
+  </data>
+  <data name="Lab" xml:space="preserve">
+    <value>Lab</value>
+  </data>
+  <data name="DeliveryLocation" xml:space="preserve">
+    <value>Delivery Location</value>
+  </data>
+  <data name="AuditRecords" xml:space="preserve">
+    <value>Audit Records</value>
+  </data>
+  <data name="ChangeTimestamp" xml:space="preserve">
+    <value>Change Timestamp</value>
+  </data>
+  <data name="ChangeType" xml:space="preserve">
+    <value>Change Type</value>
+  </data>
+  <data name="LotId" xml:space="preserve">
+    <value>Lot ID</value>
+  </data>
+  <data name="SelectAuditRecord" xml:space="preserve">
+    <value>Select Audit Record</value>
+    <comment>[AuditLogs]</comment>
+  </data>
+  <data name="Audit" xml:space="preserve">
+    <value>Audit</value>
+  </data>
+  <data name="FilteringYear" xml:space="preserve">
+    <value>Filtering Year</value>
+  </data>
+  <data name="FilteringYearMessage" xml:space="preserve">
+    <value>Do not display Diet Requests, Process Work Orders or Feed Labels created prior to the year</value>
+  </data>
+  <data name="Entry" xml:space="preserve">
+    <value>Entry</value>
+  </data>
+  <data name="ChangeOperator" xml:space="preserve">
+    <value>Change Operator</value>
+  </data>
+  <data name="ChangeReason" xml:space="preserve">
+    <value>Change Reason</value>
+  </data>
+</root>

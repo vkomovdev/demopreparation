@@ -1,0 +1,102 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources;
+@model DietPreparation.Web.Models.PWOs.PwoCloseViewModel
+
+<div class="container mt-4 mb-2">
+	@using (Html.BeginForm("CloseDetails", "Pwo", new { requestId = Model.RequestId, sequence = Model.Sequence }, FormMethod.Post, true, new { @class = "diet-request-form", id = "pwo-close-form" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.HiddenFor(model => model.PwoId)
+		@Html.HiddenFor(model => model.RequestId)
+		@Html.HiddenFor(model => model.Sequence)
+		<div class="row">
+			<div class="col-md-2 px-2 py-2">@Html.LabelFor(x => x.Mixer, new { @class = "col-form-label required" })</div>
+			<div class="col-md-4">
+				@Html.TextBoxFor(x => x.Mixer, new { @class = "form-control", required = "required" })
+			</div>
+			<div class="col-md-2 py-2">@Html.LabelFor(x => x.TimeCompleted, new {@class = "col-form-label required"})</div>
+			<div class="col-md-4">@Html.TextBoxFor(x => x.TimeCompleted, new { @class = "form-control", required = "required", @type = "time" })</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 px-2 py-2">@Html.LabelFor(x => x.Location, new { @class = "form-label col-form-label required" })</div>
+			<div class="col-md-4">
+				@Html.DropDownListFor(x => x.Location, new SelectList(Model.Location), string.Empty, new { @class = "form-select",id = "locationDropdown"})
+				@Html.TextBoxFor(x => x.LocationManual, new { @class = "form-control mt-2",id = "locationManualInput", style = "display:none;" })
+			</div>
+			<div class="col-md-2 py-2">@Html.LabelFor(x => x.DateCompleted, new { @class = "col-form-label required" })</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					@Html.TextBoxFor(x => x.DateCompleted, Model.DateCompleted.ToString(FormatStrings.NetDateFormat).ToUpper(), new { @class = "form-control", required = "required" })
+					<span class="input-group-text">
+						<i data-feather="calendar"></i>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 px-2 py-2">@Html.LabelFor(x => x.BagCount, new { @class = "col-form-label required" })</div>
+			<div class="col-md-4">
+				@Html.TextBoxFor(x => x.BagCount, new { @class = "form-control",required = "required", type = "number", min = 1})
+			</div>
+			<div class="col-md-2 py-2">@Html.LabelFor(x => x.CompletedBy, new { @class = "col-form-label required" })</div>
+			<div class="col-md-4">
+				@Html.TextBoxFor(x => x.CompletedBy, new { @class = "form-control",required = "required" })
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2 px-2 py-2">@Html.LabelFor(x => x.Comment, new { @class = "col-form-label" })</div>
+			<div class="col-md-10">
+				@Html.TextAreaFor(x=> x.Comment, new { @class = "form-control" })
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 offset-md-6">
+				@Html.ActionLink(
+					@ContentResources.Cancel,
+					"details",
+					"pwo",
+					new { requestId = Model.RequestId, sequence= Model.Sequence },
+					new { @class = "btn btn-secondary"})
+			</div>
+			<div class="col-md-3">
+				<button type="submit" class="btn btn-primary">@ContentResources.CloseWorkOrder</button>
+			</div>
+		</div>
+	}
+</div>
+
+<script>
+	const locationDropdown = document.getElementById('locationDropdown');
+	const locationManualInput = document.getElementById('locationManualInput');
+
+	locationDropdown.addEventListener('change', function () {
+		if (locationDropdown.value === "Manual") {
+			locationManualInput.style.display = "block";
+		} else {
+			locationManualInput.style.display = "none";
+		}
+	});
+
+	$(document).ready(function () {
+		$('input[name=DateCompleted]').datepicker({
+			format: "@FormatStrings.JsDateFormat",
+			autoclose: true,
+			todayBtn: "linked",
+			assumeNearbyYear: true
+		});
+
+		$('.input-group-text').on('click', function () {
+			$(this).prev('.form-control').focus();
+		});
+
+		$("#pwo-close-form").on("submit", function (e) {
+			const dateCompletedValue = $("input[name='DateCompleted']").val();
+
+			if (dateCompletedValue) {
+				const isoDateCompleted = new Date(dateCompletedValue).toISOString();
+				$("input[name='DateCompleted']").val(isoDateCompleted);
+			}
+		});
+	});
+</script>

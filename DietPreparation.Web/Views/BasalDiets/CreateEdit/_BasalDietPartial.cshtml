@@ -1,0 +1,62 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.BasalDiets.EditBasalDietViewModel
+
+<h4>@ContentResources.BasalDiet</h4>
+
+@if (Model.IsLocked == true)
+{
+	<div class="form-group">
+		<div class="row">
+			<div class="alert alert-light col-md-12 mt-12 mt-md-0" role="alert">
+				@ContentResources.Locked @ContentResources.BasalDiet
+			</div>
+		</div>
+	</div>
+
+}
+
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DateCreate, ContentResources.DateCreated, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Model.DateCreate.ToString(FormatStrings.NetDateFormat).ToUpper()
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.CreatedBy, ContentResources.CreatedBy, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.CreatedBy)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.Code, ContentResources.BasalDietCode, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.TextBoxFor(
+			x => x.Code,
+			new
+			{
+				@class = "form-control",
+				required = "required",
+				maxlength = FieldLengthes.Middle
+			})
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.Name, ContentResources.BasalDietName, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.TextBoxFor(
+			x => x.Name,
+			new
+			{
+				@class = "form-control",
+				required = "required",
+				maxlength = FieldLengthes.Middle
+			})
+	</div>
+</div>

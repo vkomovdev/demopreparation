@@ -1,0 +1,260 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Enums
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Common.Consts
+@model DietPreparation.Web.Models.DietRequests.EditDietRequestViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Edit} {ContentResources.DietRequest}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Edit} {ContentResources.DietRequest}")
+
+	@using (Html.BeginForm("Edit", "DietRequest", FormMethod.Post, new { @class = "diet-request-form needs-validation", novalidate = "novalidate", id = "diet-request-form" }))
+	{
+		@Html.HiddenFor(x => x.Id)
+
+		@await Html.PartialAsync("_RootCreateEditPartial.cshtml", Model)
+
+		<section class="row button-panel">
+			<div class="col-md-3">
+				<button type="button" id="delete-button" class="btn btn-danger mt-md-0 mt-2">@ContentResources.Delete</button>
+			</div>
+			<div class="col-md-3 offset-md-3">
+				@Html.ActionLink(ContentResources.Cancel, "Index", "DietRequest", null, new { @class = "btn btn-secondary" })
+			</div>
+			<div class="col-md-3">
+				<button type="submit" id="submit-button" class="btn btn-primary mt-md-0 mt-2">@ContentResources.Save</button>
+			</div>
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		import DateHelper from '@Url.Content("~/scripts/Helpers/date-helper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+
+		$(document).on('click', '#delete-button', function () {
+			event.preventDefault();
+			overlay.show();
+
+			var url = new URL(window.location);
+			const id = url.searchParams.get('id');
+
+			modal.setTextTitle('@ContentResources.DietRequests');
+			modal.setInputBody('@MessagesResources.PleaseEnterReasonForDelete');
+			modal.setCancelContinueButtons('@ContentResources.Cancel', '@ContentResources.Ok');
+
+			modal.modalElement.on('continue', (event) => deleteDietRequest(id));
+			modal.modalElement.on('cancel', (event) => unsubscribeModalEvents());
+
+			modal.open();
+			overlay.hide();
+		});
+
+		function unsubscribeModalEvents() {
+			modal.modalElement.off('continue');
+			modal.modalElement.off('cancel');
+		}
+
+		function deleteDietRequest(id) {
+			const viewModel = { Id: id, ChangeReason: modal.getInputValue() };
+			overlay.show();
+			unsubscribeModalEvents();
+			api.post('@Url.Action("Delete", "DietRequest")', viewModel, {
+				headers: { "Content-Type": "application/json" }
+			})
+				.then((data) => {
+					overlay.hide();
+					modal.close();
+					window.location.href = '@Url.Action("Index", "DietRequest")';
+				})
+				.catch((exception) => {
+					handleException(exception);
+					modal.close();
+					overlay.hide();
+				});
+		}
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			modal.setTextTitle('@ContentResources.DietRequests');
+			modal.setInputBody('@MessagesResources.PleaseEnterReasonForChange');
+			modal.setCancelContinueButtons('@ContentResources.Cancel', '@ContentResources.Ok');
+
+			modal.modalElement.on('continue', (event) => getReasonAndUpdate());
+			modal.modalElement.on('cancel', (event) => unsubscribeModalEvents());
+
+			modal.open();
+		});
+		function getReasonAndUpdate() {
+			unsubscribeModalEvents();
+			const reason = modal.getInputValue();
+			updateDietRequest(reason);
+		}
+
+		function updateDietRequest(changeReason) {
+			const formData = new FormData(document.getElementById('diet-request-form'));
+
+			var isBasalDiet = document.getElementById("base-feed-type-select").value === "@FeedType.Basal.GetNumberAsString()";
+			var hasPremixes = formData.get("HasPremixes").toLowerCase() === "true" && 
+				document.getElementById("request-type-select").value !== "@RequestType.MedicatedPremix.GetNumberAsString()";
+			var hasDrugs = formData.get("HasDrugs").toLowerCase() === "true";
+			var hasSamples = formData.get("HasSamples").toLowerCase() === "true";
+
+			const premixesData = [];
+			const drugsData = [];
+			const samplesData = [];
+
+			if (hasPremixes) {
+				const premixesTable = document.getElementById("premix-table");
+				const premixesTbody = premixesTable.querySelector("tbody");
+				const premixesRows = premixesTbody.querySelectorAll("tr");
+
+				premixesRows.forEach(row => {
+					const cells = row.querySelectorAll("td");
+					const rowData = {
+						PremixId: parseInt(cells[0].querySelector("select").value),
+						Amount: parseFloat(cells[1].querySelector("input[type='number']").value),
+						UnitOfMeasure: parseInt(cells[2].querySelector("select").value),
+						IncludedInWeight: cells[3].querySelector("input[type='checkbox']").checked
+					};
+					premixesData.push(rowData);
+				});
+			}
+
+			if (hasDrugs) {
+				const drugsTable = document.getElementById("drug-table");
+				const drugsTbody = drugsTable.querySelector("tbody");
+				const drugsRows = drugsTbody.querySelectorAll("tr");
+
+				drugsRows.forEach(row => {
+					const cells = row.querySelectorAll("td");
+					const rowData = {
+						DrugId: parseInt(cells[0].querySelector("select").value),
+						ConcentrationWithUom: cells[1].querySelector("input[type='text']").value,
+						Amount: parseFloat(cells[2].querySelector("input[type='number']").value),
+						UnitOfMeasure: parseInt(cells[3].querySelector("select").value),
+						MfgLot: cells[4].querySelector("input[type='text']").value,
+						IncludedInWeight: cells[5].querySelector("input[type='checkbox']").checked
+					};
+					drugsData.push(rowData);
+				});
+			}
+
+			if (hasSamples) {
+				const samplesTable = document.getElementById("sample-table");
+				const samplesTbody = samplesTable.querySelector("tbody");
+				const samplesRows = samplesTbody.querySelectorAll("tr");
+
+				samplesRows.forEach(row => {
+					const cells = row.querySelectorAll("td");
+					const rowData = {
+						Amount: parseFloat(cells[0].querySelector("input[type='number']").value),
+						UnitOfMeasure: parseInt(cells[1].querySelector("select").value),
+						Disposition: cells[2].querySelector("input[type='text']").value,
+						AnalysisType: parseInt(cells[3].querySelector("select").value),
+						Comment: cells[4].querySelector("textarea").value
+					};
+					samplesData.push(rowData);
+				});
+			}
+
+			const viewModel = {
+				Id: parseInt(formData.get("Id")),
+
+				RequesterId: parseInt(formData.get("RequesterId")),
+				ReceiverId: parseInt(formData.get("ReceiverId")),
+				LocationId: parseInt(formData.get("LocationId")),
+				DeliveryNotice: formData.get("DeliveryNotice").toLowerCase() === "true",
+				DateRequest: DateHelper.getJsonDate(formData.get("DateRequest")),
+				DateNeeded: DateHelper.getJsonDate(formData.get("DateNeeded")),
+
+				LotNumber: '@Model.LotNumber',
+				ProtocolNumber: '@Model.ProtocolNumber',
+				StudyNumber: formData.get("StudyNumber"),
+				StudyType: parseInt(formData.get("StudyType")),
+				ProjectNumber: formData.get("ProjectNumber"),
+				IntendedUse: parseInt(formData.get("IntendedUse")),
+				RequestType: parseInt(formData.get("RequestType")),
+				FeedType: parseInt(formData.get("FeedType")),
+				BasalDietId: isBasalDiet ? parseInt(formData.get("BasalDietId")) : null,
+				FeedSupplierName: !isBasalDiet ? formData.get("FeedSupplierName") : null,
+				FeedSupplierLotNumber: !isBasalDiet ? formData.get("FeedSupplierLotNumber") : null,
+
+				RequestAmount: parseFloat(formData.get("RequestAmount")),
+				UnitOfMeasure: parseInt(formData.get("UnitOfMeasure")),
+				Form: parseInt(formData.get("Form")),
+				ControlledSubstance: formData.get("ControlledSubstance").toLowerCase() === "true",
+				ToxicHazard: parseInt(formData.get("ToxicHazard")),
+				HazardCode: formData.get("HazardCode"),
+				PackagingInstructions: formData.get("PackagingInstructions"),
+				MixingInstructions: formData.get("MixingInstructions"),
+
+				Premixes: premixesData,
+				Drugs: drugsData,
+				Samples: samplesData,
+
+				HasDrugs: hasDrugs && drugsData.length > 0,
+				HasPremixes: hasPremixes && premixesData.length > 0,
+				HasSamples: hasSamples && samplesData.length > 0,
+
+				GeneralComment: formData.get("GeneralComment"),
+				PrintAfterSave: formData.get("PrintAfterSave").toLowerCase() === "true",
+				ChangeReason: changeReason
+			};
+
+			overlay.show();
+			api.post('@Url.Action("Edit", "DietRequest")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.DietRequests');
+				modal.setTextBody('@MessagesResources.DietRequestUpdated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "DietRequest")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		}
+
+		$(document).ready(function () {
+			$('input[name=DateRequest]').datepicker({
+				format: "@FormatStrings.JsDateFormat",
+				endDate: '@DateTime.Now.ToString(FormatStrings.JsDateFormat)',
+				autoclose: true,
+				todayBtn: "linked",
+				assumeNearbyYear: true
+			});
+			$('input[name=DateNeeded]').datepicker({
+				format: "@FormatStrings.JsDateFormat",
+				autoclose: true,
+				todayBtn: "linked",
+				assumeNearbyYear: true
+			});
+
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

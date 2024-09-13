@@ -1,0 +1,113 @@
+@using DietPreparation.Web.Models.PWOs;
+@using DietPreparation.Resources;
+@using DietPreparation.Common.Consts
+
+@model PwoDetailViewModel
+@{
+	ViewBag.Title = ContentResources.ProcessWorkOrders;
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.ProcessWorkOrders)
+	<div class="accordion" id="accordion">
+		@await Html.PartialAsync("~/Views/Pwo/Shared/_PwoDetailsPartial.cshtml", Model)
+	</div>
+	<div class="row mt-3">
+		<div class="col-md-3">
+			@Html.ActionLink(
+				ContentResources.Cancel,
+				"batchlist",
+				"pwo",
+				new { requestId = Model.Header.RequestId },
+				new { @class = "btn btn-secondary" })
+		</div>
+
+		<div class="col-md-3  offset-md-3">
+			<button type="button" id="print-button" class="btn btn-light border border-secondary">
+				<i data-feather="printer" class="print-icon"></i> @ContentResources.Print
+			</button>
+		</div>
+
+		@if (string.IsNullOrEmpty(Model.Header.CompletedBy))
+		{
+			<div class="col-md-3">
+				@Html.ActionLink(
+					ContentResources.CloseWorkOrder,
+					"close-details",
+					"pwo",
+					new { requestId = Model.Header.RequestId, sequence = Model.Header.Sequence },
+					new { @class = "btn btn-primary"})
+			</div>
+		}
+		else
+		{
+			<div class="col-md-3">
+				@Html.ActionLink(
+					ContentResources.CloseWorkOrder,
+					"close-details",
+					"pwo",
+					new { requestId = Model.Header.RequestId, sequence = Model.Header.Sequence },
+					new { @class = "btn btn-primary disabled"})
+			</div>
+		}
+	</div>
+</div>
+
+@section Scripts {
+    <script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+
+		function printConfirm(pwoId) {
+			overlay.show();
+			const viewModel = { pwoId: pwoId };
+
+			api.post('@Url.Action("PrintConfirm", "Pwo")', viewModel, {
+				headers: { "Content-Type": "application/json" }
+			})
+			.then((data) => {
+				overlay.hide();
+				modal.close();
+				window.location.href = '@Url.Action("Search", "Pwo")';
+			})
+			.catch((exception) => {
+				handleException(exception);
+				modal.close();
+				overlay.hide();
+			});
+		}
+
+		$(document).on('click', '#print-button', function () {
+			event.preventDefault();
+			const requestId = '@Model.Header.RequestId';
+			const sequence = '@Model.Header.Sequence';
+			const pwoId = '@Model.Header.PwoId';
+
+			overlay.show();
+			api.get(`@Url.Action("Print", "Pwo")?requestId=${requestId}&sequence=${sequence}`, {
+				headers: { "Content-Type": "application/json" }
+			})
+			.then((data) => {
+				overlay.hide();
+				modal.setTextTitle('@MessagesResources.WorkOrderPrintQuestion');
+				modal.setTextBody('@MessagesResources.PwoPrintedProperly<br/>@MessagesResources.PwoDidNotPrintProperly');
+				modal.setCancelContinueButtons('@ContentResources.Cancel', '@ContentResources.Ok');
+				modal.modalElement.on('continue', (event) => printConfirm(pwoId));
+				modal.open();
+			})
+			.catch((exception) => {
+				overlay.hide();
+				handleException(exception);
+			});
+		});
+	</script>
+}

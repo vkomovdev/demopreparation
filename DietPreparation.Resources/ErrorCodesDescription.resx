@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="2" xml:space="preserve">
+    <value>The requested page or resource could not be found.</value>
+    <comment>CommonErrorCode.RouteNotFound</comment>
+  </data>
+  <data name="1" xml:space="preserve">
+    <value>An unexpected error has occurred. Please try again later.</value>
+    <comment>CommonErrorCode.UnhandledException</comment>
+  </data>
+  <data name="10" xml:space="preserve">
+    <value>The requested sorting criteria is not implemented. Please use a supported sorting field and try again.</value>
+    <comment>CommonErrorCode.NotImplementedOrderByException</comment>
+  </data>
+  <data name="1001" xml:space="preserve">
+    <value>Mandatory field is empty. Please, provide any value.</value>
+    <comment>FluentValidationErrorCode.FieldRequired</comment>
+  </data>
+  <data name="1002" xml:space="preserve">
+    <value>The provided value is either too short or too long. Please check the requirements and try again.</value>
+    <comment>FluentValidationErrorCode.InvalidLength</comment>
+  </data>
+  <data name="1003" xml:space="preserve">
+    <value>The provided email is not valid. Please enter a valid email address.</value>
+    <comment>FluentValidationErrorCode.InvalidEmail</comment>
+  </data>
+  <data name="1004" xml:space="preserve">
+    <value>The provided email is not valid. It must have a specific domain. Please enter a valid email address.</value>
+    <comment>FluentValidationErrorCode.InvalidEmailWithCustomDomain</comment>
+  </data>
+  <data name="1005" xml:space="preserve">
+    <value>The provided value must be non-negative. Please enter a positive value or zero.</value>
+    <comment>FluentValidationErrorCode.MustBeNonNegative</comment>
+  </data>
+  <data name="1006" xml:space="preserve">
+    <value>The provided sorting criteria is incorrect. Please use a valid sorting field and try again.</value>
+    <comment>FluentValidationErrorCode.IncorrectOrderBy</comment>
+  </data>
+  <data name="1007" xml:space="preserve">
+    <value>The provided slope value is incorrect. Please review the value and try again.</value>
+    <comment>FluentValidationErrorCode.IncorrectSlope</comment>
+  </data>
+  <data name="11" xml:space="preserve">
+    <value>An error occurred while connecting to the database. Please try again later.</value>
+    <comment>CommonErrorCode.DatabaseConnectionException</comment>
+  </data>
+  <data name="2001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>UserErrorCode.ReadException</comment>
+  </data>
+  <data name="2002" xml:space="preserve">
+    <value>An error occurred while creating the item. Please check your input and try again.</value>
+    <comment>UserErrorCode.CreateException</comment>
+  </data>
+  <data name="2003" xml:space="preserve">
+    <value>An error occurred while updating the item. Please check your input and try again.</value>
+    <comment>UserErrorCode.UpdateException</comment>
+  </data>
+  <data name="2004" xml:space="preserve">
+    <value>The requested user could not be found. Please check the user details and try again.</value>
+    <comment>UserErrorCode.UserNotFound</comment>
+  </data>
+  <data name="2005" xml:space="preserve">
+    <value>The specified UserId already exists. Please choose a different UserId.</value>
+    <comment>UserErrorCode.UserIdAlreadyExists</comment>
+  </data>
+  <data name="3" xml:space="preserve">
+    <value>Requested entity not found.</value>
+    <comment>CommonErrorCode.EntityNotFound</comment>
+  </data>
+  <data name="3001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>DietRequestErrorCode.ReadException</comment>
+  </data>
+  <data name="3002" xml:space="preserve">
+    <value>An error occurred while creating the item. Please check your input and try again.</value>
+    <comment>DietRequestErrorCode.CreateException</comment>
+  </data>
+  <data name="3003" xml:space="preserve">
+    <value>An error occurred while updating the item. Please check your input and try again.</value>
+    <comment>DietRequestErrorCode.UpdateException</comment>
+  </data>
+  <data name="3004" xml:space="preserve">
+    <value>The requester could not be found. Please check the user details and try again.</value>
+    <comment>DietRequestErrorCode.RequesterNotFound</comment>
+  </data>
+  <data name="3005" xml:space="preserve">
+    <value>The receiver could not be found. Please check the user details and try again.</value>
+    <comment>DietRequestErrorCode.ReceiverNotFound</comment>
+  </data>
+  <data name="3006" xml:space="preserve">
+    <value>The specified location could not be found. Please check the address and try again.</value>
+    <comment>DietRequestErrorCode.LocationNotFound</comment>
+  </data>
+  <data name="3007" xml:space="preserve">
+    <value>The requested basal diet could not be found. Please check the diet and try again.</value>
+    <comment>DietRequestErrorCode.BasalDietNotFound</comment>
+  </data>
+  <data name="3008" xml:space="preserve">
+    <value>The requested drug could not be found. Please check the drug and try again.</value>
+    <comment>DietRequestErrorCode.DrugNotFound</comment>
+  </data>
+  <data name="3009" xml:space="preserve">
+    <value>The requested premix could not be found. Please check the premix and try again.</value>
+    <comment>DietRequestErrorCode.PremixNotFound</comment>
+  </data>
+  <data name="4" xml:space="preserve">
+    <value>The item was modified by another user. Please refresh and try again.</value>
+    <comment>CommonErrorCode.ConcurrentModification</comment>
+  </data>
+  <data name="5" xml:space="preserve">
+    <value>You are not authorized to perform this action.</value>
+    <comment>CommonErrorCode.Unauthorized</comment>
+  </data>
+  <data name="6" xml:space="preserve">
+    <value>You do not have permission to access this resource.</value>
+    <comment>CommonErrorCode.Forbidden</comment>
+  </data>
+  <data name="7" xml:space="preserve">
+    <value>The provided data is invalid or incomplete. Please check your input and try again.</value>
+    <comment>CommonErrorCode.UnprocessableEntity</comment>
+  </data>
+  <data name="8" xml:space="preserve">
+    <value>A required value is missing. Please fill in all required fields and try again.</value>
+    <comment>CommonErrorCode.ArgumentNullException</comment>
+  </data>
+  <data name="9" xml:space="preserve">
+    <value>This feature is not yet implemented.</value>
+    <comment>CommonErrorCode.NotImplementedException</comment>
+  </data>
+  <data name="3010" xml:space="preserve">
+    <value>The requested diet request could not be found. Please update page and try again.</value>
+    <comment>DietRequestErrorCode.DietRequestNotFound</comment>
+  </data>
+  <data name="3011" xml:space="preserve">
+    <value>An error occurred while cloning Diet Request. Please try again later.</value>
+    <comment>DietRequestErrorCode.CloneException</comment>
+  </data>
+  <data name="3012" xml:space="preserve">
+    <value>An error occurred while deleting Diet Request. Please try again later.</value>
+    <comment>DietRequestErrorCode.DeleteException</comment>
+  </data>
+  <data name="3013" xml:space="preserve">
+    <value>Update of deleted Diet Request is forbidden.</value>
+    <comment>DietRequestErrorCode.UpdateDeletedDietRequest</comment>
+  </data>
+  <data name="3014" xml:space="preserve">
+    <value>Update of locked Diet Request is forbidden.</value>
+    <comment>DietRequestErrorCode.UpdateLockedDietRequest</comment>
+  </data>
+  <data name="4001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>FeedStuffErrorCode.ReadException</comment>
+  </data>
+  <data name="4002" xml:space="preserve">
+    <value>An error occurred while creating the item. Please check your input and try again.</value>
+    <comment>FeedStuffErrorCode.CreateException</comment>
+  </data>
+  <data name="4003" xml:space="preserve">
+    <value>An error occurred while updating the item. Please check your input and try again.</value>
+    <comment>FeedStuffErrorCode.UpdateException</comment>
+  </data>
+  <data name="4004" xml:space="preserve">
+    <value>The provided name is a duplicate and not allowed. Please enter a unique value.</value>
+    <comment>FeedStuffErrorCode.DuplicateNameNotAllowed</comment>
+  </data>
+  <data name="12" xml:space="preserve">
+    <value>A required parameter is missing. Please check the URL and try again.</value>
+    <comment>CommonErrorCode.ParametersNullException</comment>
+  </data>
+  <data name="13" xml:space="preserve">
+    <value>The ViewModel is null. Please ensure proper data is provided and try again.</value>
+    <comment>CommonErrorCode.ViewModelNullException</comment>
+  </data>
+  <data name="3015" xml:space="preserve">
+    <value>An error occurred while activating Diet Request. Please try again later.</value>
+    <comment>DietRequestErrorCode.ActivateException</comment>
+  </data>
+  <data name="5001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>FeedLabelsErrorCode.ReadException</comment>
+  </data>
+  <data name="5002" xml:space="preserve">
+    <value>An error occurred while printing the data. Please try again later.</value>
+    <comment>FeedLabelsErrorCode.PrintException</comment>
+  </data>
+  <data name="6001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>PwoErrorCode.CloseException</comment>
+  </data>
+  <data name="7001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>DrugErrorCode.UpdateException</comment>
+  </data>
+  <data name="6002" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>PwoErrorCode.ReadException</comment>
+  </data>
+  <data name="7002" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>DrugErrorCode.ReadException</comment>
+  </data>
+  <data name="8001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+    <comment>BatchErrorCode.ReadException</comment>
+  </data>
+  <data name="1009" xml:space="preserve">
+    <value>Total amount must be greater than the sum of the included weights of drugs and premixes.</value>
+    <comment>FluentValidationErrorCode.TotalAmountLessThanWeightsSum</comment>
+  </data>
+  <data name="1010" xml:space="preserve">
+    <value>Total amount must be greater than the sum of the sample amounts.</value>
+    <comment>FluentValidationErrorCode.TotalAmountLessThanSamplesSum</comment>
+  </data>
+  <data name="1011" xml:space="preserve">
+    <value>The drug must be active to be used in the diet request.</value>
+    <comment>FluentValidationErrorCode.DrugMustBeActive</comment>
+  </data>
+  <data name="1012" xml:space="preserve">
+    <value>The premix must be active to be used in the diet request.</value>
+    <comment>FluentValidationErrorCode.PremixMustBeActive</comment>
+  </data>
+  <data name="1008" xml:space="preserve">
+    <value>The provided value is not valid. Please enter a valid value.</value>
+    <comment>FluentValidationErrorCode.InvalidValue</comment>
+  </data>
+  <data name="1013" xml:space="preserve">
+    <value>The provided value doesn't meet a specified format. Please enter a valid value.</value>
+    <comment>FluentValidationErrorCode.InvalidFormat</comment>
+  </data>
+  <data name="5003" xml:space="preserve">
+    <value>An error occurred while writing to the print file. Please try again later.</value>
+    <comment>FeedLabelsErrorCode.PrintIOException</comment>
+  </data>
+  <data name="5004" xml:space="preserve">
+    <value>Insufficient permissions to access the print directory or print file.</value>
+    <comment>FeedLabelsErrorCode.PrintAccessDenied</comment>
+  </data>
+  <data name="1014" xml:space="preserve">
+    <value>Attribute value is too long. Please, decrease value length.</value>
+    <comment>CommonErrorCode.ValueTooLong</comment>
+  </data>
+  <data name="1015" xml:space="preserve">
+    <value>Attribute value is too small. Please, increase value length.</value>
+    <comment>CommonErrorCode.ValueTooSmall</comment>
+  </data>
+  <data name="1016" xml:space="preserve">
+    <value>Attribute value is outside permitted period. Please, provide value inside the period.</value>
+    <comment>CommonErrorCode.ValueNotInPeriod</comment>
+  </data>
+  <data name="1017" xml:space="preserve">
+    <value>Attribute value is not in range. Please, provide value in range.</value>
+    <comment>CommonErrorCode.ValueNotInRange</comment>
+  </data>
+  <data name="5005" xml:space="preserve">
+    <value>Invalid bag numbers format. Please check and retry.</value>
+    <comment>FeedLabelsErrorCode.ParseBagNumbersException</comment>
+  </data>
+  <data name="9001" xml:space="preserve">
+    <value>An error occurred while reading the data. Please try again later.</value>
+  </data>
+  <data name="9002" xml:space="preserve">
+    <value>An error occurred while creating the item. Please check your input and try again.</value>
+  </data>
+  <data name="9003" xml:space="preserve">
+    <value>An error occurred while updating the item. Please check your input and try again.</value>
+  </data>
+  <data name="9004" xml:space="preserve">
+    <value>The requested customer could not be found. Please check the user details and try again.</value>
+  </data>
+  <data name="9005" xml:space="preserve">
+    <value>The specified CustomerId already exists. Please choose a different CustomerId.</value>
+  </data>
+  <data name="9006" xml:space="preserve">
+    <value>The specified Customer Email already exists. Please choose a different Customer Email.</value>
+  </data>
+  <data name="10001" xml:space="preserve">
+    <value>Name should be unique</value>
+    <comment>BasalDietErrorCode.NameShouldBeUnique</comment>
+  </data>
+  <data name="10002" xml:space="preserve">
+    <value>Code should be unique</value>
+    <comment>BasalDietErrorCode.CodeShouldBeUnique</comment>
+  </data>
+  <data name="11001" xml:space="preserve">
+    <value>There is already existing location with the same address</value>
+    <comment>LocationErrorCode.DuplicateIsForbidden</comment>
+  </data>
+</root>

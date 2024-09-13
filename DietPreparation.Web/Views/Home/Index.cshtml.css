@@ -1,0 +1,8 @@
+﻿.bg-image {
+  background-image: url(images/feed-mill.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  box-shadow: inset 0 -5px 5px 0 #ffffff;
+  height: 100vh;
+}

@@ -1,0 +1,162 @@
+﻿@using DietPreparation.Resources;
+@using DietPreparation.Web.Models.FeedStuffs;
+@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Extensions;
+@model FeedStuffPlanningViewModel
+
+@{
+	ViewBag.Title = ContentResources.BulkFeedstuffPlanning;
+
+	var orderBy = new FeedStuffPlanningRowItem();
+
+	var filterTypeArray = Model.Ingredients.FeedStuffs;
+	var filterList = new List<SelectListItem>
+	{
+		new SelectListItem
+		{
+			Text = ContentResources.All,
+			Value = string.Empty
+		}
+	};
+
+	filterList.AddRange(filterTypeArray
+		.Select(accessType => new SelectListItem
+		{
+			Text = accessType.Name,
+			Value = accessType.EncodedId
+		}));
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.BulkFeedstuffPlanning)
+
+	<div class="alert alert-light mt-2" role="alert">
+		@ContentResources.OnlyClosedProcessWorkOrders
+	</div>
+
+	<div class="accordion pb-4" id="accordionPanelsStayOpenExample">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="panelsStayOpen-headingOne">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+					@ContentResources.Search
+				</button>
+			</h2>
+			<div id="panelsStayOpen-collapseOne" class="px-2 accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+				<section class="search-panel">
+					<div class="row pt-3">
+						<div class="col-md-1">
+							@Html.LabelFor(x => x.DateStart, ContentResources.DateStart, new { @class = "control-label required py-2" }):
+						</div>
+						<div class="col-md-2">
+							<div class="input-group">
+								@Html.TextBoxFor(x => x.DateStart, new { @class = "form-control datepicker", filter = "filter", required = "required"})
+								<span class="input-group-text">
+									<i data-feather="calendar"></i>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-1">
+							<label class="col-form-label">@ContentResources.Ingredients:</label>
+						</div>
+						<div class="col-md-5">
+							@Html.DropDownListFor(x => x.IngredientId, filterList,new { @class = "form-select", filter="filter" })
+						</div>
+					</div>
+					<div class="row pt-3 pb-2">
+						<div class="col-md-1">
+							@Html.LabelFor(x => x.DateEnd, ContentResources.DateEnd, new { @class = "control-label required py-2" }):
+						</div>
+						<div class="col-md-2">
+							<div class="input-group">
+								@Html.TextBoxFor(x => x.DateEnd, new { @class = "form-control datepicker", filter = "filter" })
+								<span class="input-group-text">
+									<i data-feather="calendar"></i>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-2 offset-md-7">
+							<button type="button" class="btn btn-primary search-button">@ContentResources.Search</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<section class="sortable-block pagination-block mt-1">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-9 active-asc" data-sort-by="@(orderBy.GetFullName(x => x.Name))">@ContentResources.Ingredient @ContentResources.Name</th>
+					<th class="col-2" data-sort-by="@(orderBy.GetFullName(x => x.Amount))">@ContentResources.Ingredients @ContentResources.Amount</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.UnitOfMeasure))">@ContentResources.UnitOfMeasure</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="4" class="pagination-panel">
+						<nav>
+							<ul class="pagination justify-content-center"></ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+
+		function fillTable(data) {
+			let $data = $('.sortable-block table tbody')
+			$data.find('tr').remove();
+			if (data.items && data.items.length > 0) {
+				$.each(data.items, function (index, item) {
+					var row = $("<tr>");
+					row.append("<td class='sm'>" + item.name + "</td>");
+					row.append("<td class='md'>" + item.amount + "</td>");
+					row.append("<td class='sm'>" + item.unitOfMeasure + "</td>");
+					$data.append(row);
+				});
+			} else {
+				var row = $('<tr>');
+				row.append(`<td colspan="3" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+		}
+
+		$(document).ready(function () {
+			$('input[name=DateEnd]').datepicker({
+				format: "@FormatStrings.JsDateFormat",
+				autoclose: true,
+				todayBtn: "linked",
+				assumeNearbyYear: true
+			});
+			$('input[name=DateStart]').datepicker({
+				format: "@FormatStrings.JsDateFormat",
+				autoclose: true,
+				todayBtn: "linked",
+				assumeNearbyYear: true
+			});
+
+			$('.input-group-text').on('click', function () {
+				$(this).prev('.form-control').focus();
+			});
+
+			const tableManager = new TableManager(['sortable-table', 'search-panel', 'pagination'], '@Url.Action("PlanningList", "FeedStuffs")', fillTable, handleException, feather);
+			tableManager.loadData();
+		});
+	</script>
+}

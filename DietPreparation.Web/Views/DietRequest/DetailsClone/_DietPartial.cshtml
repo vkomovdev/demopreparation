@@ -1,0 +1,77 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.DietRequests.ReadDietRequestViewModel
+
+<h4>@ContentResources.DietData</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.StudyNumber, ContentResources.StudyNumber, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.StudyNumber)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.StudyType, ContentResources.StudyType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.StudyType)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ProjectNumber, ContentResources.ProjectID, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ProjectNumber)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.IntendedUse, ContentResources.IntendedUse, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.IntendedUse)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.RequestType, ContentResources.RequestType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.RequestType)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.FeedType, ContentResources.FeedType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.FeedType)
+	</div>
+</div>
+@if (Model.FeedType is FeedType.External) 
+{
+	<div class="row">
+		<div class="col-md-2 mt-2 mt-md-0">
+			@Html.LabelFor(x => x.FeedSupplierName, ContentResources.FeedSupplier, new { @class = "col-form-label" })
+		</div>
+		<div class="col-md-4">
+			@Html.DisplayFor(x => x.FeedSupplierName)
+		</div>
+		<div class="col-md-2 mt-2 mt-md-0">
+			@Html.LabelFor(x => x.FeedSupplierLotNumber, ContentResources.LotNumber, new { @class = "col-form-label" })
+		</div>
+		<div class="col-md-4">
+			@Html.DisplayFor(x => x.FeedSupplierLotNumber)
+		</div>
+	</div>
+} 
+@if (Model.FeedType == FeedType.Basal)
+{
+	<div class="row">
+		<div class="col-md-2 mt-2 mt-md-0">
+			@Html.LabelFor(x => x.BasalDietName, ContentResources.BasalDiet, new { @class = "col-form-label" })
+		</div>
+		<div class="col-md-4">
+			@Html.DisplayFor(x => x.BasalDietName)
+		</div>
+		<div class="col-md-6"></div>
+	</div>	
+}

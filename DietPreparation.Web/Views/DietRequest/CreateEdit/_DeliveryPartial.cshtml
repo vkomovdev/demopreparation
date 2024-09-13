@@ -1,0 +1,115 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Resources
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Common.Consts
+
+@model DietPreparation.Web.Models.DietRequests.EditDietRequestViewModel
+
+@{
+	var requesterInSelectList = Model.Metadata?.MetadataCustomers?
+		.Where(x => x.Type != CustomerType.Receiver)
+		.Select(x => new SelectListItem
+		{
+			Text = x.Name,
+			Value = x.Id.ToString()
+		});
+
+	var receiversInSelectList = Model.Metadata?.MetadataCustomers?
+		.Where(x => x.Type != CustomerType.Requester)
+		.Select(x => new SelectListItem
+		{
+			Text = x.Name,
+			Value = x.Id.ToString()
+		});
+
+	var locationsInSelectList = Model.Metadata?.MetadataLocations?
+		.Select(x => new SelectListItem
+		{
+			Text = x.Name,
+			Value = x.Id.ToString()
+		});
+}
+
+<h4>@ContentResources.DeliveryData</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.RequesterId, ContentResources.Requestor, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.RequesterId,
+			requesterInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", required = "required" })
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ReceiverId, ContentResources.DeliverTo, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.ReceiverId,
+			receiversInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", required = "required" })
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.LocationId, ContentResources.Location, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.LocationId,
+			locationsInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", required = "required" })
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DeliveryNotice, ContentResources.DeliveryNotice, new { @class = "form-check-label my-auto" })
+	</div>
+	<div class="col-md-4">
+		<div class="form-check form-check-inline">
+			@Html.RadioButtonFor(x => x.DeliveryNotice, true, new { @class = "form-check-input", id = "DeliveryNoticeYes" })
+			@Html.Label(ContentResources.Yes, ContentResources.Yes, new { @class = "form-check-label", @for = "DeliveryNoticeYes" })
+		</div>
+		<div class="form-check form-check-inline">
+			@Html.RadioButtonFor(x => x.DeliveryNotice, false, new { @class = "form-check-input", id = "DeliveryNoticeNo" })
+			@Html.Label(ContentResources.No, ContentResources.No, new { @class = "form-check-label", @for = "DeliveryNoticeNo" })
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DateRequest, ContentResources.DateOfRequest, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		<div class="input-group">
+			@Html.TextBoxFor(
+				x => x.DateRequest, 
+				Model.DateRequest.ToString(FormatStrings.NetDateFormat).ToUpper(), 
+				new {
+					@class = "form-control datepicker",
+					required = "required" 
+				})
+			<span class="input-group-text">
+				<i data-feather="calendar"></i>
+			</span>
+		</div>
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DateNeeded, ContentResources.DateNeeded, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		<div class="input-group">
+			@Html.TextBoxFor(x => x.DateNeeded, Model.DateNeeded.ToString(FormatStrings.NetDateFormat).ToUpper(), new { @class = "form-control datepicker", required = "required" })
+			<span class="input-group-text">
+				<i data-feather="calendar"></i>
+			</span>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$('.input-group-text').on('click', function () {
+			$(this).prev('.form-control').focus();
+		});
+	});
+</script>

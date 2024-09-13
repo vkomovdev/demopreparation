@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\DietPreparation.Common\DietPreparation.Common.csproj" />
+		<ProjectReference Include="..\DietPreparation.Filter\DietPreparation.Filter.csproj" />
+		<ProjectReference Include="..\DietPreparation.Models\DietPreparation.Models.csproj" />
+		<ProjectReference Include="..\DietPreparation.Repositories\DietPreparation.Repositories.csproj" />
+	</ItemGroup>
+
+</Project>

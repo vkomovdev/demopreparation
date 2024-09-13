@@ -1,0 +1,38 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Web.Models.AuditLogs;
+
+@model AuditLogDetailsViewModel;
+
+<h4>@($"{ContentResources.MedicatedPreMix} {ContentResources.Section}")</h4>
+<table class="table table-hover">
+	<thead>
+		<tr class="header">
+			<th>@ContentResources.PreMixName</th>
+			<th>@ContentResources.Amount</th>
+			<th>@ContentResources.UnitOfMeasure</th>
+			<th>@ContentResources.IncludedInWeight</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Premixes is not null)
+		{
+			foreach (var premix in Model.Premixes)
+			{
+				<tr>
+					<td class="col-7">
+						@Html.DisplayFor(x => premix.PremixName)
+					</td>
+					<td class="col-2">
+						@Html.DisplayFor(x => premix.Amount)
+					</td>
+					<td class="col-2">
+						@Html.DisplayFor(x => premix.AmountUoM)
+					</td>
+					<td class="col-1">
+						@(premix.PremixInWeight == true ? ContentResources.Yes : ContentResources.No)
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>

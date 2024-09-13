@@ -1,0 +1,104 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+@model DietPreparation.Web.Models.BasalDiets.EditBasalDietViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Edit} {ContentResources.BasalDiet}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Edit} {ContentResources.BasalDiet}")
+
+	@using (Html.BeginForm("Edit", "BasalDiets", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+	{
+		@Html.HiddenFor(x => x.Id)
+
+		@await Html.PartialAsync("_RootCreateEditPartial", Model)
+
+		<section class="row button-panel">
+			<div class="col-md-3 offset-md-6">
+				@Html.ActionLink(ContentResources.Cancel, "Index", "BasalDiets", null, new { @class = "btn btn-secondary" })
+			</div>
+			@if (Model.IsLocked)
+			{
+				<div class="col-md-3">
+					<button type="submit" class="btn btn-primary mt-md-0 mt-2" disabled>@ContentResources.Update</button>
+				</div>
+			}
+			else
+			{
+				<div class="col-md-3">
+					<button type="submit" class="btn btn-primary mt-md-0 mt-2">@ContentResources.Update</button>
+				</div>
+			}
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			const formData = new FormData(this);
+
+			const basalDietIngredientsData = [];
+
+			const ingredientsTable = document.getElementById("ingredients-table");
+			const ingredientsTbody = ingredientsTable.querySelector("tbody");
+			const ingredientRows = ingredientsTbody.querySelectorAll("tr");
+
+			ingredientRows.forEach(row => {
+				const cells = row.querySelectorAll("td");
+				const rowData = {
+					IngredientId: parseInt(cells[0].querySelector("select").value),
+					PercentOfDiet: parseFloat(cells[1].querySelector("input[type='number']").value)
+				};
+				basalDietIngredientsData.push(rowData);
+			});
+
+			const viewModel = {
+				Id: parseInt(formData.get("Id")),
+				Code: formData.get("Code"),
+				Name: formData.get("Name"),
+				BasalDietIngredients: basalDietIngredientsData,
+			};
+
+			overlay.show();
+			api.post('@Url.Action("Edit", "BasalDiets")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.BasalDiets');
+				modal.setTextBody('@MessagesResources.BasalDietUpdated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "BasalDiets")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+
+		$(document).ready(function () {
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

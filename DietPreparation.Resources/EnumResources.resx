@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessType_Admin" xml:space="preserve">
+    <value>Admin</value>
+    <comment>[AccessType] 	Extended set of operations' permissions</comment>
+  </data>
+  <data name="AccessType_Disabled" xml:space="preserve">
+    <value>Disabled</value>
+    <comment>[AccessType] Empty set of operations' permissions</comment>
+  </data>
+  <data name="AccessType_OrderOnly" xml:space="preserve">
+    <value>Order Only</value>
+    <comment>[AccessType] Limited set of operations - only viewing and printing of information and in addition just only diet requests creation</comment>
+  </data>
+  <data name="AccessType_User" xml:space="preserve">
+    <value>User</value>
+    <comment>[AccessType] Standard set of operations' permissions</comment>
+  </data>
+  <data name="AnalysisType_AntibioticScreen" xml:space="preserve">
+    <value>Antibiotic Screen</value>
+    <comment>[AnalysisType] Antibiotic check</comment>
+  </data>
+  <data name="AnalysisType_NutrientAnalysis" xml:space="preserve">
+    <value>Nutrient Analysis</value>
+    <comment>[AnalysisType] Check of nutrients</comment>
+  </data>
+  <data name="AnalysisType_Other" xml:space="preserve">
+    <value>Other</value>
+    <comment>[AnalysisType] Other reasons</comment>
+  </data>
+  <data name="AnalysisType_RetainerSample" xml:space="preserve">
+    <value>Retainer Sample</value>
+    <comment>[AnalysisType] Sample for retainer</comment>
+  </data>
+  <data name="BaseFeedType_Basal" xml:space="preserve">
+    <value>Basal</value>
+    <comment>[BaseFeedType] Basal diet from Zoetix portfolio catalogue</comment>
+  </data>
+  <data name="BaseFeedType_ExternalInternalFeed" xml:space="preserve">
+    <value>External\Internal Feed</value>
+    <comment>[BaseFeedType] Diet from external feed supplier portfolio catalogue</comment>
+  </data>
+  <data name="CustomerType_Both" xml:space="preserve">
+    <value>BOTH</value>
+    <comment>[CustomerType] Can do both</comment>
+  </data>
+  <data name="CustomerType_Receiver" xml:space="preserve">
+    <value>DELIVER TO</value>
+    <comment>[CustomerType] Can only be deliverable for the diets</comment>
+  </data>
+  <data name="CustomerType_Requester" xml:space="preserve">
+    <value>REQUESTER</value>
+    <comment>[CustomerType] Can only request diets</comment>
+  </data>
+  <data name="ConcentrationUnitOfMeasure_GramOnTon" xml:space="preserve">
+    <value>g/ton</value>
+    <comment>[UnitOfMeasure] Gram on Ton</comment>
+  </data>
+  <data name="ConcentrationUnitOfMeasure_MilligramOnKilogram" xml:space="preserve">
+    <value>mg/kg</value>
+    <comment>[UnitOfMeasure] Milligram on Kilogram</comment>
+  </data>
+  <data name="ConcentrationUnitOfMeasure_MilligramOnPounds" xml:space="preserve">
+    <value>mg/lb</value>
+    <comment>[UnitOfMeasure] Milligram on Pounds</comment>
+  </data>
+  <data name="FeedType_Basal" xml:space="preserve">
+    <value>Basal</value>
+    <comment>[FeedType] Basal diet from Zoetix portfolio catalogue</comment>
+  </data>
+  <data name="FeedType_External" xml:space="preserve">
+    <value>External</value>
+    <comment>[FeedType] Diet from external feed supplier portfolio catalogue</comment>
+  </data>
+  <data name="FeedType_Internal" xml:space="preserve">
+    <value>Internal</value>
+    <comment>[FeedType] Diet from internal feed supplier portfolio catalogue</comment>
+  </data>
+  <data name="Form_Crumbles" xml:space="preserve">
+    <value>Crumbles</value>
+    <comment>[Form] Crumbles</comment>
+  </data>
+  <data name="Form_Liquid" xml:space="preserve">
+    <value>Liquid</value>
+    <comment>[Form] Liquid</comment>
+  </data>
+  <data name="Form_Meal" xml:space="preserve">
+    <value>Meal</value>
+    <comment>[Form] Meal</comment>
+  </data>
+  <data name="Form_Pellet" xml:space="preserve">
+    <value>Pellet</value>
+    <comment>[Form] Pellet</comment>
+  </data>
+  <data name="HazardType_Known" xml:space="preserve">
+    <value>Known</value>
+    <comment>[HazardType] Diet has toxic hazard</comment>
+  </data>
+  <data name="HazardType_Nonhazardous" xml:space="preserve">
+    <value>Non-Hazardous</value>
+    <comment>[HazardType] Diet hasn't toxic hazard</comment>
+  </data>
+  <data name="HazardType_Unknown" xml:space="preserve">
+    <value>Unknown</value>
+    <comment>[HazardType] It's not known has diet toxic hazard or not</comment>
+  </data>
+  <data name="IntendedUse_External" xml:space="preserve">
+    <value>External</value>
+    <comment>[IntendedUse] Externally (out of Zoetix)</comment>
+  </data>
+  <data name="IntendedUse_Internal" xml:space="preserve">
+    <value>Internal</value>
+    <comment>[IntendedUse] Internally (inside Zoetix)</comment>
+  </data>
+  <data name="RequestType_CompleteDiet" xml:space="preserve">
+    <value>Complete Diet</value>
+    <comment>[RequestType] Complete autonomous diet</comment>
+  </data>
+  <data name="RequestType_MedicatedPremix" xml:space="preserve">
+    <value>Medicated Pre-Mix</value>
+    <comment>[RequestType] Medicated pre-mix which can be used as a component in other diets</comment>
+  </data>
+  <data name="RequestType_SupplementalDiet" xml:space="preserve">
+    <value>Supplemental Diet</value>
+    <comment>[RequestType] Supplemental diet in addition to base diet</comment>
+  </data>
+  <data name="StudyType_Gcp" xml:space="preserve">
+    <value>GCP</value>
+    <comment>[StudyType] Good clinical practices</comment>
+  </data>
+  <data name="StudyType_Glp" xml:space="preserve">
+    <value>GLP</value>
+    <comment>[StudyType] Good laboratorium practices</comment>
+  </data>
+  <data name="StudyType_NonGxp" xml:space="preserve">
+    <value>Non-GxP</value>
+    <comment>[StudyType] Wild card - not covered by any sort of procedures</comment>
+  </data>
+  <data name="UnitOfMeasure_Gram" xml:space="preserve">
+    <value>g</value>
+    <comment>[UnitOfMeasure] Gram</comment>
+  </data>
+  <data name="UnitOfMeasure_Kilogram" xml:space="preserve">
+    <value>kg</value>
+    <comment>[UnitOfMeasure] Kilogram</comment>
+  </data>
+  <data name="UnitOfMeasure_Milligram" xml:space="preserve">
+    <value>mg</value>
+    <comment>[UnitOfMeasure] Milligram</comment>
+  </data>
+  <data name="UnitOfMeasure_Pound" xml:space="preserve">
+    <value>lbs</value>
+    <comment>[UnitOfMeasure] Pounds</comment>
+  </data>
+  <data name="PwoConfirmType_Label" xml:space="preserve">
+    <value>Label</value>
+    <comment>[PwoConfirmType] Label</comment>
+  </data>
+  <data name="PwoConfirmType_Pwo" xml:space="preserve">
+    <value>PWO</value>
+    <comment>[PwoConfirmType] PWO</comment>
+  </data>
+</root>

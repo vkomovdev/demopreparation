@@ -1,0 +1,12 @@
+SELECT DP_DRUG.DRUG_ID,
+       DP_DRUG.DRUG_NAME,
+       DP_DRUG.ACTIVE_INGREDIENT_CONC,
+       DP_DRUG.ACTIVE_UOM,
+       DP_DRUG.CREATE_DATE,
+       DP_DRUG.CREATE_NAME,
+       DP_DRUG.LOCK,
+       COUNT(*) OVER () AS TotalItems
+FROM DP_DRUG
+@orderBy
+OFFSET (@page - 1) * @pageSize ROWS
+FETCH NEXT @pageSize ROWS ONLY;

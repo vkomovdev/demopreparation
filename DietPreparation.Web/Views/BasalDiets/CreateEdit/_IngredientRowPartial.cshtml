@@ -1,0 +1,31 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.BasalDiets.BasalDietIngredientViewModel
+
+@{
+	var ingredientsInSelectList = Model.Ingredients?
+		.Select(x => new SelectListItem
+				{
+					Text = x.Name,
+					Value = x.Id.ToString()
+				});
+}
+
+<td class="col-6">
+	@Html.DropDownListFor(x => x.IngredientId,
+		ingredientsInSelectList,
+		ContentResources.SectionOne,
+		new { @class = "form-select can-required" })
+</td>
+<td class="col-5">
+	@Html.TextBoxFor(x => x.PercentOfDiet,
+		new {
+			@class = "form-control can-required ingredient-percent",
+			type = "number",
+			step = DefaultNumbers.PercentOfDietMinValue,
+			minvalue =  DefaultNumbers.PercentOfDietMinValue,
+			maxvalue = DefaultNumbers.PercentOfDietMaxValue,
+			title = $"Format: Value should be between {DefaultNumbers.PercentOfDietMinValue} and {DefaultNumbers.PercentOfDietMaxValue}"
+		})
+</td>

@@ -1,0 +1,364 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+@model DietPreparation.Web.Models.DietRequests.PrintDietRequestViewModel
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Diet Preparation System</title>
+	<style>
+		html, body {
+			margin: 0;
+			height: 912px;
+		}
+
+		td.center, td.center h2 {
+			text-align: center;
+		}
+
+		table.center {
+			margin: 0 auto;
+		}
+
+		h2 {
+			margin: 0;
+			font-family: Verdana, Arial;
+			font-size: 16pt;
+			text-align: center;
+		}
+
+		h3 {
+			margin: 0;
+			font-family: Verdana, Arial;
+			font-size: 12pt;
+			text-align: center;
+		}
+
+		table.static-table {
+			width: 672px;
+			margin: 0 auto;
+			color: black;
+			font-family: Verdana, Arial;
+			font-size: 8pt;
+			line-height: 1.1;
+		}
+
+		table.static-table tr.row {
+			width: 100%;
+			height: 16px;
+		}
+
+		table.static-table td.label {
+			font-weight: bold;
+			font-family: Tahoma;
+			text-align: right;
+		}
+
+		table.static-table td.field {
+			border: black 1px solid;
+			font-family: Tahoma;
+		}
+
+		table.dynamic-table-header {
+			width: 672px;
+			font-family: Tahoma;
+			font-size: 8pt;
+			color: black;
+			margin: 0 auto;
+		}
+
+		table.dynamic-table-header td.label {
+			width: 100px;
+			font-weight: bold;
+		}
+
+		table.dynamic-table-header td.field {
+			width: 57px;
+			border: black 1px solid;
+		}
+
+		table.dynamic-table {
+			width: 672px;
+			font-family: Tahoma;
+			font-size: 8pt;
+			color: black;
+			margin: 0 auto;
+		}
+
+		table.dynamic-table th {
+			font-weight: bold;
+			text-align: left;
+			border-bottom: black 1px solid;
+		}
+
+		hr.lg {
+			width: 668px;
+			border: 4px solid #aaa;
+		}
+
+		hr.md {
+			width: 668px;
+			border: 3px solid #aaa;
+		}
+
+		hr.sm {
+			width: 625px;
+		}
+	</style>
+</head>
+<body>
+<table class="static-table">
+	<tr>
+		<td colspan="6">
+			<h2>  Research Diet Request</h2>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="6">
+			<h3>Diet Request #@Html.DisplayFor(x => x.LotNumber)</h3>
+		</td>
+	</tr>
+	<tr class="row">
+		<td colspan="6">
+			<hr class="lg">
+		</td>
+	</tr>
+	<tr class="row">
+		<td class="label" width="120px">Lot:</td>
+		<td class="field" width="70px">@Html.DisplayFor(x => x.LotNumber)</td>
+		<td class="label" width="189px">Requested By:</td>
+		<td class="field" width="250px">@Html.DisplayFor(x => x.RequesterName)</td>
+		<td class="label" width="179px">Date Requested:</td>
+		<td class="field" width="120px">@Model.DateRequest.ToString(FormatStrings.NetDateFormat).ToUpper()</td>
+	</tr>
+	<tr class="row">
+		<td class="label">Send Email:</td>
+		<td class="field">@(Model.SendEmail ? ContentResources.Yes : ContentResources.No)</td>
+		<td colspan="2">&nbsp;</td>
+		<td class="label">Date Needed:</td>
+		<td class="field">@Model.DateNeeded.ToString(FormatStrings.NetDateFormat).ToUpper()</td>
+	</tr>
+	<tr class="row">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td class="label">Protocol Number:</td>
+		<td class="field">@Html.DisplayFor(x => x.ProtocolNumber)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="row">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td class="label">Study Number:</td>
+		<td class="field">@Html.DisplayFor(x => x.StudyNumber)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="row">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td class="label">Project Number:</td>
+		<td class="field">@Html.DisplayFor(x => x.ProjectNumber)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="row">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td class="label">Study Type:</td>
+		<td class="field">@Html.DisplayFor(x => x.StudyType)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="row">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td class="label">Request Type:</td>
+		<td class="field">@Html.DisplayFor(x => x.RequestType)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="row">
+		<td colspan="6">
+			<hr class="md">
+		</td>
+	</tr>
+	<tr class="row">
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+		<td class="label">Deliver To:</td>
+		<td class="field">@Html.DisplayFor(x => x.ReceiverName)</td>
+		<td>&nbsp;</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr class="row">
+		<td class="label" colspan="2">Description:</td>
+		<td class="field" colspan="2">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.Description) : string.Empty)</td>
+		<td class="label">Building:</td>
+		<td class="field">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.Building) : string.Empty)</td>
+	</tr>
+	<tr class="row">
+		<td class="label" colspan="2">Floor & Lab:</td>
+		<td class="field" colspan="2">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.FloorLab) : string.Empty)</td>
+		<td class="label">Business Unit:</td>
+		<td class="field">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.BusinessUnit) : string.Empty)</td>
+	</tr>
+	<tr class="row">
+		<td colspan="6">
+			<hr class="md" style="margin-top: 4px; margin-bottom: 2px">
+		</td>
+	</tr>
+</table>
+<table class="static-table">
+	<tr>
+		<br>
+		<table class="static-table">
+			<tr>
+				<td class="label" style="width: 125px">Diet Name:</td>
+				<td class="field" style="width: 335px">@Html.DisplayFor(x => x.DietName)</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="label">Requested Amount:</td>
+				<td class="field">@Html.DisplayFor(x => x.RequestAmount) @Html.DisplayFor(x => x.UnitOfMeasure)</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<hr class="sm" style="margin-top: 20px; margin-bottom: 5px">
+		<table class="static-table">
+			<tr>
+				<td class="label" style="width: 105px">Base Feed Type:</td>
+				<td class="field" style="width: 105px">@Html.DisplayFor(x => x.FeedType)</td>
+				<td class="label" style="width: 140px">Intended Use:</td>
+				<td class="field" style="width: 105px">@Html.DisplayFor(x => x.IntendedUse)</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="label">Form:</td>
+				<td class="field">@Html.DisplayFor(x => x.Form)</td>
+				<td class="label">Controlled Substance:</td>
+				<td class="field">@(Model.ControlledSubstance ? ContentResources.Yes : ContentResources.No)</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="label">Toxic Hazard:</td>
+				<td class="field">@Html.DisplayFor(x => x.ToxicHazard)</td>
+				<td class="label">Hazard Code:</td>
+				<td class="field">@Html.DisplayFor(x => x.HazardCode)</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<table class="static-table" style="margin-top: 11px">
+			<tr>
+				<td class="label" style="text-align: left">Mixing Instructions:</td>
+			</tr>
+			<tr>
+				<td class="field">@Html.DisplayFor(x => x.MixingInstructions)</td>
+			</tr>
+			<tr>
+				<td class="label" style="text-align: left">Packing Instructions:</td>
+			</tr>
+			<tr>
+				<td class="field">@Html.DisplayFor(x => x.PackagingInstructions)</td>
+			</tr>
+		</table>
+		<hr class="sm" style="margin-top: 20px; margin-bottom: 5px">
+		<table class="dynamic-table-header">
+			<tr>
+				<td class="label">Pre-Mix Required:</td>
+				<td class="field">@(Model.HasPremixes ? ContentResources.Yes : ContentResources.No)</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		@if (Model.Premixes is not null && Model.Premixes.Any())
+		{
+			<table class="dynamic-table">
+				<tr>
+					<th style="width: 320px">Pre-Mix to be Used:</th>
+					<th style="width: 64px">Amount</th>
+					<th style="width: 96px">&nbsp;</th>
+					<th style="width: 96px">Included in Weight?</th>
+					<th style="width: 64px">&nbsp;</th>
+					<th style="width: 112px">&nbsp;</th>
+				</tr>
+				@foreach (var premix in Model.Premixes)
+				{
+					<tr>
+						<td>@Html.DisplayFor(x => premix.PremixName)</td>
+						<td>@Html.DisplayFor(x => premix.Amount) @Html.DisplayFor(x => premix.UnitOfMeasure)</td>
+						<td>&nbsp;</td>
+						<td>@(premix.IncludedInWeight ? ContentResources.Yes : ContentResources.No)</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				}
+			</table>
+		}
+		<hr class="sm" style="margin-top: 5px; margin-bottom: 5px">
+		<table class="dynamic-table-header">
+			<tr>
+				<td class="label">Drug Required:</td>
+				<td class="field">@(Model.HasDrugs ? ContentResources.Yes : ContentResources.No)</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		@if (Model.Drugs is not null && Model.Drugs.Any())
+		{
+			<table class="dynamic-table">
+				<tr>
+					<th style="width: 320px">Drug Name</th>
+					<th style="width: 64px">Amount</th>
+					<th style="width: 96px">Concentration</th>
+					<th style="width: 96px">Drug in weight</th>
+					<th style="width: 64px">Mfg Lot #</th>
+					<th style="width: 112px">&nbsp;</th>
+				</tr>
+				@foreach (var drug in Model.Drugs)
+				{
+					<tr>
+						<td>@Html.DisplayFor(x => drug.DrugName)</td>
+						<td>@Html.DisplayFor(x => drug.Amount) @Html.DisplayFor(x => drug.UnitOfMeasure)</td>
+						<td>@Html.DisplayFor(x => drug.ConcentrationWithUom)</td>
+						<td>@(drug.IncludedInWeight ? ContentResources.Yes : ContentResources.No)</td>
+						<td>@Html.DisplayFor(x => drug.MfgLot)</td>
+						<td>&nbsp;</td>
+					</tr>
+				}
+				
+			</table>
+		}
+		<hr class="sm" style="margin-top: 5px; margin-bottom: 5px">
+		<table class="dynamic-table-header">
+			<tr>
+				<td class="label">Sample Required:</td>
+				<td class="field">@(Model.HasSamples ? ContentResources.Yes : ContentResources.No)</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		@if (Model.Samples is not null && Model.Samples.Any())
+		{
+			<table class="dynamic-table">
+				<tr>
+					<th style="width: 59px">Amount</th>
+					<th style="width: 69px">Disposition</th>
+					<th style="width: 140px">Analysis Type</th>
+					<th>Comments</th>
+				</tr>
+				@foreach (var sample in Model.Samples)
+				{
+					<tr>
+						<td>@Html.DisplayFor(x => sample.Amount) @Html.DisplayFor(x => sample.UnitOfMeasure)</td>
+						<td>@Html.DisplayFor(x => sample.Disposition)</td>
+						<td>@Html.DisplayFor(x => sample.AnalysisType)</td>
+						<td>@Html.DisplayFor(x => sample.Comment)</td>
+					</tr>
+				}
+			</table>
+		}
+		<hr class="sm">
+		<br>
+	</tr>
+</table>
+</body>
+</html>

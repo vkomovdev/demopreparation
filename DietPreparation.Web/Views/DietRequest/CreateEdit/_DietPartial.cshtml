@@ -1,0 +1,155 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums;
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.DietRequests.EditDietRequestViewModel
+
+@{
+	var studyTypeArray = new[] { StudyType.Gcp, StudyType.NonGxp, StudyType.Glp };
+	var studyTypeInSelectList = studyTypeArray
+		.Select(x => new SelectListItem
+		{
+			Text = x.GetDisplayName(),
+			Value = x.GetNumberAsString()
+		});
+
+	var requestTypeArray = new[] { RequestType.CompleteDiet, RequestType.SupplementalDiet, RequestType.MedicatedPremix };
+	var requestTypeInSelectList = requestTypeArray
+		.Select(x => new SelectListItem
+		{
+			Text = x.GetDisplayName(),
+			Value = x.GetNumberAsString()
+		});
+
+	var intendedUseArray = new[] { IntendedUse.Internal, IntendedUse.External };
+	var intendedUseInSelectList = intendedUseArray
+		.Select(x => new SelectListItem
+		{
+			Text = x.GetDisplayName(),
+			Value = x.GetNumberAsString()
+		});
+
+	var baseFeedTypeArray = new[] { FeedType.Basal, FeedType.External };
+	var baseFeedTypeInSelectList = baseFeedTypeArray
+		.Select(x => new SelectListItem
+		{
+			Text = x.GetDisplayName(),
+			Value = x.GetNumberAsString()
+		});
+
+	var basalDietsInSelectList = Model.Metadata?.MetadataBasalDiets?
+		.Select(x => new SelectListItem
+		{
+			Text = $"{x.Code} - {x.Name}",
+			Value = x.Id.ToString()
+		});
+}
+
+<h4>@ContentResources.DietData</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.StudyNumber, ContentResources.StudyNumber, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.TextBoxFor(
+			x => x.StudyNumber,
+			new
+			{
+				@class = "form-control",
+				maxlength = FieldLengthes.ExtraSmall,
+				pattern = Regexes.StudyNumber,
+				title = "Format: #####-##-##-###, where # is any digit or capital letter",
+			})
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.StudyType, ContentResources.StudyType, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.StudyType,
+			studyTypeInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", required = "required" })
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ProjectNumber, ContentResources.ProjectID, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.TextBoxFor(
+			x => x.ProjectNumber, 
+			new
+			{
+				@class = "form-control",
+				maxlength = FieldLengthes.ExtraExtraSmall,
+				pattern = Regexes.ProjectNumber,
+				title = "Format: ##########, where # is any digit or capital letter (up to 50 characters)"
+			})
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.IntendedUse, ContentResources.IntendedUse, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.IntendedUse,
+			intendedUseInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", required = "required" })
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.RequestType, ContentResources.RequestType, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.RequestType,
+			requestTypeInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", id = "request-type-select", required = "required" })
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.FeedType, ContentResources.FeedType, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.FeedType,
+			baseFeedTypeInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select", id = "base-feed-type-select", required = "required" })
+	</div>
+</div>
+<div class="row hide" id="external-feed-row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.FeedSupplierName, ContentResources.FeedSupplier, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.TextBoxFor(
+			x => x.FeedSupplierName,
+			new {
+				@class = "form-control can-required",
+				maxlength = FieldLengthes.Middle
+			})
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.FeedSupplierLotNumber, ContentResources.LotNumber, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.TextBoxFor(
+			x => x.FeedSupplierLotNumber,
+			new {
+				@class = "form-control can-required",
+				maxlength = FieldLengthes.Middle
+			})
+	</div>
+</div>
+<div class="row hide" id="basal-diet-row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.BasalDietId, ContentResources.BasalDiet, new { @class = "col-form-label required" })
+	</div>
+	<div class="col-md-4">
+		@Html.DropDownListFor(x => x.BasalDietId,
+			basalDietsInSelectList,
+			ContentResources.SectionOne,
+			new { @class = "form-select can-required" })
+	</div>
+	<div class="col-md-6"></div>
+</div>

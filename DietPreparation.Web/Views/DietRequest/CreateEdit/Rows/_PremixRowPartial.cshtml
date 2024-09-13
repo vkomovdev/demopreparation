@@ -1,0 +1,52 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.DietRequests.Rows.DietRequestPremix
+
+@{
+	var unitOfMeasureArray = new[] { UnitOfMeasure.Gram, UnitOfMeasure.Kilogram, UnitOfMeasure.Pound };
+	var unitOfMeasureInSelectList = unitOfMeasureArray
+		.Select(x => new SelectListItem
+		{
+			Text = x.GetDisplayName(),
+			Value = x.GetNumberAsString()
+		});
+
+	var premixesInSelectList = Model.Metadata?.MetadataPremixes?
+		.Select(x => new SelectListItem
+		{
+			Text = x.Name,
+			Value = x.Id.ToString()
+		});
+}
+
+<td class="col-6">
+	@Html.DropDownListFor(x => x.PremixId,
+		premixesInSelectList,
+		ContentResources.SectionOne,
+		new { @class = "form-select can-required" })
+</td>
+<td class="col-2">
+	@Html.TextBoxFor(x => x.Amount,
+		new {
+			@class = "form-control can-required",
+			type = "number",
+			step = "0.001",
+			minvalue =  DefaultNumbers.AmountMinValue,
+			maxvalue = DefaultNumbers.AmountMaxValue,
+			title = $"Format: Value should be between {DefaultNumbers.AmountMinValue} and {DefaultNumbers.AmountMaxValue}"
+		})
+</td>
+<td class="col-2">
+	@Html.DropDownListFor(x => x.UnitOfMeasure,
+		unitOfMeasureInSelectList,
+		ContentResources.SectionOne,
+		new { @class = "form-select can-required" })
+</td>
+<td class="col-1">
+	<div class="form-check form-switch d-flex justify-content-center align-items-end">
+		@Html.CheckBoxFor(x => x.IncludedInWeight, new { @class = "form-check-input", role = "switch" })
+	</div>
+</td>

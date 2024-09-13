@@ -1,0 +1,38 @@
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Models.deps.json
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Models.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Models.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Common.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Filter.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Resources.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Common.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Filter.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Resources.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.csproj.AssemblyReference.cache
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.AssemblyInfoInputs.cache
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.AssemblyInfo.cs
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.csproj.CoreCompileInputs.cache
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.csproj.CopyComplete
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\refint\DietPreparation.Models.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Models\obj\Debug\net8.0\ref\DietPreparation.Models.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Models.deps.json
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Models.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Models.pdb
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Common.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Filter.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Resources.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Common.pdb
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Filter.pdb
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\bin\Debug\net8.0\DietPreparation.Resources.pdb
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.csproj.AssemblyReference.cache
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.AssemblyInfoInputs.cache
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.AssemblyInfo.cs
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.csproj.CoreCompileInputs.cache
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.csproj.CopyComplete
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\refint\DietPreparation.Models.dll
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\DietPreparation.Models.pdb
+c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Models\obj\Debug\net8.0\ref\DietPreparation.Models.dll

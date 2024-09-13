@@ -1,0 +1,44 @@
+﻿@using DietPreparation.Resources
+@model DietPreparation.Web.Models.DietRequests.ReadDietRequestViewModel
+
+<h4>@($"{ContentResources.Drug} {ContentResources.Section}")</h4>
+<table class="table table-hover">
+	<thead>
+		<tr class="header">
+			<th>@ContentResources.DrugName</th>
+			<th>@ContentResources.DrugConcentration</th>
+			<th>@ContentResources.Amount</th>
+			<th>@ContentResources.UnitOfMeasure</th>
+			<th>@ContentResources.DrugMfgLotNumber</th>
+			<th>@ContentResources.IncludedInWeight</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Drugs is not null)
+		{
+			foreach (var drug in Model.Drugs)
+			{
+				<tr>
+					<td class="col-4">
+						@Html.DisplayFor(x => drug.DrugName)
+					</td>
+					<td class="col-2">
+						@Html.DisplayFor(x => drug.ConcentrationWithUom)
+					</td>
+					<td class="col-2">
+						@Html.DisplayFor(x => drug.Amount)
+					</td>
+					<td class="col-2">
+						@Html.DisplayFor(x => drug.UnitOfMeasure)
+					</td>
+					<td class="col-1">
+						@Html.DisplayFor(x => drug.MfgLot)
+					</td>
+					<td class="col-1">
+						@(drug.IncludedInWeight ? ContentResources.Yes : ContentResources.No)
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>

@@ -1,0 +1,109 @@
+@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.Drugs.DrugUpdateViewModel
+
+@{
+	var unitOfMeasureArray = new[] { ConcentrationUnitOfMeasure.GramOnTon, ConcentrationUnitOfMeasure.MilligramOnKilogram, ConcentrationUnitOfMeasure.MilligramOnPound };
+	var unitOfMeasureInSelectList = unitOfMeasureArray
+		.Select(x => new SelectListItem
+				{
+					Text = x.GetDisplayName(),
+					Value = x.GetNumberAsString()
+				});
+
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Id)
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Name, ContentResources.DrugName, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.Name, new { @class = "form-control", maxlength = FieldLengthes.Middle, required = "required" })
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.Name, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.ActiveIngredientConcentration, ContentResources.ActiveIngredientConcentration, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.ActiveIngredientConcentration, new { @class = "form-control", type = "number", min="0", step = "0.001", required = "required" })
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.ActiveIngredientConcentration, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.UnitOfMeasure, ContentResources.UnitOfMeasure, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.DropDownListFor(x => x.UnitOfMeasure, unitOfMeasureInSelectList, new { @class = "form-select", required = "required" })
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.UnitOfMeasure, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.UserId, ContentResources.CreatedBy, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+				@Html.TextBoxFor(x => x.UserId, new { @class = "form-control", @disabled = "disabled"  })
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 col-lg-4 offset-md-5 offset-lg-5">
+			@Html.ValidationMessageFor(x => x.UserId, string.Empty, new { @class = "text-danger" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.CreatedAt, ContentResources.CreatedAt, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.CreatedAt, new { @class = "form-control datepicker", @disabled = "disabled" })
+		</div>
+	</div>
+</div>
+
+@if (Model.Id is not null && Model.IsLocked)
+{
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+				@Html.LabelFor(x => x.IsLocked, ContentResources.Locked, new { @class = "control-label" })
+			</div>
+			<div class="col-md-5 col-lg-4">
+				@Html.TextBoxFor(x => x.IsLocked, new { @class = "form-control", @disabled = "disabled"})
+			</div>
+		</div>
+	</div>
+}

@@ -1,0 +1,37 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Extensions
+@inject IWebHostEnvironment App
+@model ErrorViewModel
+
+@{
+	ViewData["Title"] = ContentResources.Error;
+}
+
+<div class="container-fluid position-relative">
+	<div class="row mt-5 text-center">
+		<div class="col-md-12 alert">
+			<i data-feather="alert-triangle"></i>
+		</div>
+		<div class="col-md-12 text-danger">
+			<h1>
+				@Model.StatusCode
+			</h1>
+		</div>
+		<div class="col-md-12 mt-2">
+			<h1>
+				@ContentResources.Oops! @ContentResources.SomethingWentWrong...
+			</h1>
+		</div>
+		@if (App.IsNonProduction() && Model.Exception?.Message is not null)
+		{
+			<div class="col-md-12 mt-2">
+				<h5>@ContentResources.NonProductionError: @Model.Exception.Message</h5>
+			</div>
+		}
+	</div>
+	<div class="row mt-5">
+		<div class="col-md-4 offset-md-4">
+			@Html.ActionLink(ContentResources.GoHome,"Index", "Home", null, new { @class = "btn btn-primary"})
+		</div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cbc8bqwyTk4VzHPoIjoCAAaNcWZ7tIoyLRXqA7DZbVE=",
+  "Source": "DietPreparation.ServicesApi",
+  "BasePath": "_content/DietPreparation.ServicesApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

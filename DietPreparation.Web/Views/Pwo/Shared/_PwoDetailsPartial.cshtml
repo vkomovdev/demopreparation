@@ -1,0 +1,51 @@
+﻿@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.PWOs.PwoDetailViewModel
+
+<div class="accordion-item">
+	<h2 class="accordion-header" id="panel-header">
+		<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panel-header-collapse" aria-expanded="true" aria-controls="panel-header-collapse">
+			@ContentResources.Header
+		</button>
+	</h2>
+	<div id="panel-header-collapse" class="accordion-collapse collapse show" aria-labelledby="panel-header">
+
+		@await Html.PartialAsync("~/Views/Pwo/Shared/_HeaderPartial.cshtml", Model.Header)
+	</div>
+</div>
+
+<div class="accordion-item">
+	<h2 class="accordion-header" id="panel-ingredients">
+		<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panel-ingredients-collapse" aria-expanded="true" aria-controls="panel-ingredients-collapse">
+			@ContentResources.BasalDiet @ContentResources.Ingredients
+		</button>
+	</h2>
+	<div id="panel-ingredients-collapse" class="accordion-collapse collapse show" aria-labelledby="panel-ingredients">
+
+		@await Html.PartialAsync("~/Views/Pwo/Shared/_IngredientsPartial.cshtml", Model.Ingredients)
+	</div>
+</div>
+
+<div class="accordion-item">
+	<h2 class="accordion-header" id="panel-drugs">
+		<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panel-drugs-collapse" aria-expanded="true" aria-controls="panel-drugs-collapse">
+			@ContentResources.DietDrug
+		</button>
+	</h2>
+	<div id="panel-drugs-collapse" class="px-2 accordion-collapse collapse show" aria-labelledby="panel-drugs">
+
+		@await Html.PartialAsync("~/Views/Pwo/Shared/_DrugPartial.cshtml", Model.Drugs)
+	</div>
+</div>
+
+<div class="accordion-item">
+	<h2 class="accordion-header" id="panel-premixes">
+		<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panel-premixes-collapse" aria-expanded="true" aria-controls="panel-premixes-collapse">
+			@ContentResources.Premix
+		</button>
+	</h2>
+	<div id="panel-premixes-collapse" class="px-2 accordion-collapse collapse show" aria-labelledby="panel-premixes">
+
+		@await Html.PartialAsync("~/Views/Pwo/Shared/_PremixPartial.cshtml", Model.Premixes)
+	</div>
+</div>

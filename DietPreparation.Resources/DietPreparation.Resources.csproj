@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Update="ContentResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ContentResources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="MessagesResources.Designer.cs">
+		  <DependentUpon>MessagesResources.resx</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="ErrorCodesDescription.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ErrorCodesDescription.resx</DependentUpon>
+		</Compile>
+		<Compile Update="EnumResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>EnumResources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="ContentResources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<LastGenOutput>ContentResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="MessagesResources.resx">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>MessagesResources.Designer.cs</LastGenOutput>
+		  <DesignTime>True</DesignTime>
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		  <AutoGen>True</AutoGen>
+		</EmbeddedResource>
+		<EmbeddedResource Update="ErrorCodesDescription.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<LastGenOutput>ErrorCodesDescription.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="EnumResources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<LastGenOutput>EnumResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>

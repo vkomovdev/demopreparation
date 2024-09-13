@@ -1,0 +1,39 @@
+@using DietPreparation.Web.Models.PWOs;
+@using DietPreparation.Resources;
+
+@model PwoDetailViewModel
+@{
+	ViewBag.Title = ContentResources.CloseWorkOrder;
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.CloseWorkOrder)
+
+	<div class="accordion" id="accordion">
+		@await Html.PartialAsync("~/Views/Pwo/Shared/_PwoDetailsPartial.cshtml", Model)
+
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="panel-close">
+				<button 
+					class="accordion-button" 
+					type="button" 
+					data-bs-toggle="collapse" 
+					data-bs-target="#panel-close-collapse" 
+					aria-expanded="true"
+					aria-controls="panel-close-collapse">
+					@ContentResources.Close ContentResources.ProcessWorkOrder
+				</button>
+			</h2>
+			<div id="panel-close-collapse" class="accordion-collapse collapse show" aria-labelledby="panel-close">
+				@await Html.PartialAsync(
+					"~/Views/Pwo/Shared/_CloseSectionPartial.cshtml", 
+					new PwoCloseViewModel()
+					{ 
+						PwoId = Model?.Header?.PwoId,
+						RequestId = Model.Header.RequestId,
+						Sequence = Model.Header.Sequence.Value
+					})
+			</div>
+		</div>
+	</div>
+</div>

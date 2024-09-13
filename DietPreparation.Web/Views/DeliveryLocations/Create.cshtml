@@ -1,0 +1,76 @@
+@using DietPreparation.Common.Consts;
+@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.DeliveryLocations.DeliveryLocationUpdateViewModel;
+
+@{
+	ViewBag.Title = $"{ContentResources.Create} {ContentResources.DeliveryLocation}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Create} {ContentResources.DeliveryLocation}")
+
+	@using (Html.BeginForm("Create", "DeliveryLocations", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+	{
+		<section class="row mt-4">
+			@await Html.PartialAsync("_DeliveryLocationPartial", Model)
+		</section>
+		<section class="row button-panel">
+			@await Html.PartialAsync("_DeliveryLocationButtonsPartial", ContentResources.Create)
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			const formData = new FormData(this);
+
+			const viewModel = {
+				Description: formData.get('Description'),
+				Building: formData.get('Building'),
+				Floor: formData.get('Floor'),
+				Lab: formData.get('Lab'),
+				BusinessUnit: parseInt(formData.get('BusinessUnit'))
+			};
+
+			overlay.show();
+			api.post('@Url.Action("Create", "DeliveryLocations")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.DeliveryLocation');
+				modal.setTextBody('@MessagesResources.DeliveryLocationCreated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "DeliveryLocations")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+
+		$(document).ready(function () {
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

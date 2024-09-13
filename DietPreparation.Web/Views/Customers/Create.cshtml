@@ -1,0 +1,82 @@
+@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+@model DietPreparation.Web.Models.Customers.CustomerViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Create} {ContentResources.Customer}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Create} {ContentResources.Customer}")
+	@using (Html.BeginForm("Create", "Customers", FormMethod.Post))
+	{
+		<section class="row mt-4">
+			@await Html.PartialAsync("_CustomerPartial", Model)
+		</section>
+		<section class="row button-panel">
+			@await Html.PartialAsync("_CustomerButtonsPartial", Model)
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			const formData = new FormData(this);
+			const viewModel = {				
+				FirstName: formData.get('FirstName'),
+				MiddleName: formData.get('MiddleName'),
+				LastName: formData.get('LastName'),
+				Email: formData.get('Email'),
+				CustomerType: parseInt(formData.get('CustomerType')),
+				Building: formData.get('Building'),
+				BusinessUnit: formData.get('BusinessUnit')
+			};
+
+			overlay.show();
+			api.post('@Url.Action("Create", "Customers")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.Customers');
+				modal.setTextBody('@MessagesResources.CustomerCreated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "Customers")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+			
+		$(document).ready(function () {
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+
+			$("input[name=Building]").on('input', function () {
+				if (this.value.length > 10) {
+					this.value = this.value.slice(0, 10);
+				}
+			});
+
+		});
+	</script>
+}

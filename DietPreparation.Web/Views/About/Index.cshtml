@@ -1,0 +1,27 @@
+﻿@using DietPreparation.Resources
+@model DietPreparation.Web.Models.AboutViewModel
+
+@{
+	ViewBag.Title = ContentResources.About;
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.AboutTitle)
+	
+	<section class="row static-table mt-4">
+		<div class="col-md-12">
+			<h4 class="mb-4">@ContentResources.ProductTitle</h4>
+			<p>@ContentResources.Version: @Model.BuildVersion</p>
+			<p>@ContentResources.CompanyName</p>
+			<p>@ContentResources.CompanyDomain</p>
+		</div>
+	</section>
+
+	<hr class="mt-2" />
+	
+	<section class="row button-panel">
+		<div class="col-md-3 offset-md-9">
+			@Html.ActionLink($"{ContentResources.ReturnTo} {ContentResources.Home}", "Index", "Home", null, new { @class = "btn btn-primary"})
+		</div>
+	</section>
+</div>

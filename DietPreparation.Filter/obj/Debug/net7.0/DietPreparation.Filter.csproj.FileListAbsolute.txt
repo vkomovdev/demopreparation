@@ -1,0 +1,17 @@
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Filter.deps.json
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Filter.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Filter.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Common.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Resources.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Common.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\bin\Debug\net7.0\DietPreparation.Resources.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.csproj.AssemblyReference.cache
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.AssemblyInfoInputs.cache
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.AssemblyInfo.cs
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.csproj.CoreCompileInputs.cache
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.csproj.CopyComplete
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\refint\DietPreparation.Filter.dll
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\DietPreparation.Filter.pdb
+C:\Users\Vladimir_Komov\Documents\diet-preparation-2.0\src\DietPreparation.Filter\obj\Debug\net7.0\ref\DietPreparation.Filter.dll

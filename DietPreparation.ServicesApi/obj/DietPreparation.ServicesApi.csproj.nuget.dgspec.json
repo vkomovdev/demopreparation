@@ -1,0 +1,674 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.ServicesApi\\DietPreparation.ServicesApi.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj",
+        "projectName": "DietPreparation.Common",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Resources\\DietPreparation.Resources.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Resources\\DietPreparation.Resources.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
+            "Mapster.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Data\\DietPreparation.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Data\\DietPreparation.Data.csproj",
+        "projectName": "DietPreparation.Data",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Data\\DietPreparation.Data.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Utilities\\DietPreparation.Utilities.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Utilities\\DietPreparation.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.151, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj",
+        "projectName": "DietPreparation.Filter",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj",
+        "projectName": "DietPreparation.Models",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Repositories\\DietPreparation.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Repositories\\DietPreparation.Repositories.csproj",
+        "projectName": "DietPreparation.Repositories",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Repositories\\DietPreparation.Repositories.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Data\\DietPreparation.Data.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Data\\DietPreparation.Data.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Resources\\DietPreparation.Resources.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Resources\\DietPreparation.Resources.csproj",
+        "projectName": "DietPreparation.Resources",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Resources\\DietPreparation.Resources.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Resources\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.ServicesApi\\DietPreparation.ServicesApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.ServicesApi\\DietPreparation.ServicesApi.csproj",
+        "projectName": "DietPreparation.ServicesApi",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.ServicesApi\\DietPreparation.ServicesApi.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.ServicesApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Services\\DietPreparation.Services.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Services\\DietPreparation.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Services\\DietPreparation.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Services\\DietPreparation.Services.csproj",
+        "projectName": "DietPreparation.Services",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Services\\DietPreparation.Services.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Filter\\DietPreparation.Filter.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Models\\DietPreparation.Models.csproj"
+              },
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Repositories\\DietPreparation.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Repositories\\DietPreparation.Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Utilities\\DietPreparation.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Utilities\\DietPreparation.Utilities.csproj",
+        "projectName": "DietPreparation.Utilities",
+        "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Utilities\\DietPreparation.Utilities.csproj",
+        "packagesPath": "C:\\Users\\Vladimir_Komov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Utilities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\NuGet.Config",
+          "C:\\Users\\Vladimir_Komov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj": {
+                "projectPath": "C:\\Users\\Vladimir_Komov\\Documents\\diet-preparation-2.0\\src\\DietPreparation.Common\\DietPreparation.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

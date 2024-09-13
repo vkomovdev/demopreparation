@@ -1,0 +1,170 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums;
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Resources
+@using DietPreparation.Web.Models.AuditLogs
+@model AuditLogListViewModel
+
+@{
+	ViewBag.Title = ContentResources.SelectAuditRecord;
+	var orderBy = new AuditLogViewModel();
+
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.AuditRecords}")
+
+	<div class="accordion py-4" id="accordion">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="panel-audit-logs">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panel-audit-logs-collapse" aria-expanded="true" aria-controls="panel-audit-logs-collapse">
+					@ContentResources.Search
+				</button>
+			</h2>
+			<div id="panel-audit-logs-collapse" class="px-2 accordion-collapse collapse show" aria-labelledby="panel-audit-logs">
+				<section class="search-panel">
+					<div class="row pt-3">
+						<div class="col-md-1">
+							<label class="col-form-label">@ContentResources.Lot @ContentResources.Year</label>
+						</div>
+						<div class="col-md-2">
+							@Html.TextBoxFor(x => x.LotYear, new { @class = "form-control", filter = "filter", placeholder = ContentResources.LotYear, id = "filter-lot-year" })
+						</div>
+						<div class="col-md-1">
+							<label class="col-form-label">@ContentResources.DateStart</label>
+						</div>
+						<div class="col-md-5">
+							<div class="input-group">
+								@Html.TextBoxFor(x => x.DateStart, FormatStrings.NetDateFormat, new { @class = "form-control datepicker", filter = "filter" })
+								<span class="input-group-text">
+									<i data-feather="calendar"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row pt-3 pb-2">
+						<div class="col-md-1">
+							<label class="col-form-label">@ContentResources.Lot #</label>
+						</div>
+						<div class="col-md-2">
+							@Html.TextBoxFor(x => x.LotId, new { 
+								@class = "form-control", 
+								type = "number",
+								min = 0,
+								max = int.MaxValue,
+								filter = "filter", 
+								placeholder = $"{ContentResources.Lot} #", 
+								id = "filter-lot-number" })
+						</div>
+						<div class="col-md-1">
+							<label class="col-form-label">@ContentResources.DateEnd</label>
+						</div>
+						<div class="col-md-5">
+							<div class="input-group">
+								@Html.TextBoxFor(x => x.DateEnd, FormatStrings.NetDateFormat, new { @class = "form-control datepicker", filter = "filter" })
+								<span class="input-group-text">
+									<i data-feather="calendar"></i>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-2 offset-md-1">
+							<button type="button" class="btn btn-primary search-button">@ContentResources.Search</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<section class="sortable-block pagination-block mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-1 active-asc" data-sort-by="@(orderBy.GetFullName(x => x.ChangeType))">@ContentResources.ChangeType</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.ChangeTimestamp))">@ContentResources.ChangeTimestamp</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.LotYear))">@ContentResources.LotYear</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.LotId))">@ContentResources.LotId</th>
+					<th class="col-3" data-sort-by="@(orderBy.GetFullName(x => x.DietName))">@ContentResources.DietName</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="9" class="pagination-panel">
+						<nav>
+							<ul class="pagination justify-content-center"></ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+
+		function fillTable(data) {
+			let $data = $('.sortable-block table tbody');
+			$data.find('tr').remove();
+
+			if (data.auditLogs && data.auditLogs.length > 0) {
+				$.each(data.auditLogs, function (index, item) {
+					let row = $('<tr>');
+					row.attr('data-id', item.id);
+					row.addClass('request-row');
+					row.append('<td>' + item.changeType + '</td>');
+					row.append('<td>' + item.changeTimestamp + '</td>');
+					row.append('<td>' + item.lotYear + '</td>');
+					row.append('<td>' + item.lotId + '</td>');
+					row.append('<td><p class="text-wrap">' + item.dietName + '</td>');
+					$data.append(row);
+				});
+				feather.replace();
+			} else {
+				let row = $('<tr>');
+				row.append(`<td colspan="9" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+		}
+
+		$(document).on('click', '.request-row', function () {
+			const id = $(this).data('id')
+			window.location.href = '@Url.Action("Details", "AuditLogs")' + `?id=${id}`;
+		});
+
+		$('.input-group-text').on('click', function () {
+			$(this).prev('.form-control').focus();
+		});
+
+		$('input[name=DateStart]').datepicker({
+			format: "@FormatStrings.JsDateFormat",
+			autoclose: true,
+			todayBtn: "linked",
+			assumeNearbyYear: true
+		});
+
+		$('input[name=DateEnd]').datepicker({
+			format: "@FormatStrings.JsDateFormat",
+			autoclose: true,
+			todayBtn: "linked",
+			assumeNearbyYear: true
+		});
+
+		$(document).ready(function () {
+			const tableManager = new TableManager(['sortable-table', 'pagination', 'search-panel'], '@Url.Action("AuditLogList", "AuditLogs")', fillTable, handleException, feather);
+			tableManager.loadData();
+		});
+	</script>
+}

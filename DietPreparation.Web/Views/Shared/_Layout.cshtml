@@ -1,0 +1,71 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+@using DietPreparation.Web.Options
+@using Microsoft.Extensions.Options
+
+@inject IOptions<ApplicationOptions> appOptions
+
+@{
+	var title = ViewBag.Title is not null
+		? $"{ViewBag.Title} - {ContentResources.DietPreparation}"
+		: ContentResources.DietPreparation;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@title</title>
+	<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/DietPreparation.Web.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" asp-append-version="true" />
+
+	<script src="~/lib/feather-icons/dist/feather.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<partial name="~/Views/Shared/Header.cshtml"></partial>
+		<partial name="~/Views/Shared/NavMenu.cshtml"></partial>
+	</header>
+
+	<div class="container overlay-parent">
+		<main role="main">
+			@RenderBody()
+		</main>
+		<partial name="~/Views/Shared/OverlayContainer.cshtml"></partial>
+		<partial name="~/Views/Shared/AlertContainer.cshtml"></partial>
+		<partial name="~/Views/Shared/ModalContainer.cshtml"></partial>
+	</div>
+
+	<partial name="~/Views/Shared/Footer.cshtml"></partial>
+
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+	<script src="~/lib/axios/dist/axios.min.js"></script>
+
+	<script>
+		feather.replace();
+	</script>
+
+	<script type="module">
+		import SecurityHelper from '@Url.Content("~/scripts/helpers/security-helper.js")';
+
+		$(document).ready(function () {
+			
+			let currentUrl = window.location.href;
+			const helper = new SecurityHelper('@Url.Action("PermissionList", "Users")', @(appOptions.Value.Authorization.SessionTimeout.ToMs()));
+			if (currentUrl.indexOf("Error") !== -1 && currentUrl.indexOf("401") !== -1) {
+				sessionStorage.removeItem('permissions');
+				helper.clearPermissions();
+			} else {
+				helper.applyPermissions();
+			}	
+		});
+	</script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

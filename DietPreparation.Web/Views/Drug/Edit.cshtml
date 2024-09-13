@@ -1,0 +1,72 @@
+@using DietPreparation.Common.Consts;
+@using DietPreparation.Resources
+@model DietPreparation.Web.Models.Drugs.DrugUpdateViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Edit} {ContentResources.Drug}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Edit} {ContentResources.Drug}")
+	@using (Html.BeginForm("Edit", "Drug", FormMethod.Post))
+	{
+		<section class="row mt-4">
+			@await Html.PartialAsync("_DrugPartial")
+		</section>
+		<section class="row button-panel">
+			@await Html.PartialAsync("_DrugButtonsPartial", ContentResources.Save)
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			const formData = new FormData(this);
+			const viewModel = {
+				Id: parseInt(formData.get('Id')),
+				Name: formData.get('Name'),
+				ActiveIngredientConcentration: formData.get('ActiveIngredientConcentration'),
+				UnitOfMeasure: parseInt(formData.get('UnitOfMeasure'))
+			};
+
+			overlay.show();
+			api.post('@Url.Action("Edit", "Drug")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.Drugs');
+				modal.setTextBody('@MessagesResources.DrugUpdated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "Drug")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+
+		$(document).ready(function () {
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

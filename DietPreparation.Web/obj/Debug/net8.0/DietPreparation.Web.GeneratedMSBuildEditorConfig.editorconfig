@@ -1,0 +1,443 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DietPreparation.Web
+build_property.RootNamespace = DietPreparation.Web
+build_property.ProjectDir = c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Web\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = c:\Users\Vladimir_Komov\Documents\arch_projects\old\diet-preparation-2.0 - Copy\src\DietPreparation.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_AuditPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX0F1ZGl0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_DeliveryPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX0RlbGl2ZXJ5UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_DietPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX0RpZXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_DrugPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX0RydWdQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_PremixPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX1ByZW1peFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_ProcessingInstructionsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX1Byb2Nlc3NpbmdJbnN0cnVjdGlvbnNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Details/_SamplePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXERldGFpbHNcX1NhbXBsZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/AuditLogs/_RootDetailsClonePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXVkaXRMb2dzXF9Sb290RGV0YWlsc0Nsb25lUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/CreateEdit/_BasalDietPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xDcmVhdGVFZGl0XF9CYXNhbERpZXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/CreateEdit/_IngredientRowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xDcmVhdGVFZGl0XF9JbmdyZWRpZW50Um93UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/CreateEdit/_IngredientsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xDcmVhdGVFZGl0XF9JbmdyZWRpZW50c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/BasalDiets/_RootCreateEditPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFzYWxEaWV0c1xfUm9vdENyZWF0ZUVkaXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Customers/_CustomerButtonsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXF9DdXN0b21lckJ1dHRvbnNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DeliveryLocations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlMb2NhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DeliveryLocations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlMb2NhdGlvbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DeliveryLocations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlMb2NhdGlvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DeliveryLocations/_DeliveryLocationButtonsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlMb2NhdGlvbnNcX0RlbGl2ZXJ5TG9jYXRpb25CdXR0b25zUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/Clone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ2xvbmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CloneDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ2xvbmVEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/Rows/_DrugRowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxSb3dzXF9EcnVnUm93UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/Rows/_PremixRowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxSb3dzXF9QcmVtaXhSb3dQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/Rows/_SampleRowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxSb3dzXF9TYW1wbGVSb3dQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/_DeliveryPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxfRGVsaXZlcnlQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/_DietPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxfRGlldFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/_DrugPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxfRHJ1Z1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/_PremixPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxfUHJlbWl4UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/_ProcessingInstructionsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxfUHJvY2Vzc2luZ0luc3RydWN0aW9uc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/CreateEdit/_SamplePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcQ3JlYXRlRWRpdFxfU2FtcGxlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/DetailsClone/_PremixPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlsc0Nsb25lXF9QcmVtaXhQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/UpdateRequests.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcVXBkYXRlUmVxdWVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/_RootCreateEditPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcX1Jvb3RDcmVhdGVFZGl0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/_RootDetailsClonePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcX1Jvb3REZXRhaWxzQ2xvbmVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/_UpdateRequestsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcX1VwZGF0ZVJlcXVlc3RzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Drug/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1Z1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Drug/_DrugButtonsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1Z1xfRHJ1Z0J1dHRvbnNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedLabels/BatchList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZExhYmVsc1xCYXRjaExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedLabels/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZExhYmVsc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedLabels/PrintLabel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZExhYmVsc1xQcmludExhYmVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedLabels/PrintLabelAdditive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZExhYmVsc1xQcmludExhYmVsQWRkaXRpdmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedStuffs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZFN0dWZmc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedStuffs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZFN0dWZmc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedStuffs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZFN0dWZmc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedStuffs/Planning.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZFN0dWZmc1xQbGFubmluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedStuffs/_FeedStuffButtonsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZFN0dWZmc1xfRmVlZFN0dWZmQnV0dG9uc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FeedStuffs/_FeedStuffPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZFN0dWZmc1xfRmVlZFN0dWZmUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/BatchDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXEJhdGNoRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Close.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXENsb3NlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/CloseDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXENsb3NlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNlYXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_BatchRowPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfQmF0Y2hSb3dQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_DrugPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfRHJ1Z1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_PremixPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfUHJlbWl4UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_PwoDetailsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfUHdvRGV0YWlsc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/AlertContainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFsZXJ0Q29udGFpbmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/FilterYearInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZpbHRlclllYXJJbmZvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/ModalContainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE1vZGFsQ29udGFpbmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/OverlayContainer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE92ZXJsYXlDb250YWluZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/_BatchListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CYXRjaExpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/_PageHeaderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdlSGVhZGVyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Users/_UserButtonsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcX1VzZXJCdXR0b25zUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-bbo3kzkuwt
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Customers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-bbr80spgxz
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-3cg1m8h2vi
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-ua51m37u2w
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Customers/_CustomerPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXF9DdXN0b21lclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-w8e3l3b1vi
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DeliveryLocations/_DeliveryLocationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVsaXZlcnlMb2NhdGlvbnNcX0RlbGl2ZXJ5TG9jYXRpb25QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-obncdmcu2n
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/DetailsClone/_DeliveryPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlsc0Nsb25lXF9EZWxpdmVyeVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-cyzkhlyip0
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/DetailsClone/_DietPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlsc0Nsb25lXF9EaWV0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-ij0foywtz4
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/DetailsClone/_DrugPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlsc0Nsb25lXF9EcnVnUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-09pvwnof80
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/DetailsClone/_ProcessingInstructionsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlsc0Nsb25lXF9Qcm9jZXNzaW5nSW5zdHJ1Y3Rpb25zUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-rpnql8qm43
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/DietRequest/DetailsClone/_SamplePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlldFJlcXVlc3RcRGV0YWlsc0Nsb25lXF9TYW1wbGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-v19mqtqc64
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Drug/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1Z1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-g1x83byhzm
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Drug/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1Z1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-vk39ir2x9l
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Drug/_DrugPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRHJ1Z1xfRHJ1Z1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-l9roanqxi3
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/FilterYear/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsdGVyWWVhclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-km8z7fd8xw
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-n6lwodifsn
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/BatchList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXEJhdGNoTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-v8al873jn8
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_CloseSectionPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfQ2xvc2VTZWN0aW9uUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-p00p9yvd6p
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_HeaderPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfSGVhZGVyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-mm5y325bfe
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Pwo/Shared/_IngredientsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHdvXFNoYXJlZFxfSW5ncmVkaWVudHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-b5esgl8uu5
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-s187mjup1g
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEZvb3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-t917iisw3f
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEhlYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-no9xczp6sc
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/NavMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdk1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8icp1akuyp
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jr4vzyszue
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-d5mv2msoy5
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-9rqjsmxk4s
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-xb6w9imq6g
+
+[c:/Users/Vladimir_Komov/Documents/arch_projects/old/diet-preparation-2.0 - Copy/src/DietPreparation.Web/Views/Users/_UserPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcX1VzZXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-ahpclyad2k

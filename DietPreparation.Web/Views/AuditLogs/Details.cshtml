@@ -1,0 +1,38 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Resources;
+@using Newtonsoft.Json;
+@using DietPreparation.Web.Models.AuditLogs;
+
+@model AuditLogDetailsViewModel;
+
+@{
+	ViewBag.Title = $"{ContentResources.Audit} {ContentResources.Details}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Audit} {ContentResources.Details}")
+	
+	@await Html.PartialAsync("_RootDetailsClonePartial", Model)
+
+	<section class="row button-panel">
+		<div class="offset-md-9 col-md-3">
+			@Html.ActionLink(ContentResources.Close, "Index", "AuditLogs", null, new { @class = "btn btn-secondary  mt-md-0 mt-2" })
+		</div>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+	</script>
+}

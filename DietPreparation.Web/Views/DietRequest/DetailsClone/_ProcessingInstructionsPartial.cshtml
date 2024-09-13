@@ -1,0 +1,63 @@
+﻿@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.DietRequests.ReadDietRequestViewModel
+
+<h4>@ContentResources.ProcessingInstructions</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.RequestAmount, ContentResources.AmountRequested, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.RequestAmount)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.UnitOfMeasure, ContentResources.UnitOfMeasure, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.UnitOfMeasure)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.Form, ContentResources.Form, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.Form)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ControlledSubstance, ContentResources.ControlledSubstance, new { @class = "form-check-label" })
+	</div>
+	<div class="col-md-4">
+		@(Model.ControlledSubstance ? ContentResources.Yes : ContentResources.No)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ToxicHazard, ContentResources.ToxicHazard, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ToxicHazard)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.HazardCode, ContentResources.HazardCode, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.HazardCode)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.PackagingInstructions, ContentResources.PackagingInstructions, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-10">
+		@Html.DisplayFor(x => x.PackagingInstructions)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.MixingInstructions, ContentResources.MixingInstructions, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-10">
+		@Html.DisplayFor(x => x.MixingInstructions)
+	</div>
+</div>

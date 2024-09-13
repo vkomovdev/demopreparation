@@ -1,0 +1,135 @@
+@using DietPreparation.Common.Enums
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+@model DietPreparation.Web.Models.Customers.CustomerViewModel
+
+@{
+	var isCreateMode = string.IsNullOrEmpty(Model.Id);
+	var isLockedCustomer = !string.IsNullOrEmpty(Model.Id) && Model.Lock.Value;
+	var customerTypeArray = new[] { CustomerType.Requester, CustomerType.Receiver, CustomerType.Both };
+	var customerTypeInSelectList = customerTypeArray
+		.Select(customerType => new SelectListItem()
+				{
+					Text = customerType.GetDisplayName(),
+					Value = customerType.GetNumberAsString(),
+					Disabled = isLockedCustomer && customerType != CustomerType.Both ? true : false
+
+				});
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Id)
+
+@if (isLockedCustomer)
+{
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 alert alert-light mt-2" role="alert">
+				@ContentResources.Locked @ContentResources.Customer
+			</div>
+		</div>
+	</div>
+
+}
+
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.FirstName, ContentResources.FirstName, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@if (isLockedCustomer)
+			{
+				@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control",@disabled = "disabled", maxlength = FieldLengthes.Small, required = "required" })
+			}
+			else
+			{
+				@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", maxlength = FieldLengthes.Small, required = "required" })
+			}
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.MiddleName, ContentResources.MiddleName, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@if (isLockedCustomer)
+			{
+				@Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control",@disabled = "disabled", maxlength = FieldLengthes.Single })
+			}
+			else
+			{
+				@Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control", maxlength = FieldLengthes.Single })
+			}
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.LastName, ContentResources.LastName, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.LastName, new { @class = "form-control", maxlength = FieldLengthes.Small, required = "required" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Email, ContentResources.Email, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.Email, new
+			{
+			@class = "form-control",
+			maxlength = FieldLengthes.Middle,
+			required = "required",
+			type = "email",
+			pattern = $".+@{DefaultStrings.Domain}",
+			title = $"{ContentResources.EmailMustBeFormat} {DefaultStrings.Domain}"
+			})
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Building, ContentResources.Building, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.Building, new { @class = "form-control", type = "number", required = "required", max = 9999999999, min = 1})
+		</div>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.BusinessUnit, ContentResources.BusinessUnit, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(x => x.BusinessUnit, new { @class = "form-control", type = "number" })
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.CustomerType, ContentResources.CustomerTypeLabel, new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.DropDownListFor(x => x.CustomerType, customerTypeInSelectList, new { @class = "form-select", required = "required" })
+		</div>
+	</div>
+</div>

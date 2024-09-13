@@ -1,0 +1,66 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Resources
+@using DietPreparation.Web.Models.AuditLogs;
+
+@model AuditLogDetailsViewModel;
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Id)
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/AuditLogs/Details/_AuditPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/AuditLogs/Details/_DeliveryPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/AuditLogs/Details/_DietPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/AuditLogs/Details/_ProcessingInstructionsPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+@if (Model.RequestType != RequestType.MedicatedPremix)
+{
+	<section class="row dynamic-table">
+		<div class="col-md-12">
+			<div class="section-only-body">
+				@await Html.PartialAsync("~/Views/AuditLogs/Details/_PremixPartial.cshtml", Model)
+			</div>
+			<hr/>
+		</div>
+	</section>
+}
+
+<section class="row dynamic-table">
+	<div class="col-md-12">
+		<div class="section-only-body">
+			@await Html.PartialAsync("~/Views/AuditLogs/Details/_DrugPartial.cshtml", Model)
+		</div>
+		<hr />
+	</div>
+</section>
+
+<section class="row dynamic-table">
+	<div class="col-md-12">
+		<div class="section-only-body">
+			@await Html.PartialAsync("~/Views/AuditLogs/Details/_SamplePartial.cshtml", Model)
+		</div>
+		<hr />
+	</div>
+</section>

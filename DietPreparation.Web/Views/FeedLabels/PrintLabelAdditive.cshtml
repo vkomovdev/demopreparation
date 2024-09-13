@@ -1,0 +1,242 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Common.Consts
+@using DietPreparation.Web.Models.FeedLabels
+@model DietPreparation.Web.Models.FeedLabels.FeedLabelAdditiveViewModel
+
+@{
+	var title = $"{ContentResources.FeedAdditive} {ContentResources.Label}";
+	ViewBag.Title = title;
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", title)
+
+	@using (Html.BeginForm("PrintLabelAdditive", "FeedLabels", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+	{
+		@Html.HiddenFor(model => model.ZplExtension)
+
+		<section class="row static-table">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.LotNumber, ContentResources.LotNumber, new { @class = "col-form-label required" })
+					</div>
+					<div class="col-md-4">
+						@Html.TextBoxFor(x => x.LotNumber, new { @class = "form-control", id = "lot-id-field", required = "required", maxlength = "30" })
+					</div>
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.Id, ContentResources.Id, new { @class = "col-form-label required" })
+					</div>
+					<div class="col-md-4">
+						@Html.TextBoxFor(x => x.Id, new { @class = "form-control", id = "id-field", required = "required", maxlength = "30" })
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.Concentration, ContentResources.Concentration, new { @class = "col-form-label required" })
+					</div>
+					<div class="col-md-4">
+						@Html.TextBoxFor(x => x.Concentration, new { @class = "form-control", id = "concentration-field", required = "required", maxlength = "30" })
+					</div>
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.ExpirationDate, ContentResources.ExpirationDate, new { @class = "col-form-label required" })
+					</div>
+					<div class="col-md-4">
+						<div class="input-group">
+							@Html.TextBoxFor(x => x.ExpirationDate, Model.ExpirationDate.ToString(FormatStrings.NetDateFormat).ToUpper(),
+								new { @class = "form-control datepicker", id = "expiration-date-field", required = "required" })
+							<span class="input-group-text">
+								<i data-feather="calendar"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.Comment, ContentResources.CommentsLine1, new { @class = "col-form-label" })
+					</div>
+					<div class="col-md-4">
+						@Html.TextBoxFor(x => x.Comment, new { @class = "form-control", id = "comments-line1-field", maxlength = "30" })
+					</div>
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.AdditionalComment, ContentResources.CommentsLine2, new { @class = "col-form-label" })
+					</div>
+					<div class="col-md-4">
+						@Html.TextBoxFor(x => x.AdditionalComment, new { @class = "form-control", id = "comments-line2-field", maxlength = "30" })
+					</div>
+				</div>
+				<hr />
+			</div>
+		</section>
+
+		<section class="row static-preview">
+			<div class="col-md-12">
+				<h4>@ContentResources.Label @ContentResources.Preview</h4>
+				<div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-12">
+					<table>
+						<tbody>
+							<tr height="50px">
+								<td class="col-3">@Html.LabelFor(x => x.LotNumber, $"{ContentResources.LotNumberShort}:", new { @class = "col-form-label" })</td>
+								<td class="col-9 with-border">@Html.LabelFor(x => x.LotNumber, string.Empty, new { @class = "details-value", id = "lot-id-label" })</td>
+							</tr>
+							<tr class="padding-bottom">
+								<td class="col-3">@Html.LabelFor(x => x.Id, $"{ContentResources.Id}:", new { @class = "col-form-label" })</td>
+								<td class="col-9">@Html.LabelFor(x => x.Id, string.Empty, new { @class = "details-value", id = "id-label" })</td>
+							</tr>
+							<tr>
+								<td class="col-3">@Html.LabelFor(x => x.Concentration, $"{ContentResources.ConcentrationShort}:", new { @class = "col-form-label" })</td>
+								<td class="col-9">@Html.LabelFor(x => x.Concentration, string.Empty, new { @class = "details-value", id = "concentration-label" })</td>
+							</tr>
+							<tr>
+								<td class="col-3">@Html.LabelFor(x => x.ExpirationDate, $"{ContentResources.ExpirationDateShort}:", new { @class = "col-form-label" })</td>
+								<td class="col-9 text-center">@Html.LabelFor(x => x.ExpirationDate, string.Empty, new { @class = "datepicker-label details-value", id = "expiration-date-label" })</td>
+							</tr>
+							<tr>
+								<td class="col-3">@Html.LabelFor(x => x.Comment, $"{ContentResources.CommentsShort}:", new { @class = "col-form-label" })</td>
+								<td class="col-9">@Html.LabelFor(x => x.Comment, string.Empty, new { @class = "details-value", id = "comments-line1-label" })</td>
+							</tr>
+							<tr>
+								<td class="col-3"></td>
+								<td class="col-9">@Html.LabelFor(x => x.AdditionalComment, string.Empty, new { @class = "details-value", id = "comments-line2-label" })</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<hr/>
+			</div>
+		</section>
+
+		<section class="row static-table">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.NumberOfCopies, ContentResources.NumberOfCopies, new { @class = "col-form-label required" })
+					</div>
+					<div class="col-md-2">
+						@Html.TextBoxFor(x => x.NumberOfCopies, new { @class = "form-control", required = "required", type = "number", step = "1", min = "1", max = int.MaxValue })
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 mt-2 mt-md-0">
+						@Html.LabelFor(x => x.PrinterDirectory, ContentResources.Printer, new { @class = "col-form-label required" })
+					</div>
+					<div class="col-md-4">
+						@if (Model.Printers?.Any() != true)
+						{
+							<span class="text-danger">@MessagesResources.NotFoundPrinters</span>
+						}
+						else
+						{
+							foreach (var printer in Model.Printers)
+							{
+								<div class="form-check form-check-inline">
+									@Html.RadioButton(nameof(Model.PrinterDirectory), printer.Directory, printer.Key.Equals(Model.PrinterKey), new { @class = "form-check-input", id = $"printer-{printer.Key}" })
+									@Html.Label(nameof(Model.PrinterDirectory), printer.Name, new { @class = "form-check-label", @for = $"printer-{printer.Key}" })
+								</div>
+							}
+						}
+					</div>
+				</div>
+				<hr />
+			</div>
+		</section>
+
+		<section class="row button-panel">
+			<div class="col-md-3">
+				<button type="submit" data-download-only="true" class="btn btn-warning">@ContentResources.Download @ContentResources.Zpl</button>
+			</div>
+			<div class="col-md-3 offset-md-3">
+				@Html.ActionLink(ContentResources.Cancel, "Index", "Home", null, new { @class = "btn btn-secondary" })
+			</div>
+			<div class="col-md-3">
+				<button type="submit" class="btn btn-primary mt-md-0 mt-2">@ContentResources.Print</button>
+			</div>
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DateHelper from '@Url.Content("~/scripts/Helpers/date-helper.js")';
+		import InputPairedLabel from '@Url.Content("~/scripts/components/input-paired-label.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+			
+			const formData = new FormData(this);
+			const viewModel = {
+				@nameof(FeedLabelAdditiveViewModel.LotNumber): formData.get("LotNumber"),
+				@nameof(FeedLabelAdditiveViewModel.Id): formData.get("Id"),
+				@nameof(FeedLabelAdditiveViewModel.Concentration): formData.get("Concentration"),
+				@nameof(FeedLabelAdditiveViewModel.ExpirationDate): DateHelper.getJsonDate(formData.get("ExpirationDate")),
+				@nameof(FeedLabelAdditiveViewModel.Comment): formData.get("Comment"),
+				@nameof(FeedLabelAdditiveViewModel.AdditionalComment): formData.get("AdditionalComment"),
+				@nameof(FeedLabelAdditiveViewModel.NumberOfCopies): parseInt(formData.get("NumberOfCopies")),
+				@nameof(FeedLabelAdditiveViewModel.PrinterDirectory): formData.get("PrinterDirectory"),
+				@nameof(FeedLabelAdditiveViewModel.NeedOnlyDownload): $(document.activeElement).attr('data-download-only') === "true",
+				@nameof(FeedLabelAdditiveViewModel.ZplExtension): formData.get("ZplExtension")
+			};
+			
+			overlay.show();
+			api.post('@Url.Action("PrintLabelAdditive", "FeedLabels")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				overlay.hide();
+
+				if (data.downloadContents) {
+					modal.setTextBody('@MessagesResources.FeedLabelAdditiveDownloadStarted');
+				} else {
+					modal.setTextBody('@MessagesResources.FeedLabelAdditiveSentPrinter');
+				}
+
+				modal.setTextTitle('@title');
+				modal.setCloseButton('@ContentResources.Ok');
+				modal.open();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+
+		$(document).ready(function () {
+			const lotIdPairedLabel = new InputPairedLabel('#lot-id-field', '#lot-id-label');
+			const idPairedLabel = new InputPairedLabel('#id-field', '#id-label');
+			const concentrationPairedLabel = new InputPairedLabel('#concentration-field', '#concentration-label');
+			const expirationDatePairedLabel = new InputPairedLabel('#expiration-date-field', '#expiration-date-label');
+			const commentsLine1PairedLabel = new InputPairedLabel('#comments-line1-field', '#comments-line1-label');
+			const commentsLine2PairedLabel = new InputPairedLabel('#comments-line2-field', '#comments-line2-label');
+
+			$('.input-group-text').on('click', function () {
+				$(this).prev('.form-control').focus();
+			});
+
+			$('input[name=ExpirationDate]').datepicker({
+				format: "@FormatStrings.JsDateFormat",
+				autoclose: true,
+				todayBtn: "linked",
+				assumeNearbyYear: true,
+				startDate: '+1d'
+			});
+	
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

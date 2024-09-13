@@ -1,0 +1,14 @@
+﻿@import "../../wwwroot/css/_custom-variables.scss";
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	white-space: nowrap;
+	line-height: 60px;
+	z-index: 100;
+
+	&.border-top {
+		border-bottom: 1px solid $grey;
+	}
+}

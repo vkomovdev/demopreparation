@@ -1,0 +1,92 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+
+@model DietPreparation.Web.Models.DietRequests.UpdateDietRequestsViewModel
+
+@{
+	var notUsedMedicatedPremixes = Model.NotUsedMedicatedPremixes?
+				.Select(x => new SelectListItem
+				{
+					Text = x.Name,
+					Value = x.Id.ToString()
+				});
+	var usedMedicatedPremixes = Model.UsedMedicatedPremixes?
+				.Select(x => new SelectListItem
+				{
+					Text = x.Name,
+					Value = x.Id.ToString()
+				});
+	var notClonedDietRequests = Model.NotClonedDietRequests?
+				.Select(x => new SelectListItem
+				{
+					Text = x.Name,
+					Value = x.Id.ToString()
+				});
+	var clonedDietRequests = Model.ClonedDietRequests?
+				.Select(x => new SelectListItem
+				{
+					Text = x.Name,
+					Value = x.Id.ToString()
+				});
+}
+
+<div class="form-group">
+	<div class="row my-4">
+		<div class="col-md-3 offset-md-1 d-flex align-content-center flex-wrap">
+			@Html.LabelFor(x => x.NotUsedMedicatedPremix, ContentResources.PremixToBeDeactivated, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5">
+			@Html.DropDownListFor(x => x.NotUsedMedicatedPremix,
+				notUsedMedicatedPremixes,
+				ContentResources.SectionOne,
+				new { @class = "form-select premix-to-deactivate" })
+		</div>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary deactivate-premix mt-md-0 mt-2">@ContentResources.Deactivate</button>
+		</div>
+	</div>
+	<div class="row my-4">
+		<div class="col-md-3 offset-md-1 d-flex align-content-center flex-wrap">
+			@Html.LabelFor(x => x.UsedMedicatedPremix, ContentResources.PremixToBeActivated, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5">
+			@Html.DropDownListFor(x => x.UsedMedicatedPremix,
+				usedMedicatedPremixes,
+				ContentResources.SectionOne,
+				new { @class = "form-select premix-to-activate" })
+		</div>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary activate-premix mt-md-0 mt-2">@ContentResources.Activate</button>
+		</div>
+	</div>
+	<div class="row my-4">
+		<div class="col-md-3 offset-md-1 d-flex align-content-center flex-wrap">
+			@Html.LabelFor(x => x.NotClonedDietRequests, ContentResources.DietRequestToBeEnabled, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5">
+			@Html.DropDownListFor(x => x.NotClonedDietRequests,
+				notClonedDietRequests,
+				ContentResources.SectionOne,
+				new { @class = "form-select diet-to-enable" })
+		</div>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary enable-diet mt-md-0 mt-2">@ContentResources.Enable</button>
+		</div>
+	</div>
+	<div class="row my-4">
+		<div class="col-md-3 offset-md-1 d-flex align-content-center flex-wrap">
+			@Html.LabelFor(x => x.ClonedDietRequests, ContentResources.DietRequestToBeDisabled, new { @class = "control-label" })
+		</div>
+		<div class="col-md-5">
+			@Html.DropDownListFor(x => x.ClonedDietRequests,
+				clonedDietRequests,
+				ContentResources.SectionOne,
+				new { @class = "form-select diet-to-disable" })
+		</div>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary disable-diet mt-md-0 mt-2">@ContentResources.Disable</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,87 @@
+@using DietPreparation.Common.Consts;
+@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.DeliveryLocations.DeliveryLocationUpdateViewModel;
+
+@{
+	ViewBag.Title = $"{ContentResources.Edit} {ContentResources.DeliveryLocation}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Edit} {ContentResources.DeliveryLocation}")
+	@using (Html.BeginForm("Edit", "DeliveryLocations", FormMethod.Post))
+	{
+		@Html.HiddenFor(x => x.Id)
+
+		<section class="row mt-4">
+			@await Html.PartialAsync("_DeliveryLocationPartial", Model)
+		</section>
+		<section class="row button-panel">
+			@await Html.PartialAsync("_DeliveryLocationButtonsPartial", ContentResources.Edit)
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			overlay.show();
+			$(':disabled').each(function (e) {
+				$(this).removeAttr('disabled');
+				$(this).attr('candisabled', 'candisabled');
+			})
+
+			const formData = new FormData(this);
+			const viewModel = {
+				Id: parseInt(formData.get('Id')),
+				Description: formData.get('Description'),
+				Building: formData.get('Building'),
+				Floor: formData.get('Floor'),
+				Lab: formData.get('Lab'),
+				BusinessUnit: parseInt(formData.get('BusinessUnit'))
+			};
+
+			api.post('@Url.Action("Edit", "DeliveryLocations")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.DeliveryLocation');
+				modal.setTextBody('@MessagesResources.DeliveryLocationUpdated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "DeliveryLocations")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+
+				$('[candisabled=candisabled]').each(function (e) {
+					$(this).removeAttr('candisabled');
+					$(this).attr('disabled', 'disabled');
+				})
+				overlay.hide();
+			});
+		});
+
+		$(document).ready(function () {
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

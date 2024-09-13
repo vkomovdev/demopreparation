@@ -1,0 +1,30 @@
+﻿@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.PWOs.PwoPremixViewModel
+
+<div class="container mt-4 mb-4">
+	@if (Model.Premixes is not null)
+	{
+		foreach (var premix in Model.Premixes)
+		{
+			<div class="row">
+				<div class="col-md-1 field-bg">
+					<strong>@ContentResources.Name:</strong>
+				</div>
+				<div class="col-md-4">@premix.DietName</div>
+				<div class="col-md-2 field-bg">
+					<strong>@ContentResources.Amount:</strong>
+				</div>
+				<div class="col-md-1">@premix.Amount @premix.AmountUom</div>
+				<div class="col-md-3 field-bg">
+					<strong>@ContentResources.ManufacturerLot:</strong>
+				</div>
+				<div class="col-md-1">@premix.LotId</div>
+			</div>
+		}
+	}
+	<div class="row mt-2">
+		<div class="col-md-3 field-bg offset-md-8"><strong>@ContentResources.Total @ContentResources.Premix:</strong></div>
+		<div class="col-md-1">@Model.TotalPremixes</div>
+	</div>
+</div>

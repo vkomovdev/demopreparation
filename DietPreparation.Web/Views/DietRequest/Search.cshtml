@@ -1,0 +1,220 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums;
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Resources
+@using DietPreparation.Web.Models.DietRequests;
+@model DietRequestSearchViewModel
+
+@{
+	ViewBag.Title = ContentResources.DietRequests;
+	var orderBy = new DietRequestSearchItem();
+
+	var filterTypeArray = new[] {DietRequestFilterOptions.Open, DietRequestFilterOptions.Cloned, DietRequestFilterOptions.All, DietRequestFilterOptions.AllPast};
+	var filterList = filterTypeArray
+		.Select(accessType => new SelectListItem
+		{
+			Text = accessType.GetDisplayName(),
+			Value = accessType.GetNumberAsString(),
+			Selected = accessType.GetDisplayName() == Model.PreFilter,
+		});
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.DietRequests}")
+	@await Html.PartialAsync("../Shared/FilterYearInfo")
+	<div class="accordion pb-4" id="accordion">
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="panel-diet-requests">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panel-diet-requests-collapse" aria-expanded="true" aria-controls="panel-diet-requests-collapse">
+					@ContentResources.Search
+				</button>
+			</h2>
+			<div id="panel-diet-requests-collapse" class="px-2 accordion-collapse collapse show" aria-labelledby="panel-diet-requests">
+				<section class="search-panel">
+					<div class="row pt-3 pb-2">
+						<div class="col-md-1">
+							<label class="col-form-label">@ContentResources.Status</label>
+						</div>
+						<div class="col-md-2">
+							@Html.DropDownListFor(x => x.Filter, filterList,new { @class = "form-select", @filter="filter" })
+						</div>
+						<div class="col-md-2 offset-md-7">
+							<button type="button" class="btn btn-primary search-button">@ContentResources.Search</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<section class="sortable-block pagination-block mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-1 active-desc" data-sort-by="@(orderBy.GetFullName(x => x.Lot))">@ContentResources.Lot</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.Requestor))">@ContentResources.Requestor</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.Receiver))">@ContentResources.DeliverTo</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.DateRequest))">@ContentResources.DateOfRequest</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.DateNeeded))">@ContentResources.DateNeeded</th>
+					<th class="col-3" data-sort-by="@(orderBy.GetFullName(x => x.Name))">@ContentResources.DietName</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.RequestAmount))">@ContentResources.AmountRequested</th>
+					<th class="col-1" data-sort-by="@(orderBy.GetFullName(x => x.UnitOfMeasure))">@ContentResources.UnitOfMeasure</th>
+					<th class="col-2">&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="9" class="pagination-panel">
+						<nav>
+							<ul class="pagination justify-content-center"></ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+
+		function fillTable(data) {
+			let $data = $('.sortable-block table tbody');
+			$data.find('tr').remove();
+
+			if (data.dietRequests && data.dietRequests.length > 0) {
+				$.each(data.dietRequests, function (index, item) {
+					const buttons = buttonGroup(item);
+					let row = $('<tr>');
+					row.append('<td>' + item.lot + '</td>');
+					row.append('<td>' + item.requestor + '</td>');
+					row.append('<td>' + item.receiver + '</td>');
+					row.append('<td>' + item.dateRequest + '</td>');
+					row.append('<td>' + item.dateNeeded + '</td>');
+					row.append('<td><p class="text-wrap">' + item.name + '</p></td>');
+					row.append('<td>' + item.requestAmount.toLocaleString() + '</td>');
+					row.append('<td>' + item.unitOfMeasure + '</td>');
+					row.append(buttons);
+					$data.append(row);
+				});
+				feather.replace();
+			} else {
+				let row = $('<tr>');
+				row.append(`<td colspan="9" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+		}
+
+		function buttonGroup(item) {
+			if (!item) {
+				return '';
+			}
+
+			let block = '<td><div class="d-flex"><span class="ms-auto">';
+
+			block += `<a class="m-1 request-row" href="@Url.Action("Details", "DietRequest")?id=${item.id}"><i data-feather="file-text"></i></a>`;
+			block += ((!item.isLocked && !item.isDeleted)
+				?  `<a class="m-1 request-row" href="@Url.Action("Edit", "DietRequest")?id=${item.id}"><i data-feather="edit"></i></a>`
+				:  '');
+			block += `<a class="m-1 request-row" href="@Url.Action("CloneDetails", "DietRequest")?id=${item.id}"><i data-feather="copy"></i></a>`;
+			block += `<span class="m-1 simple-link print-button" data-id="${item.id}"><i data-feather="printer"></i></span>`;
+			
+			block += ((!item.isLocked && !item.isDeleted)
+				? `<span class="m-1 simple-link red delete-button" data-id="${item.id}"><i data-feather="trash-2"></i></span>`
+				: '');
+			block += ((item.isDeleted)
+				? `<span class="m-1 simple-link activate-button" data-id="${item.id}"><i data-feather="corner-up-left"></i></span>`
+				: '');
+
+			block += `</span></div></td>`;
+			return block;
+		}
+
+		function initActionButtonHandlers() {
+			$(document).on('click', '.print-button', function () {
+				event.preventDefault();
+				const id = $(this).data('id');
+
+				overlay.show();
+				api.get(`@Url.Action("Print", "DietRequest")?id=${id}`, {
+					headers: { "Content-Type": "application/json" }
+				})
+				.then((data) => {
+					overlay.hide();
+				})
+				.catch((exception) => {
+					overlay.hide();
+					handleException(exception);
+				});
+			});
+
+			$(document).on('click', '.delete-button', function () {
+				event.preventDefault();
+				overlay.show();
+				const id = $(this).data('id');
+
+				modal.setTextTitle('@ContentResources.DietRequests');
+				modal.setInputBody('@MessagesResources.PleaseEnterReasonForDelete');
+				modal.setCancelContinueButtons('@ContentResources.Cancel', '@ContentResources.Ok');
+
+				modal.modalElement.on('continue', (event) => deleteDietRequest(id));
+				modal.modalElement.on('cancel', (event) => unsubscribeModalEvents());
+
+				modal.open();
+				overlay.hide();
+			});
+
+			$(document).on('click', '.activate-button', function () {
+				event.preventDefault();
+				const viewModel = { Id: $(this).data('id') };
+
+				api.post('@Url.Action("Activate", "DietRequest")', viewModel, {
+					headers: { "Content-Type": "application/json" }
+				}).catch((error) => { displayAlert.exception(error); });
+			});
+		}
+
+		function unsubscribeModalEvents() {
+			modal.modalElement.off('continue');
+			modal.modalElement.off('cancel');
+		}
+
+		function deleteDietRequest(id) {
+			const viewModel = { Id: id, ChangeReason: modal.getInputValue() };
+			overlay.show();
+			unsubscribeModalEvents();
+			api.post('@Url.Action("Delete", "DietRequest")', viewModel, {
+				headers: { "Content-Type": "application/json" }
+			})
+			.then((data) => {
+				overlay.hide();
+				modal.close();
+				window.location.href = '@Url.Action("Index", "DietRequest")';
+			})
+			.catch((exception) => {
+				handleException(exception);
+				modal.close();
+				overlay.hide();
+			});
+		}
+
+		$(document).ready(function () {
+			const tableManager = new TableManager(['sortable-table', 'pagination', 'search-panel'], '@Url.Action("DietRequestList", "DietRequest")', fillTable, handleException, feather);
+			tableManager.loadData();
+
+			initActionButtonHandlers();
+		});
+	</script>
+}

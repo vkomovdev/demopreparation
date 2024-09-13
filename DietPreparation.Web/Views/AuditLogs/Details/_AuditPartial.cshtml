@@ -1,0 +1,36 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Common.Consts
+@using DietPreparation.Web.Models.AuditLogs;
+
+@model AuditLogDetailsViewModel;
+
+<h4>@ContentResources.Audit @ContentResources.Entry</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ChangeType, ContentResources.ChangeType, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ChangeType)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ChangeTimestamp, ContentResources.ChangeTimestamp,new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ChangeTimestamp)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ChangeReason, ContentResources.ChangeReason, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@(Html.DisplayTextFor(x => x.ChangeReason))
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ChangeOperator, ContentResources.ChangeOperator, new { @class = "form-check-label my-auto" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ChangeOperator)
+	</div>
+</div>

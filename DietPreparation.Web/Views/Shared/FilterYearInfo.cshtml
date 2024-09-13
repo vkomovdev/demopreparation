@@ -1,0 +1,16 @@
+﻿@using DietPreparation.Application.Queries.Requests
+@using MediatR
+@inject IMediator _mediator
+
+@{
+	var response = await _mediator.Send(new GetFilterYearQueryRequest());
+	var year = response.Year.ToString();
+}
+
+
+<section>
+	<div class="alert alert-light mt-2" role="alert">
+		Searching is carried out until @year
+	</div>
+</section>
+

@@ -1,0 +1,71 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Web.Models.BasalDiets
+
+@model DietPreparation.Web.Models.BasalDiets.EditBasalDietViewModel
+
+<h4 class="primary">@ContentResources.DietIngredients</h4>
+
+<table class="table table-hover" id="ingredients-table">
+	<thead>
+		<tr class="header">
+			<th class="required">@ContentResources.Ingredient</th>
+			<th class="required">@ContentResources.PercentOfTotalDiet</th>
+			<th>@ContentResources.Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model?.BasalDietIngredients is not null)
+		{
+			foreach (var basalIngredient in Model.BasalDietIngredients)
+			{
+				basalIngredient.Ingredients = Model.Ingredients;
+				<tr>
+					@await Html.PartialAsync("~/Views/BasalDiets/CreateEdit/_IngredientRowPartial.cshtml", basalIngredient)
+					<td class="col-1">
+						<input type="button" class="btn remove-row" value="@ContentResources.Remove"/>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+	<tfoot>
+		<tr class="add">
+			@await Html.PartialAsync("~/Views/BasalDiets/CreateEdit/_IngredientRowPartial.cshtml", new BasalDietIngredientViewModel()
+			{
+				PercentOfDiet = 0m,
+				Ingredients = Model.Ingredients
+			})
+			<td class="col-1">
+				<input type="button" class="btn add-row" value="@ContentResources.Add" />
+			</td>
+		</tr>
+		<tr class="template">
+			@await Html.PartialAsync("~/Views/BasalDiets/CreateEdit/_IngredientRowPartial.cshtml", new BasalDietIngredientViewModel()
+			{
+				PercentOfDiet = 0m,
+				Ingredients = Model.Ingredients
+			})
+			<td class="col-1">
+				<input type="button" class="btn remove-row" value="@ContentResources.Remove" />
+			</td>
+		</tr>
+		<tr>
+			<td class="col-md-6">
+				@ContentResources.Total
+			</td>
+			<td class="col-md-5">
+				@Html.TextBox("total-percent", null,
+					new
+					{
+						@class = "form-control readonly",
+						@readonly = "readonly",
+						required = "required",
+						min = 100,
+						max = 100,
+						title = "Total percent (should be equals to 100%)"
+					})
+			</td>
+			<td class="col-md-1"/>
+		</tr>
+	</tfoot>
+</table>

@@ -1,0 +1,87 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Enums;
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Resources
+@using DietPreparation.Web.Models.BasalDiets;
+@using DietPreparation.Web.Models.BasalDiets.List;
+@using DietPreparation.Web.Models.DietRequests;
+@model BasalDietListViewModel
+
+@{
+	ViewBag.Title = ContentResources.BasalDiets;
+	var orderBy = new BasalDietListItemViewModel();
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.BasalDiets}")
+
+	<section class="sortable-block pagination-block mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-3 active-asc" data-sort-by="@(orderBy.GetFullName(x => x.Code))">@ContentResources.BasalDietCode</th>
+					<th class="col-8" data-sort-by="@(orderBy.GetFullName(x => x.Name))">@ContentResources.BasalDietName</th>
+					<th class="col-1">
+						<a class="float-end" href="@Url.Action("Create","BasalDiets")"><i data-feather="plus-square"></i></a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3" class="pagination-panel">
+						<nav>
+							<ul class="pagination justify-content-center"></ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+
+		function fillTable(data) {
+			let $data = $('.sortable-block table tbody');
+			$data.find('tr').remove();
+
+			if (data.basalDiets && data.basalDiets.length > 0) {
+				$.each(data.basalDiets, function (index, item) {
+					let row = $('<tr>');
+					row.attr('data-id', item.id);
+					row.addClass('request-row');
+					row.append('<td>' + item.code + '</td>');
+					row.append('<td>' + item.name + '</td>');
+					row.append(`<td><a class="float-end"><i data-feather="edit"></i></a></td>`);
+
+					$data.append(row);
+				});
+				feather.replace();
+			} else {
+				let row = $('<tr>');
+				row.append(`<td colspan="3" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+		}
+
+		$(document).on('click', '.request-row', function () {
+			const id = $(this).data('id');
+			window.location.href = '@Url.Action("Edit", "BasalDiets")' + `?id=${id}`;
+		});
+
+		$(document).ready(function () {
+			const tableManager = new TableManager(['sortable-table', 'pagination', 'search-panel'], '@Url.Action("BasalDietList", "BasalDiets")', fillTable, handleException, feather);
+			tableManager.loadData();
+		});
+	</script>
+}

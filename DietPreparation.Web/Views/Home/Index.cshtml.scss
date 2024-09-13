@@ -1,0 +1,12 @@
+﻿@import "../../wwwroot/css/_custom-variables.scss";
+
+$image: url(./images/feed-mill.jpg) ;
+
+.bg-image {
+    background-image: $image;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    box-shadow: inset 0 -5px 5px 0 $white;
+    height: 100vh;
+}

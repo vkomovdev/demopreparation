@@ -1,0 +1,23 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+@model DietPreparation.Web.Models.FeedStuffs.FeedStuffViewModel
+
+@Html.HiddenFor(model => model.Id)
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-3 col-lg-2 offset-md-2 offset-lg-3">
+			@Html.LabelFor(x => x.Name, $"{ContentResources.Feedstuff} {ContentResources.Ingredients}", new { @class = "control-label required" })
+		</div>
+		<div class="col-md-5 col-lg-4">
+			@Html.TextBoxFor(
+				x => x.Name, 
+				new
+				{
+					@class = "form-control",
+					required = "required",
+					maxlength = FieldLengthes.Middle
+				})
+		</div>
+	</div>
+</div>

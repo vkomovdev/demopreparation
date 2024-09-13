@@ -1,0 +1,232 @@
+﻿@using DietPreparation.Common.Consts;
+@using DietPreparation.Common.Extensions;
+@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.PWOs.PwoBatchViewModel
+
+@{
+	ViewBag.Title = ContentResources.DefineBatches;
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.DefineBatches)
+	@using (Html.BeginForm("BatchDetails", "Pwo", FormMethod.Post, new { @class = "pwo-batch-form" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.HiddenFor(model => model.RequestId)
+		@Html.HiddenFor(model => model.RequestAmount)
+		@Html.HiddenFor(model => model.MaxCapacity)
+		@Html.HiddenFor(model => model.RecordId)
+
+		<section class="row">
+			<div class="col-md-12">
+				<div class="row align-items-center py-2">
+					<div class="col-4">
+						<div>
+							<strong class="me-2">@Html.DisplayNameFor(model => model.DietName):</strong>
+							@Model.DietName
+						</div>
+					</div>
+					<div class="col-4">
+						<div>
+							<strong class="me-2">@Html.DisplayNameFor(model => model.CustomerName):</strong>
+							@Model.CustomerName
+						</div>
+					</div>
+					<div class="col-4">
+						<div>
+							<strong class="me-2">@Html.DisplayNameFor(model => model.Lot):</strong>
+							@Model.Lot
+						</div>
+					</div>
+				</div>
+				<hr/>
+			</div>
+		</section>
+		<section class="row static-table mt-3">
+			<div class="col-12">
+				<h4>@ContentResources.BatchesToBeMixed</h4>
+			</div>
+		</section>
+		<section class="row dynamic-table">
+			<div class="col-md-12">
+				<div class="section-body show">
+					<table class="table table-hover" id="batch-table">
+						<thead>
+						<tr class="header">
+							<th class="active-desc">@ContentResources.BatchSize</th>
+							<th>@ContentResources.UnitOfMeasure</th>
+							<th>@ContentResources.NumberOfBatches</th>
+							<th>@ContentResources.TotalForBatchSize</th>
+							<th>@ContentResources.UnitOfMeasure</th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+						<tfoot>
+						<tr class="add">
+							@await Html.PartialAsync("~/Views/Pwo/Shared/_BatchRowPartial.cshtml", Model)
+
+							<td class="col-1">
+								<input type="button" class="btn add-row" id="add-batch" value="@ContentResources.Add"/>
+							</td>
+						</tr>
+						<tr class="template">
+							@await Html.PartialAsync("~/Views/Pwo/Shared/_BatchRowPartial.cshtml", Model)
+
+							<td class="col-1">
+								<input type="button" class="btn remove-row" value="@ContentResources.Remove"/>
+							</td>
+						</tr>
+						</tfoot>
+					</table>
+				</div>
+				<hr class="mt-2"/>
+			</div>
+		</section>
+		<section class="row">
+			<div class="col-md-12">
+				<div class="row align-items-center py-2">
+					<div class="col-4">
+						<div>
+							<strong class="me-2">@ContentResources.Unscheduled:</strong>
+							<span class="unscheduledAmount">@Model.RequestAmount</span> @Model.RequestUom.GetDisplayName().ToLower()
+						</div>
+					</div>
+					<div class="col-4">
+						<div>
+							<strong class="me-2">@ContentResources.TotalRequestAmount:</strong>
+							@Model.RequestAmount @Model.RequestUom.GetDisplayName().ToLower()
+						</div>
+					</div>
+				</div>
+				<hr/>
+			</div>
+		</section>
+		<section class="row button-panel mt-4">
+			<div class="col-md-3 offset-md-6">
+				@Html.ActionLink(
+					ContentResources.Cancel,
+					"create",
+					"pwo",
+					null,
+					new { @class = "btn btn-secondary"})
+			</div>
+			<div class="col-md-3">
+				<button type="submit" class="btn btn-primary mt-md-0 mt-2">@ContentResources.Create</button>
+			</div>
+		</section>
+	}
+</div>
+
+<script type="module">
+	import DynamicTable from '@Url.Content("~/scripts/Components/dynamic-table.js")';
+	import RequiredFieldHelper from '@Url.Content("~/scripts/helpers/required-field-helper.js")';
+	import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+	import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+	import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+	import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+	import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+	import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+	var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+	$(document).ready(function () {
+		const table = $('#batch-table');
+		const tBody = table.find("> tbody")[0];
+		const templateRow = table.find("> tfoot > tr.template")[0];
+		const inputRow = table.find("> tfoot > tr.add")[0];
+		const addRowButton = table.find("> tfoot > tr.add > td > input.add-row")[0];
+		const removeRowButtonClass = "remove-row";
+		
+		const requiredHelper = new RequiredFieldHelper("can-required");
+		const dynamicTable = new DynamicTable(tBody, templateRow, inputRow, addRowButton, removeRowButtonClass);
+		requiredHelper.addRequired(tBody);
+		requiredHelper.addRequired(templateRow);
+	
+		tBody.addEventListener('rowAdded', function (event) {
+			UnscheduledCalc();
+		});
+		
+		tBody.addEventListener('rowRemoved', function (event) {
+			UnscheduledCalc();
+		});
+
+		$("input[name='BatchSize']").change(function () {
+			UnscheduledCalc();
+		});
+		$("input[name='BatchNumbers']").change(function () {
+			UnscheduledCalc();
+		});
+
+		function UnscheduledCalc() {
+			let total = @Model.RequestAmount;
+			let form = document.querySelector('.pwo-batch-form');
+
+			let batchSizeInputs = form.querySelectorAll('input[name="BatchSize"]');
+			let batchSizeNumbers = form.querySelectorAll('input[name="BatchNumbers"]');
+
+			let batchSizeValues = [];
+			let batchSizeNumbersValues = [];
+
+			batchSizeInputs.forEach(function (input) {
+				batchSizeValues.push(input.value);
+			});
+			batchSizeNumbers.forEach(function (input) {
+				batchSizeNumbersValues.push(input.value);
+			});
+
+			let unscheduledAmount = document.querySelector('.unscheduledAmount');
+			let lineItemsTotal = document.getElementsByClassName("line-item-total");
+
+			let scheduled = 0;
+			for (let i = 0; i < batchSizeValues.length; i++) {
+				lineItemsTotal[i].innerText = batchSizeValues[i] * batchSizeNumbersValues[i];
+				scheduled += batchSizeValues[i] * batchSizeNumbersValues[i];
+			}
+
+			let unscheduled = total - scheduled;
+			if (unscheduled >= 0) {
+				unscheduledAmount.innerText = unscheduled;
+				unscheduledAmount.style.color = '#212529';
+			}
+			else {
+				unscheduled = unscheduled * -1
+				unscheduledAmount.innerText = '(' + unscheduled + ')';
+				unscheduledAmount.style.color = '#FFA500';
+			}
+		}
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+			const formData = new FormData(this);
+			const viewModel = {
+				BatchSize: formData.getAll('BatchSize').map(str => parseInt(str, 10)).filter(num => !isNaN(num)),
+				BatchNumbers: formData.getAll('BatchNumbers').map(str => parseInt(str, 10)).filter(num => !isNaN(num)),
+				RequestId: formData.get('RequestId'),
+				MaxCapacity: formData.get('MaxCapacity'),
+				RequestAmount: formData.get('RequestAmount'),
+				RecordId:  formData.get('RecordId'),
+				RequestUom: @((int)Model.RequestUom)
+			 };
+			overlay.show();
+			api.post('@Url.Action("BatchDetails", "Pwo")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.Batches');
+					modal.setTextBody('@MessagesResources.BatchWasCreated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("BatchList", "Pwo", new { requestId = Model.RequestId })');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+	});
+</script>

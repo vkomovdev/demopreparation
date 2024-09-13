@@ -1,0 +1,31 @@
+﻿@using DietPreparation.Web.Models.PWOs;
+@using DietPreparation.Resources;
+@model PwoBatchListViewModel
+
+@{
+	ViewBag.Title = ContentResources.BatchList;
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", ContentResources.BatchList)
+	@using (Html.BeginForm("BatchList", "Pwo", FormMethod.Post, new { @class = "pwo-batch-list-form" }))
+	{
+		@await Html.PartialAsync("_BatchListPartial", Model)
+
+		<section class="row button-panel mt-3">
+			<div class="col-md-3 offset-md-9">
+				@Html.ActionLink(ContentResources.Cancel, "create", "pwo", new { requestId = Model.RequestId }, new { @class = "btn btn-secondary" })
+			</div>
+		</section>
+	}
+</div>
+<script type="module">
+	$(document).ready(function(){
+		$(".batch-item").click(function () { 
+			const sequence = $(this).data("sequence");
+			const requestid = $(this).data("requestid");
+			const url = `@Url.Action("details","pwo")/${requestid}/${sequence}`;
+			window.location.href = url;
+		});
+	});
+</script>

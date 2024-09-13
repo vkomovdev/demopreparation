@@ -1,0 +1,9 @@
+﻿SELECT 
+DISTINCT REQUEST_ID, 
+LOT_YEAR, 
+LOT_ID,
+(convert(varchar,LOT_YEAR) + ' ' + convert(varchar,LOT_ID)) as PHAnum, 
+DIET_NAME 
+FROM DP_REQUEST 
+WHERE REQUEST_TYPE = 'Diet' 
+ORDER BY LOT_YEAR DESC, LOT_ID DESC

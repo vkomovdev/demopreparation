@@ -1,0 +1,55 @@
+﻿@using DietPreparation.Web.Models.DietRequests.Rows
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.DietRequests.EditDietRequestViewModel
+
+<table class="table table-hover" id="drug-table">
+	<thead>
+		<tr class="header">
+			<th class="required">@ContentResources.DrugName</th>
+			<th>@ContentResources.DrugConcentration</th>
+			<th class="required">@ContentResources.Amount</th>
+			<th class="required">@ContentResources.UnitOfMeasure</th>
+			<th class="required">@ContentResources.DrugMfgLotNumber</th>
+			<th>@ContentResources.IncludedInWeight</th>
+			<th>@ContentResources.Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Drugs is not null)
+		{
+			foreach (var drug in Model.Drugs)
+			{
+				drug.Metadata = Model.Metadata;
+				<tr>
+					@await Html.PartialAsync("~/Views/DietRequest/CreateEdit/Rows/_DrugRowPartial.cshtml", drug)
+					<td class="col-1">
+						<input type="button" class="btn remove-row" value="@ContentResources.Remove"/>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+	<tfoot>
+		<tr class="add">
+			@await Html.PartialAsync("~/Views/DietRequest/CreateEdit/Rows/_DrugRowPartial.cshtml", new DietRequestDrug()
+			{
+				Amount = 0m,
+				Metadata = Model.Metadata
+			})
+			<td class="col-1">
+				<input type="button" class="btn add-row" id="add-drug" value="@ContentResources.Add" />
+			</td>
+		</tr>
+		<tr class="template">
+			@await Html.PartialAsync("~/Views/DietRequest/CreateEdit/Rows/_DrugRowPartial.cshtml", new DietRequestDrug()
+			{
+				Amount = 0m,
+				Metadata = Model.Metadata
+			})
+			<td class="col-1">
+				<input type="button" class="btn remove-row" value="@ContentResources.Remove" />
+			</td>
+		</tr>
+	</tfoot>
+</table>

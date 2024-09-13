@@ -1,0 +1,77 @@
+﻿@using DietPreparation.Web.Models.PWOs;
+
+@model PwoHeaderViewModel
+
+<div class="container field-bg">
+	<div class="row border-bottom">
+		<div class="col-md-3">
+			<div class="form-group row">
+				<strong class="col-6 col-md-7 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.Lot):</strong>
+				<div class="col-6 col-md-5 field-value-bg py-2">@Model.Lot</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group row">
+				<strong class=" col-6 col-md-4 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.CustomerName):</strong>
+				<div class="col-6 col-md-8 field-value-bg py-2">@Model.CustomerName</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group row">
+				<strong class="col-6 col-md-7 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.DateRequestFormatted):</strong>
+				<div class="col-6 col-md-5 field-value-bg py-2">@Model.DateRequestFormatted</div>
+			</div>
+		</div>
+	</div>
+	<div class="row border-bottom">
+		<div class="col-md-3">
+			<div class="form-group row">
+				<strong class="col-6 col-md-7 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.Sequence):</strong>
+				<div class="col-6 col-md-5 field-value-bg py-2">@Model.Sequence</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group row field-bg">
+				<div>&nbsp;</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group row">
+				<strong class="col-6 col-md-7 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.DateNeededFormatted):</strong>
+				<div class="col-6 col-md-5 field-value-bg py-2">@Model.DateNeededFormatted</div>
+			</div>
+		</div>
+	</div>
+	<div class="row border-bottom">
+		<div class="col-md-12">
+			<div class="form-group row">
+				<strong class="col-6 col-md-3 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.DietName):</strong>
+				<div class="col-6 col-md-9 field-value-bg py-2">@Model.DietName</div>
+			</div>
+		</div>
+	</div>
+	<div class="row border-bottom">
+		<div class="col-md-12">
+			<div class="form-group row">
+				<strong class="col-6 col-md-3 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.ParckingInstructions):</strong>
+				<div class="col-6 col-md-9 field-value-bg py-2">@Model.ParckingInstructions</div>
+			</div>
+		</div>
+	</div>
+	<div class="row border-bottom">
+		<div class="col-md-12">
+			<div class="form-group row">
+				<strong class="col-6 col-md-3 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.MixingInstructions):</strong>
+				<div class="col-6 col-md-9 field-value-bg py-2">@Model.MixingInstructions</div>
+			</div>
+		</div>
+	</div>
+	<div class="row border-bottom">
+		<div class="col-md-12">
+			<div class="form-group row">
+				<strong class="col-6 col-md-3 field-bg py-2 px-4">@Html.DisplayNameFor(model => model.BatchAmount):</strong>
+				<div class="col-6 col-md-9 field-value-bg py-2">@Model.BatchAmount</div>
+			</div>
+		</div>
+	</div>
+</div>

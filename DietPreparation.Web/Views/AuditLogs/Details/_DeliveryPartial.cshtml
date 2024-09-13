@@ -1,0 +1,50 @@
+﻿@using DietPreparation.Resources
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Common.Consts
+@using DietPreparation.Web.Models.AuditLogs;
+
+@model AuditLogDetailsViewModel;
+
+<h4>@ContentResources.DeliveryData</h4>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.RequesterName, ContentResources.Requestor, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.RequesterName)
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.ReceiverName, ContentResources.DeliverTo,new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Html.DisplayFor(x => x.ReceiverName)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.Location, ContentResources.Location, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@(Html.DisplayTextFor(x => x.Location))
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DeliveryNotice, ContentResources.DeliveryNotice, new { @class = "form-check-label my-auto" })
+	</div>
+	<div class="col-md-4">
+		@(Model.DeliveryNotice == true ? ContentResources.Yes : ContentResources.No)
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DateRequested, ContentResources.DateOfRequest, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Model.DateRequested
+	</div>
+	<div class="col-md-2 mt-2 mt-md-0">
+		@Html.LabelFor(x => x.DateNeeded, ContentResources.DateNeeded, new { @class = "col-form-label" })
+	</div>
+	<div class="col-md-4">
+		@Model.DateNeeded
+	</div>
+</div>

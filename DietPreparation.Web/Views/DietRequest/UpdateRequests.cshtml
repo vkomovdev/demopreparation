@@ -1,0 +1,72 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Resources
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Common.Consts
+
+@model DietPreparation.Web.Models.DietRequests.UpdateDietRequestsViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Update} {ContentResources.DietRequests}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Update} {ContentResources.DietRequests}")
+	<section class="row mt-4">
+		@await Html.PartialAsync("_UpdateRequestsPartial", Model)
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		}
+
+		function initActionButtonHandlers() {
+			$(document).on('click', '.deactivate-premix', function () {
+				event.preventDefault();
+				const viewModel = { Id: $('.premix-to-deactivate').val() };
+
+				api.post('@Url.Action("MarkPremixAsUsed", "DietRequest")', viewModel, {
+					headers: { "Content-Type": "application/json" }
+				}).catch((error) => { displayAlert.exception(error); });
+			});
+
+			$(document).on('click', '.activate-premix', function () {
+				event.preventDefault();
+				const viewModel = { Id: $('.premix-to-activate').val() };
+
+				api.post('@Url.Action("MarkPremixAsNotUsed", "DietRequest")', viewModel, {
+					headers: { "Content-Type": "application/json" }
+				}).catch((error) => { displayAlert.exception(error); });
+			});
+
+			$(document).on('click', '.enable-diet', function () {
+				event.preventDefault();
+				const viewModel = { Id: $('.diet-to-enable').val() };
+
+				api.post('@Url.Action("MarkDietAsTemplated", "DietRequest")', viewModel, {
+					headers: { "Content-Type": "application/json" }
+				}).catch((error) => { displayAlert.exception(error); });
+			});
+
+			$(document).on('click', '.disable-diet', function () {
+				event.preventDefault();
+				const viewModel = { Id: $('.diet-to-disable').val() };
+
+				api.post('@Url.Action("MarkDietAsNotTemplated", "DietRequest")', viewModel, {
+					headers: { "Content-Type": "application/json" }
+				}).catch((error) => { displayAlert.exception(error); });
+			});
+
+		}
+
+		$(document).ready(function () {
+			initActionButtonHandlers();
+		});
+	</script>
+}

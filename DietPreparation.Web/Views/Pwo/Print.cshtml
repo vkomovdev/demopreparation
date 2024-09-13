@@ -1,0 +1,705 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Resources
+@model DietPreparation.Web.Models.PWOs.PrintPwoBatchViewModel
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Diet Preparation System</title>
+	<style>
+		.pagebreak {
+			page-break-before: always
+		}
+
+		html, body {
+			margin: 0;
+			height: 912px;
+		}
+
+		h2 {
+			margin: 0;
+			font-family: Verdana, Arial;
+			font-size: 17pt;
+			text-align: center;
+		}
+
+		h3 {
+			margin: 0;
+			font-family: Verdana, Arial;
+			font-size: 13pt;
+			text-align: center;
+		}
+
+		h5 {
+			margin: 0;
+			font-family: Verdana, Arial;
+			font-size: 10pt;
+			text-align: center;
+		}
+
+		h6 {
+			margin: 0;
+			font-family: Verdana, Arial;
+			font-size: 9pt;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		table.static-table {
+			width: 672px;
+			margin: 0 auto;
+			color: black;
+			font-size: 9pt;
+			line-height: 1.2;
+		}
+
+		table.static-table tr.row {
+			width: 100%;
+			height: 16px;
+		}
+
+		table.static-table tr.row.large {
+			height: 64px;
+		}
+
+		table.static-table td.label {
+			font-weight: bold;
+			font-family: Tahoma;
+			text-align: right;
+		}
+
+		table.static-table td.field {
+			border: black 1px solid;
+			font-family: Tahoma;
+		}
+
+		table.static-table i {
+			font-size: 11pt;
+		}
+
+		table.drug-table {
+			color: black;
+			margin: 0 auto;
+			font-size: 9pt;
+			font-family: Tahoma;
+		}
+
+		table.drug-table th {
+			vertical-align: bottom;
+			border-bottom: black 1px solid;
+			font-style: italic;
+			height: 30px;
+		}
+
+		table.drug-table td {
+			vertical-align: bottom;
+			font-weight: normal;
+			font-style: normal;
+			background-color: palegoldenrod
+		}
+
+		table.ingredient-table {
+			margin: 0 auto;
+			font-weight: bold;
+			font-size: 9pt;
+			width: 672px;
+			font-style: italic;
+			font-family: Tahoma
+		}
+
+		table.ingredient-table th {
+			vertical-align: bottom;
+			border-bottom: black 1px solid;
+			font-style: italic;
+			font-family: Tahoma;
+			height: 30px
+		}
+
+		table.ingredient-table.non-border th {
+			border-bottom: 0;
+		}
+
+		td.given-data {
+			font-weight: normal;
+			font-style: normal;
+			font-family: Tahoma;
+			background-color: palegoldenrod
+		}
+
+		td.expected-data {
+			border-bottom: black 1px solid
+		}
+
+		hr.lg {
+			height: 100%;
+			border: 5px solid #aaa;
+		}
+
+		hr.md {
+			height: 100%;
+			border: 2px solid #aaa;
+		}
+
+		td.top, td.top {
+			vertical-align: top;
+		}
+
+		th.left, td.left {
+			text-align: left;
+		}
+
+		th.right, td.right {
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<table class="static-table">
+		<tr>
+			<td colspan="6">
+				<h2>  Research Diet Request</h2>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6">
+				<h3>Processing Work Order</h3>
+			</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">
+				<hr class="lg">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="label" style="width: 80px">Lot:</td>
+			<td class="field" style="width: 70px">@Html.DisplayFor(x => x.LotNumber)</td>
+			<td class="label" style="width: 189px">Requested By:</td>
+			<td class="field" style="width: 250px">@Html.DisplayFor(x => x.RequesterName)</td>
+			<td class="label" style="width: 189px">Date Requested:</td>
+			<td class="field" style="width: 120px">@Model.DateRequest.ToString(FormatStrings.NetDateFormat).ToUpper()</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Batch:</td>
+			<td class="field">@Html.DisplayFor(x => x.BatchNumber)</td>
+			<td class="label">Planned By:</td>
+			<td class="field">@Html.DisplayFor(x => x.PlannedBy)</td>
+			<td class="label">Date Needed:</td>
+			<td class="field">@Model.DateNeeded.ToString(FormatStrings.NetDateFormat).ToUpper()</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Protocol Number:</td>
+			<td class="field">@Html.DisplayFor(x => x.ProtocolNumber)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Study Number:</td>
+			<td class="field">@Html.DisplayFor(x => x.StudyNumber)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Project Number:</td>
+			<td class="field">@Html.DisplayFor(x => x.ProjectNumber)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Study Type:</td>
+			<td class="field">@Html.DisplayFor(x => x.StudyType)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Request Type:</td>
+			<td class="field">@Html.DisplayFor(x => x.RequestType)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">
+				<hr class="md">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Deliver To:</td>
+			<td class="field">@Html.DisplayFor(x => x.DeliverTo)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td class="label" colspan="2">Description:</td>
+			<td class="field" colspan="2">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.Description) : string.Empty)</td>
+			<td class="label">Building:</td>
+			<td class="field">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.Building) : string.Empty)</td>
+		</tr>
+		<tr class="row">
+			<td class="label" colspan="2">Floor & Lab:</td>
+			<td class="field" colspan="2">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.FloorLab) : string.Empty)</td>
+			<td class="label">Business Unit:</td>
+			<td class="field">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.BusinessUnit) : string.Empty)</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">
+				<hr class="md">
+			</td>
+		</tr>
+	</table>
+	<table class="static-table">
+		<tr class="row">
+			<td class="label" style="width: 224px">Diet Name:</td>
+			<td class="field" style="width: 448px" colspan="2">@Html.DisplayFor(x => x.DietName)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Base Feed Type:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.FeedType)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Intended Use:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.IntendedUse)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Form:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.Form)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Total Requested Weight:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.TotalRequestedWeight) @Html.DisplayFor(x => x.TotalRequestedUom) (Total of All Batches)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Controlled Substance:</td>
+			<td class="field" colspan="2">@(Model.ControlledSubstance ? ContentResources.Yes : ContentResources.No)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Toxic Hazard:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.ToxicHazard)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Hazard Code:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.HazardCode)</td>
+		</tr>
+		<tr class="row large">
+			<td class="label top">Mixing Instructions:</td>
+			<td class="field top" colspan="2">@Html.DisplayFor(x => x.MixingInstructions)</td>
+		</tr>
+		<tr class="row large">
+			<td class="label top">Packing Instructions:</td>
+			<td class="field top" colspan="2">@Html.DisplayFor(x => x.PackingInstructions)</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Sample(s):</td>
+			<td class="field" colspan="2">@(Model.HasSamples ? $"{ContentResources.Yes}, SEE NEXT PAGE" : ContentResources.No)</td>
+		</tr>
+	</table>
+	<table class="static-table">
+		<tr >
+			<td>
+				<hr class="md">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h5>Summary of Drug Concentrations</h5>
+			</td>
+		</tr>
+	</table>
+	@if (Model.Drugs is not null && Model.Drugs.Any())
+	{
+		<table class="drug-table">
+			<tr>
+				<th class="left" style="width: 169px">Request Drug Name</th>
+				<th class="left" style="width: 134px">Mfg. Lot #</th>
+				<th class="right" style="width: 140px" class="right">Batch Concentration</th>
+			</tr>
+			@foreach (var drug in Model.Drugs)
+			{
+				<tr>
+					<td class="left">@Html.DisplayFor(x => drug.DrugName)</td>
+					<td class="left">@Html.DisplayFor(x => drug.MFGLot)</td>
+					<td class="right">@Html.DisplayFor(x => drug.Conc) @Html.DisplayFor(x => drug.ConcUom)</td>
+				</tr>
+			}
+				
+		</table>
+	}
+	@if (Model.PremixDrugs is not null && Model.PremixDrugs.Any())
+	{
+		<table class="drug-table">
+			<tr>
+				<th class="left" style="width: 169px">Premix Drug Name</th>
+				<th class="left" style="width: 134px">Mfg. Lot #</th>
+				<th class="right" style="width: 140px" class="right">Batch Concentration</th>
+			</tr>
+			@foreach (var drug in Model.PremixDrugs)
+			{
+				<tr>
+					<td class="left">@Html.DisplayFor(x => drug.DrugName)</td>
+					<td class="left">@Html.DisplayFor(x => drug.MfgLot)</td>
+					<td class="right">@Html.DisplayFor(x => drug.ConcentrateInBatch) @Html.DisplayFor(x => drug.ConcentrationUnitOfMeasure)</td>
+				</tr>
+			}
+		</table>
+	}
+	
+	<div class="pagebreak">&nbsp;</div>
+	
+	@if (Model.HasSamples)
+	{
+		<table class="static-table">
+			<tr>
+				<td colspan="7">
+					<h3>  Research Diet Request</h3>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="7">
+					<h6>Processing Work Order Sample Requirements</h6>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="7">
+					<h6>Lot: @Html.DisplayFor(x => x.LotNumber) Batch: @Html.DisplayFor(x => x.BatchNumber)</h6>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="7">
+					<hr class="md">
+				</td>
+			</tr>
+		</table>
+
+		@if (Model.Samples is not null && Model.Samples.Any())
+		{
+			foreach (var sample in Model.Samples)
+			{
+				<table class="static-table">
+					<tr class="row">
+						<td class="label" style="width: 200px">Sample Amount:</td>
+						<td class="field" style="width: 448px">@Html.DisplayFor(x => sample.Amount) @Html.DisplayFor(x => sample.UnitOfMeasure)</td>
+					</tr>
+					<tr class="row">
+						<td class="label">Sample Disposition:</td>
+						<td class="field">@Html.DisplayFor(x => sample.Disposition)</td>
+					</tr>
+					<tr class="row">
+						<td class="label">Sample Analysis Type:</td>
+						<td class="field">@Html.DisplayFor(x => sample.AnalysisType)</td>
+					</tr>
+					<tr class="row large">
+						<td class="label top">Sample Comments:</td>
+						<td class="field top">@Html.DisplayFor(x => sample.Comment)</td>
+					</tr>
+				</table>
+				<br>
+				<br>
+			}
+		}
+
+		<div class="pagebreak"> &nbsp;</div>
+	}
+
+	<table class="static-table">
+		<tr>
+			<td colspan="7">
+				<h3>  Research Diet Request</h3>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<h6>Processing Work Order</h6>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<h6>Lot: @Html.DisplayFor(x => x.LotNumber) Batch: @Html.DisplayFor(x => x.BatchNumber)</h6>
+			</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">
+				<hr class="md">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="label" style="width: 80px">Lot:</td>
+			<td class="field" style="width: 70px">@Html.DisplayFor(x => x.LotNumber)</td>
+			<td class="label" style="width: 189px">Requested By:</td>
+			<td class="field" style="width: 250px">@Html.DisplayFor(x => x.RequesterName)</td>
+			<td class="label" style="width: 189px">Date Created:</td>
+			<td class="field" style="width: 120px">@Model.DateRequest.ToString(FormatStrings.NetDateFormat).ToUpper()</td>
+		</tr>
+		<tr class="row">
+			<td class="label">Batch:</td>
+			<td class="field">@Html.DisplayFor(x => x.BatchNumber)</td>
+			<td class="label" colspan="2">&nbsp;</td>
+			<td class="label">Date Needed:</td>
+			<td class="field">@Model.DateNeeded.ToString(FormatStrings.NetDateFormat).ToUpper()</td>
+		</tr>
+		<tr class="row">
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">Total Batch Weight:</td>
+			<td class="field">@Html.DisplayFor(x => x.BatchWeight) @Html.DisplayFor(x => x.BatchUom)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">
+				<hr class="md">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="label" colspan="2">Deliver To:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.DeliverTo)</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+			<td class="label">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td class="label" colspan="2">Description:</td>
+			<td class="field" colspan="2">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.Description) : string.Empty)</td>
+			<td class="label">Building:</td>
+			<td class="field">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.Building) : string.Empty)</td>
+		</tr>
+		<tr class="row">
+			<td class="label" colspan="2">Floor & Lab:</td>
+			<td class="field" colspan="2">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.FloorLab) : string.Empty)</td>
+			<td class="label">Business Unit:</td>
+			<td class="field">@(Model.Location is not null ? Html.DisplayFor(x => x.Location!.BusinessUnit) : string.Empty)</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">
+				<hr class="md">
+			</td>
+		</tr>
+	</table>
+
+	<table class="static-table">
+		<tr class="row">
+			<td class="label" style="width: 224px">Diet Name:</td>
+			<td class="field" style="width: 448px">@Html.DisplayFor(x => x.DietName)</td>
+		</tr>	
+		<tr class="row">
+			<td class="label">Form:</td>
+			<td class="field" colspan="2">@Html.DisplayFor(x => x.Form)</td>
+		</tr>		
+		<tr class="row large">
+			<td class="label top">Mixing Instructions:</td>
+			<td class="field top" colspan="2">@Html.DisplayFor(x => x.MixingInstructions)</td>
+		</tr>
+		<tr class="row large">
+			<td class="label top">Packing Instructions:</td>
+			<td class="field top" colspan="2">@Html.DisplayFor(x => x.PackingInstructions)</td>
+		</tr>
+	</table>
+
+	<table class="ingredient-table">
+		<tr>
+			<th class="left" style="width: 175px">Ingredient</th>
+			<th class="left" style="width: 140px">&nbsp;</th>
+			<th class="right" style="width: 145px">Desired Weight</th>
+			<th class="right" style="width: 140px">Actual Weight</th>
+			<th class="right" style="width: 72px">Lot #</th>
+		</tr>
+		@if (Model.Ingredients is not null && Model.Ingredients.Any())
+		{
+			foreach (var ingredient in Model.Ingredients)
+			{
+				<tr>
+					<td class="given-data" colspan="2">@Html.DisplayFor(x => ingredient.IngredientName)</td>
+					<td class="given-data right">@Html.DisplayFor(x => ingredient.Amount) @Html.DisplayFor(x => ingredient.AmountUom)</td>
+					<td class="expected-data">&nbsp;</td>
+					<td class="expected-data">&nbsp;</td>
+				</tr>
+			}
+		}
+		<tr>
+			<td>Total Ingredient Weight: @Html.DisplayFor(x => x.TotalIngredients) @Html.DisplayFor(x => x.BatchUom)</td>
+		</tr>
+	</table>
+
+	<table class="static-table">
+		<tr class="row">
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+	
+	@if (Model.Premixes is not null && Model.Premixes.Any())
+	{
+		<table class="drug-table">
+			<tr>
+				<th class="left" style="width: 169px">PreMix Name</th>
+				<th class="left" style="width: 134px">Request Lot</th>
+				<th class="right" style="width: 140px">Desired Weight</th>
+				<th class="right" style="width: 134px">Actual Weight (UOM)</th>
+				<th class="right" style="width: 72px">Initials</th>
+			</tr>
+			@foreach (var premix in Model.Premixes)
+			{
+				<tr>
+					<td class="given-data">@Html.DisplayFor(x => premix.DietName)</td>
+					<td class="given-data">@($"{premix.LotYear}-{premix.LotId}")</td>
+					<td class="given-data right">@Html.DisplayFor(x => premix.Amount) @Html.DisplayFor(x => premix.AmountUom)</td>
+					<td class="expected-data">&nbsp;</td>
+					<td class="expected-data">&nbsp;</td>
+				</tr>
+			}
+		</table>
+	}
+	
+	@if (Model.Drugs is not null && Model.Drugs.Any())
+	{
+		<table class="drug-table">
+			<tr>
+				<th class="left" style="width: 169px">Drug Name</th>
+				<th class="left" style="width: 134px">Mfg. Lot #</th>
+				<th class="right" style="width: 140px">Desired Weight</th>
+				<th class="right" style="width: 134px">Actual Weight (UOM)</th>
+				<th class="right" style="width: 72px">Initials</th>
+			</tr>
+			@foreach (var drug in Model.Drugs)
+			{
+				<tr>
+					<td class="given-data">@Html.DisplayFor(x => drug.DrugName)</td>
+					<td class="given-data">@Html.DisplayFor(x => drug.MFGLot)</td>
+					<td class="given-data right">@Html.DisplayFor(x => drug.Amount) @Html.DisplayFor(x => drug.AmountUom)</td>
+					<td class="expected-data">&nbsp;</td>
+					<td class="expected-data">&nbsp;</td>
+				</tr>
+			}
+		</table>
+	}
+
+	<div class="pagebreak"> &nbsp;</div>
+
+	<table class="static-table">
+		<tr>
+			<td colspan="7">
+				<h3>  Research Diet Request</h3>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<h6>Processing Work Order</h6>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="7">
+				<h6>Lot: @Html.DisplayFor(x => x.LotNumber) Batch: @Html.DisplayFor(x => x.BatchNumber)</h6>
+			</td>
+		</tr>
+	</table>
+	
+	<table class="static-table">
+		<tr class="row">
+			<td colspan="6">
+				<hr class="md">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="label" colspan="2">Mixer Number:</td>
+			<td class="field" colspan="4">&nbsp;</td>
+		</tr>
+		<tr class="row">	
+			<td class="label" colspan="2">Location:</td>
+			<td class="field"colspan="4">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td colspan="6">&nbsp;</td>
+		</tr>
+		<tr class="row">
+			<td colspan="2">&nbsp;</td>
+			<td colspan="4"><i>Mixer prepared for mixing according to SOP __________ (Initials)</i></td>
+		</tr>
+	</table>
+
+	<table class="static-table">
+		<tr class="row" style="height: 130px">
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+
+	<table class="ingredient-table non-border">
+		<tr>
+			<th>&nbsp;</th>
+			<th class="left">Micro Prepared By:</th>
+			<th class="left">Date</th>
+			<th class="left">Time (24 hr format)</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>__________________________</td>
+			<td>_____/_____/_____</td>
+			<td>_________________</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<th class="left">Macro Prepared By:</th>
+			<th class="left">Date</th>
+			<th class="left">Time (24 hr format)</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>__________________________</td>
+			<td>_____/_____/_____</td>
+			<td>_________________</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<th>&nbsp;</th>
+			<th class="left">Bulk Prepared By:</th>
+			<th class="left">Date</th>
+			<th class="left">Time (24 hr format)</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>__________________________</td>
+			<td>_____/_____/_____</td>
+			<td>_________________</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+
+	<table class="ingredient-table non-border">
+		<tr>
+			<th>&nbsp;</th>
+			<th class="left">Mixed By:</th>
+			<th class="left">Date</th>
+			<th class="left">Start Time (24 hr format)</th>
+			<th class="left">End Time (24 hr format)</th>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>__________________________</td>
+			<td>_____/_____/_____</td>
+			<td>_________________</td>
+			<td>_________________</td>
+		</tr>
+		<tr>
+			<td colspan="5">&nbsp;</td>
+		</tr>
+		<tr>
+			<th colspan="2">Number of bags: __________</th>
+			<th colspan="2">Closed In Computer: __________</th>
+			<th>&nbsp;</th>
+		</tr>
+	</table>
+</body>
+</html>

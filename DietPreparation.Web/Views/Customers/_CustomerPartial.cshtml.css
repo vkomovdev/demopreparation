@@ -1,0 +1,6 @@
+﻿.form-group {
+  margin-bottom: 15px;
+}
+.form-group > .row > div {
+  align-self: center;
+}

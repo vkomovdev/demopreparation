@@ -1,0 +1,93 @@
+@using DietPreparation.Resources
+@using DietPreparation.Common.Consts
+@model DietPreparation.Web.Models.Customers.CustomerViewModel
+
+@{
+	ViewBag.Title = $"{ContentResources.Edit} {ContentResources.Customer}";
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.Edit} {ContentResources.Customer}")
+	@using (Html.BeginForm("Edit", "Customers", FormMethod.Post))
+	{
+		<section class="row mt-4">
+			@await Html.PartialAsync("_CustomerPartial", Model)
+		</section>
+		<section class="row button-panel">
+			@await Html.PartialAsync("_CustomerButtonsPartial", Model)
+		</section>
+	}
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import api from '@Url.Content("~/scripts/axios-wrapper.js")';
+		import FormValidator from '@Url.Content("~/scripts/client-validator.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		import overlay from '@Url.Content("~/scripts/overlay/overlay-hider-wrapper.js")';
+		import modal from '@Url.Content("~/scripts/Modal/modal-wrapper.js")';
+		var displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+		var isLockedCustomer = @((!string.IsNullOrEmpty(Model.Id) && Model.Lock.Value).ToString().ToLower())
+
+		$("form").on("submit", function (event) {
+			event.preventDefault();
+
+			if (!this.checkValidity()) {
+				displayAlert.warning(errorMessages.form.invalidData);
+				return false;
+			}
+
+			const formData = new FormData(this);
+
+			if (isLockedCustomer) {
+					const firstName = $('input[name="FirstName"]');
+					if (firstName) {
+						formData.append(FirstName.name, FirstName.value);
+					}
+					const middleName = $('input[name="MiddleName"]');
+					if (middleName) {
+						formData.append(MiddleName.name, MiddleName.value);
+					}
+					const customerType = $('input[name="CustomerType"]');
+					if (customerType) {
+						formData.append(CustomerType.name, CustomerType.value);
+					}
+			}
+
+			const viewModel = {
+				Id: formData.get('Id'),
+				FirstName: formData.get('FirstName'),
+				MiddleName: formData.get('MiddleName'),
+				LastName: formData.get('LastName'),
+				Email: formData.get('Email'),
+				CustomerType: parseInt(formData.get('CustomerType')),
+				Building: formData.get('Building'),
+				BusinessUnit: formData.get('BusinessUnit')
+			};
+
+			overlay.show();
+			api.post('@Url.Action("Edit", "Customers")', viewModel, {
+				headers: {
+					"Content-Type": "application/json"
+				}
+			})
+			.then((data) => {
+				modal.setTextTitle('@ContentResources.Customers');
+				modal.setTextBody('@MessagesResources.CustomerUpdated');
+				modal.setContinueButton('@ContentResources.Ok', '@Url.Action("Index", "Customers")');
+				modal.open();
+				overlay.hide();
+			})
+			.catch((exception) => {
+				displayAlert.exception(exception);
+				overlay.hide();
+			});
+		});
+			
+		$(document).ready(function () {
+			var validator = new FormValidator('.needs-validation');
+			validator.setup();
+		});
+	</script>
+}

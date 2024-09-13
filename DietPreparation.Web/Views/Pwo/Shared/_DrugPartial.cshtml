@@ -1,0 +1,34 @@
+﻿@using DietPreparation.Resources;
+
+@model DietPreparation.Web.Models.PWOs.PwoDrugViewModel
+
+<div class="container mt-4 mb-4">
+	@if (Model.Drugs is not null)
+	{
+		foreach (var drug in Model.Drugs)
+		{
+			<div class="row">
+				<div class="col-md-1 field-bg">
+					<strong>@ContentResources.Name:</strong>
+				</div>
+				<div class="col-md-4">@drug.DrugName</div>
+				<div class="col-md-2 field-bg">
+					<strong>@ContentResources.Amount:</strong>
+				</div>
+				<div class="col-md-1">@drug.Amount @drug.AmountUom</div>
+				<div class="col-md-3 field-bg">
+					<strong>@ContentResources.ManufacturerLot:</strong>
+				</div>
+				<div class="col-md-1">@drug.MFGLot</div>
+			</div>
+		}
+	}
+	<div class="row mt-2">
+		<div class="col-md-3 field-bg offset-md-8">
+			<strong>
+				@ContentResources.Total @ContentResources.Drug:
+			</strong>
+		</div>
+		<div class="col-md-1">@Model.TotalDrugs @Model.TotalDrugsAmount</div>
+	</div>
+</div>

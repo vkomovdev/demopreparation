@@ -1,0 +1,65 @@
+﻿@using DietPreparation.Common.Enums
+@using DietPreparation.Resources
+
+@model DietPreparation.Web.Models.DietRequests.ReadDietRequestViewModel
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.Id)
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/DietRequest/DetailsClone/_DeliveryPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/DietRequest/DetailsClone/_DietPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+<section class="row static-table details">
+	<div class="col-md-12">
+		@await Html.PartialAsync("~/Views/DietRequest/DetailsClone/_ProcessingInstructionsPartial.cshtml", Model)
+		<hr />
+	</div>
+</section>
+
+@if (Model.RequestType != RequestType.MedicatedPremix)
+{
+	<section class="row dynamic-table">
+		<div class="col-md-12">
+			<div class="section-only-body">
+				@await Html.PartialAsync("~/Views/DietRequest/DetailsClone/_PremixPartial.cshtml", Model)
+			</div>
+			<hr/>
+		</div>
+	</section>
+}
+
+<section class="row dynamic-table">
+	<div class="col-md-12">
+		<div class="section-only-body">
+			@await Html.PartialAsync("~/Views/DietRequest/DetailsClone/_DrugPartial.cshtml", Model)
+		</div>
+		<hr />
+	</div>
+</section>
+
+<section class="row dynamic-table">
+	<div class="col-md-12">
+		<div class="section-only-body">
+			@await Html.PartialAsync("~/Views/DietRequest/DetailsClone/_SamplePartial.cshtml", Model)
+		</div>
+		<hr />
+	</div>
+</section>
+
+<section class="row static-table">
+	<div class="col-md-12">
+		<h4>@Html.LabelFor(x => x.GeneralComment, ContentResources.Comment, new { @class = "form-label" })</h4>
+		@Html.DisplayFor(x => x.GeneralComment)
+	</div>
+</section>

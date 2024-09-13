@@ -1,0 +1,90 @@
+﻿@using DietPreparation.Common.Consts
+@using DietPreparation.Common.Extensions
+@using DietPreparation.Web.Models.DeliveryLocations
+@using DietPreparation.Resources
+@model DeliveryLocationListViewModel;
+
+@{
+	ViewBag.Title = ContentResources.DeliveryLocations;
+	var orderByWithPagination = new DeliveryLocationViewModel();
+}
+
+<div class="container">
+	@await Html.PartialAsync("_PageHeaderPartial", $"{ContentResources.DeliveryLocations}")
+	<section class="sortable-block mt-3">
+		<table>
+			<thead>
+				<tr>
+					<th class="col-4" data-sort-by="@(orderByWithPagination.GetFullName(x => x.Description))">@ContentResources.Description</th>
+					<th class="col-1" data-sort-by="@(orderByWithPagination.GetFullName(x => x.Building))">@ContentResources.Building</th>
+					<th class="col-1" data-sort-by="@(orderByWithPagination.GetFullName(x => x.Floor))">@ContentResources.Floor</th>
+					<th class="col-1" data-sort-by="@(orderByWithPagination.GetFullName(x => x.Lab))">@ContentResources.Lab</th>
+					<th class="col-2" data-sort-by="@(orderByWithPagination.GetFullName(x => x.BusinessUnit))">@ContentResources.BusinessUnit</th>
+					<th class="col-1">
+						<a class="request-row float-end" href="@Url.Action("Create","DeliveryLocations")"><i data-feather="plus-square"></i></a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="7" class="pagination-panel">
+						<nav>
+							<ul class="pagination justify-content-center"></ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</section>
+</div>
+
+@section Scripts {
+	<script type="module">
+		import errorMessages from '@Url.Content("~/scripts/common/error-messages.js")';
+		import TableManager from '@Url.Content("~/scripts/components/table-manager.js")';
+		import DisplayAlert from '@Url.Content("~/scripts/display-alert.js")';
+		const displayAlert = new DisplayAlert('@DefaultNumbers.DefaultAlertsTimeoutInMs');
+
+		function handleException(exception) {
+			displayAlert.exception(exception);
+		};
+
+		function fillTable(data) {
+			let $data = $('.sortable-block table tbody')
+			$data.find('tr').remove();
+
+			if (data.locations && data.locations.length > 0) {
+				$.each(data.locations, function (index, item) {
+					var row = $('<tr>');
+					row.attr('data-id', item.id);
+					row.addClass('request-row');
+					row.append('<td class="md"><p class="text-wrap">' + item.description + '</p></td>');
+					row.append('<td class="sm">' + item.building + '</td>');
+					row.append('<td class="sm">' + item.floor + '</td>');
+					row.append('<td class="sm">' + item.lab + '</td>');
+					row.append('<td class="sm">' + ((item.businessUnit) ? (item.businessUnit) : ('')) + '</td>');
+					row.append(`<td><a class="request-row float-end" href="@Url.Action("Edit", "DeliveryLocations")?id=${item.id}"><i data-feather="edit"></i></a></td>`);
+					$data.append(row);
+				});
+			} else {
+				var row = $('<tr>');
+				row.append(`<td colspan="7" align="center" class="lg">@(MessagesResources.EmptyEntityInstancesList)</td>`);
+				$data.append(row);
+			}
+
+			feather.replace();
+		};
+
+		$(document).on('click', '.request-row', function () {
+			const id = $(this).data('id')
+			window.location.href = '@Url.Action("Edit", "DeliveryLocations")' + `?id=${id}`;
+		});
+
+		$(document).ready(function () {
+			const tableManager = new TableManager(['sortable-table', 'pagination'], '@Url.Action("LoadList", "DeliveryLocations")', fillTable, handleException, feather);
+			tableManager.loadData();
+		});
+	</script>
+}
